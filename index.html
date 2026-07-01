@@ -70,19 +70,36 @@ img { max-width: 100%; height: auto; }
 .slide-bg .orb.c { width:420px; height:420px; background: radial-gradient(circle, rgba(0,212,255,0.32), transparent 68%); top:-120px; right:8%; }
 .slide-bg .orb.p { width:520px; height:520px; background: radial-gradient(circle, rgba(168,85,247,0.24), transparent 68%); bottom:-180px; left:-80px; }
 
-/* ======================= STAGE (content container) ======================= */
+/* ======================= STAGE (content container) =======================
+   RAIZ DO LAYOUT: cada slide e um flex-column de altura total, dividido em
+   3 zonas verticais: head (logo) + body (titulo/conteudo, centrado e contido)
+   + rodape reservado (faixa fixa embaixo). Nada clipa no topo nem sobrepoe o
+   rodape. --foot-band reserva a altura da faixa de marca. */
+:root { --foot-band: 4.6rem; }
 .stage {
   position: absolute; inset: 0; z-index: 2;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 7vh 7vw 8vh;
-  max-width: 1600px; margin: 0 auto;
+  display: flex; flex-direction: column;
+  padding: 4.4vh 6vw 0;
+  max-width: 1560px; margin: 0 auto;
+  overflow: hidden;
 }
-.stage.center { align-items: center; text-align: center; }
+/* zona superior: logo do slide (nunca sobe pra fora) */
+.stage-head { flex: 0 0 auto; }
+/* zona central: recebe o titulo + conteudo; centraliza verticalmente o que
+   sobra, mas com min-height:0 pra poder encolher e nunca estourar. */
+.stage-body {
+  flex: 1 1 auto; min-height: 0;
+  display: flex; flex-direction: column; justify-content: center;
+  padding-bottom: var(--foot-band);
+  overflow: hidden;
+}
+.stage.center .stage-body { align-items: center; text-align: center; }
+.stage.center .stage-head { display: flex; justify-content: center; }
 
-/* ======================= SLIDE BRAND (logo topo — flui ACIMA do titulo, sem sobrepor) ======================= */
+/* ======================= SLIDE BRAND (logo topo — zona head, sem sobrepor) ======================= */
 .slide-logo {
   display: flex; align-items: center; opacity: 0;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.4rem;
 }
 .slide-logo img { height: 34px; width: auto; display: block; }
 .stage.center .slide-logo { justify-content: center; }
@@ -154,9 +171,9 @@ img { max-width: 100%; height: auto; }
 .body-text strong { color: var(--cyan); font-weight: 600; }
 
 .force-line {
-  font-family: var(--font-display); font-size: 1.42rem; font-weight: 500;
+  font-family: var(--font-display); font-size: 1.34rem; font-weight: 500;
   color: var(--smoke); line-height: 1.5;
-  margin-top: 1.8rem; padding-top: 1.4rem; opacity: 0; max-width: 66ch;
+  margin-top: 1.5rem; padding-top: 1.2rem; opacity: 0; max-width: 66ch;
   position: relative;
 }
 .force-line::before {
@@ -334,21 +351,27 @@ img { max-width: 100%; height: auto; }
 }
 .bullets li strong { color: var(--cyan); font-weight: 600; }
 
-/* ======================= FOOTER ======================= */
+/* ======================= FOOTER (faixa propria na base, sem sobrepor conteudo) ======================= */
 footer.site-footer {
-  position: fixed; bottom: 1.3rem; left: 3vw; right: 3vw;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: var(--foot-band);
   display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 0 3vw;
   font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em;
   color: rgba(229,229,229,0.62); text-transform: uppercase; z-index: 50; pointer-events: none;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(to top, rgba(10,10,15,0.9) 40%, rgba(10,10,15,0) 100%);
 }
-footer.site-footer .foot-left { display:flex; flex-direction: column; gap: 0.28rem; }
+footer.site-footer .foot-left { display:flex; flex-direction: column; gap: 0.24rem; }
 footer.site-footer .foot-cnpj { color: rgba(229,229,229,0.66); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: none; }
 footer.site-footer .foot-cnpj b { color: rgba(229,229,229,0.72); font-weight: 600; }
 footer.site-footer .right { color: var(--cyan); font-weight: 600; }
 
-/* ======================= CTA + PDF ACTIONS (local — SO no slide 11) ======================= */
+/* ======================= CTA + PDF ACTIONS (local — SO no slide 11) =======================
+   ancorado no canto inferior direito, ACIMA da faixa do rodape (--foot-band + folga),
+   nunca sobre texto/assinatura. */
 .deck-actions {
-  position: absolute; bottom: 3.6rem; right: 3.4vw;
+  position: absolute; bottom: calc(var(--foot-band) + 1.1rem); right: 3.4vw;
   display: flex; align-items: center; gap: 0.8rem; z-index: 60;
 }
 .btn {
@@ -398,7 +421,7 @@ footer.site-footer .right { color: var(--cyan); font-weight: 600; }
   .flow, .flow.four { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 820px) {
-  .stage { padding: 8vh 6vw 13vh; max-width: 100vw; }
+  .stage { padding: 5vh 6vw 0; max-width: 100vw; }
   .headline { font-size: 2.3rem; } .headline.size-lg { font-size: 2.5rem; } .headline.size-md { font-size: 2.1rem; }
   .subhead, .body-text { font-size: 1.05rem; }
   .duo { grid-template-columns: 1fr; } .duo-plus { justify-self:center; margin: 0.2rem 0; }
@@ -406,24 +429,30 @@ footer.site-footer .right { color: var(--cyan); font-weight: 600; }
   .stat { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
   .stat .val { white-space: normal; overflow-wrap: anywhere; }
   .custom-nav { display: none; }
-  .slide-logo { top: 3.4vh; left: 6vw; }
   .slide-logo img { height: 32px; }
-  footer.site-footer { font-size: 0.6rem; left: 4vw; right: 4vw; }
+  footer.site-footer { font-size: 0.6rem; padding: 0 4vw; }
   .cover-tags { gap: 0.5rem; }
 }
 /* ===== PRINT / PDF EXPORT: esconder UI flutuante ===== */
 @media print {
   .custom-nav, .deck-actions, footer.site-footer .right { display: none !important; }
   .slide-logo, .prod-logo, .anim-el, .slide-bg, .orb { opacity: 1 !important; transform: none !important; }
+  .stage-body { overflow: visible !important; }
 }
 body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !important; }
 
 /* ===== PHONE (<=560px): zero overflow lateral, tudo empilhado ===== */
 @media (max-width: 560px) {
+  :root { --foot-band: 3.8rem; }
   .reveal section { width: 100vw; max-width: 100vw; }
   .stage {
-    padding: 9vh 5vw 15vh; width: 100%; max-width: 100%;
-    justify-content: flex-start; overflow-y: auto;
+    padding: 6vh 5vw 0; width: 100%; max-width: 100%;
+    overflow: visible;
+  }
+  /* no phone o corpo rola quando o conteudo e alto; alinha ao topo */
+  .stage-body {
+    justify-content: flex-start; overflow-y: auto; overflow-x: hidden;
+    padding-bottom: calc(var(--foot-band) + 2rem);
   }
   .headline, .headline.size-lg, .headline.size-md { font-size: 1.95rem; line-height: 1.08; }
   .subhead, .body-text { font-size: 1rem; max-width: 100%; }
@@ -431,7 +460,6 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
   .eyebrow { font-size: 0.7rem; letter-spacing: 0.24em; margin-bottom: 1.1rem; }
 
   /* logos */
-  .slide-logo { top: 2.6vh; left: 5vw; }
   .slide-logo img { height: 28px; }
   .prod-logo .logo-chip img { height: 36px; }
   .prod-logo .logo-chip.avatar { width: 52px; height: 52px; }
@@ -452,18 +480,21 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
   .bullets li { padding-left: 2.6rem; font-size: 1rem; }
   .cover-tags .pill { font-size: 0.7rem; padding: 0.45rem 0.85rem; }
 
-  /* actions e footer no mobile */
-  .deck-actions { bottom: 4.4rem; right: 4vw; left: 4vw; justify-content: center; flex-wrap: wrap; }
+  /* actions e footer no mobile — no slide 11 os botoes entram no fluxo do corpo */
+  .deck-actions {
+    position: static; margin-top: 1.4rem; margin-bottom: 0.4rem;
+    right: auto; left: auto; bottom: auto;
+    justify-content: flex-start; flex-wrap: wrap; gap: 0.7rem;
+  }
   .btn { font-size: 0.82rem; padding: 0.62rem 0.95rem; }
   footer.site-footer {
-    bottom: 0; left: 0; right: 0; padding: 0.7rem 4vw 0.7rem;
+    height: auto; min-height: var(--foot-band);
+    padding: 0.6rem 4vw;
     font-size: 0.56rem; flex-direction: column; align-items: flex-start; gap: 0.3rem;
     background: linear-gradient(to top, rgba(10,10,15,0.96) 55%, rgba(10,10,15,0) 100%);
     backdrop-filter: blur(2px);
   }
   footer.site-footer .foot-cnpj { font-size: 0.58rem; }
-  /* garante que o conteudo do ultimo slide (mais alto) nao fique atras do rodape */
-  .stage { padding-bottom: 17vh; }
 }
 </style>
 </head>
@@ -476,18 +507,21 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
     <section data-slide="1">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
-        <div class="brand-row anim-el">
-          <img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" style="height:58px;width:auto;display:block;" />
+        <div class="stage-head"></div>
+        <div class="stage-body">
+          <div class="brand-row anim-el">
+            <img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" style="height:58px;width:auto;display:block;" />
+          </div>
+          <span class="eyebrow anim-el">Programa de Parceria</span>
+          <h1 class="headline size-lg anim-el">Parceria <span class="glow">Agência no Bolso</span></h1>
+          <p class="subhead anim-el">Nossas condições, com transparência total. Você traz a rede, a gente entrega a tecnologia rodando.</p>
+          <div class="cover-tags anim-el">
+            <span class="pill">MAIA</span>
+            <span class="pill">SDR 24/7</span>
+            <span class="pill">Modelo ganha-ganha</span>
+          </div>
+          <p class="cover-meta anim-el">Apresentação reservada · Condições de fundador</p>
         </div>
-        <span class="eyebrow anim-el">Programa de Parceria</span>
-        <h1 class="headline size-lg anim-el">Parceria <span class="glow">Agência no Bolso</span></h1>
-        <p class="subhead anim-el">Nossas condições, com transparência total. Você traz a rede, a gente entrega a tecnologia rodando.</p>
-        <div class="cover-tags anim-el">
-          <span class="pill">MAIA</span>
-          <span class="pill">SDR 24/7</span>
-          <span class="pill">Modelo ganha-ganha</span>
-        </div>
-        <p class="cover-meta anim-el">Apresentação reservada · Condições de fundador</p>
       </div>
     </section>
 
@@ -495,175 +529,204 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
     <section data-slide="2">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
-        <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
-        <span class="eyebrow anim-el">O espírito da parceria</span>
-        <h2 class="headline size-md anim-el">Cada um entra com a sua força</h2>
-        <div class="duo">
-          <div class="duo-card you anim-el">
-            <span class="tag">Você traz</span>
-            <ul>
-              <li>Credibilidade e relacionamento</li>
-              <li>Networking e associações</li>
-              <li>Empresários na sua rede</li>
-              <li>O acesso que dinheiro não compra</li>
-            </ul>
-          </div>
-          <span class="duo-plus anim-el">+</span>
-          <div class="duo-card us anim-el">
-            <span class="tag">A gente entrega</span>
-            <ul>
-              <li>MAIA, esteira completa de IA</li>
-              <li>SDR, atendimento e qualificação 24/7</li>
-              <li>Execução, suporte e manutenção</li>
-              <li>Produto validado em operação real</li>
-            </ul>
-          </div>
+        <div class="stage-head">
+          <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
         </div>
-        <p class="force-line anim-el">Juntos, <em>um mercado que nenhum dos dois lados abriria sozinho</em> na mesma escala.</p>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">O espírito da parceria</span>
+          <h2 class="headline size-md anim-el">Cada um entra com a sua força</h2>
+          <div class="duo">
+            <div class="duo-card you anim-el">
+              <span class="tag">Você traz</span>
+              <ul>
+                <li>Credibilidade e relacionamento</li>
+                <li>Networking e associações</li>
+                <li>Empresários na sua rede</li>
+                <li>O acesso que dinheiro não compra</li>
+              </ul>
+            </div>
+            <span class="duo-plus anim-el">+</span>
+            <div class="duo-card us anim-el">
+              <span class="tag">A gente entrega</span>
+              <ul>
+                <li>MAIA, esteira completa de IA</li>
+                <li>SDR, atendimento e qualificação 24/7</li>
+                <li>Execução, suporte e manutenção</li>
+                <li>Produto validado em operação real</li>
+              </ul>
+            </div>
+          </div>
+          <p class="force-line anim-el">Juntos, <em>um mercado que nenhum dos dois lados abriria sozinho</em> na mesma escala.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ===== SLIDE 3 - ADESÃO DO PARCEIRO (FUNDADOR) — sem logo (cobria o titulo) ===== -->
+    <!-- ===== SLIDE 3 - PRODUTO 1: MAIA — so o simbolo da MAIA ===== -->
     <section data-slide="3">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
-        <span class="eyebrow anim-el">A sua adesão · condição de fundador</span>
-        <h2 class="headline size-md anim-el">A MAIA no <span class="glow">seu</span> negócio, preço de fundador</h2>
-        <div class="prod-grid">
-          <div class="prod-hero anim-el">
-            <span class="kicker">Fundadores · os 10 primeiros</span>
-            <div class="big">R$ 10.000</div>
-            <div class="sub">Preço cheio da MAIA no seu negócio: R$ 15.000. Depois dos fundadores, a adesão sobe gradual: 12k → 15k, conforme a gente valida.</div>
-          </div>
-          <div class="stat-row anim-el">
-            <div class="stat"><span class="lbl">Sua comissão como parceiro</span><span class="val cyan">10%</span></div>
-            <div class="stat"><span class="lbl">Vagas de fundador</span><span class="val purple">10</span></div>
-            <div class="stat hl"><span class="lbl">A lógica</span><span class="val">Recorrência paga a adesão</span></div>
+        <div class="stage-head">
+          <div class="prod-logo anim-el">
+            <span class="logo-chip"><img src="assets/maia-symbol.png" alt="MAIA" /></span>
+            <span class="pl-meta"><span class="pl-name">MAIA</span><span class="pl-role">Esteira de IA</span></span>
           </div>
         </div>
-        <p class="force-line anim-el">A adesão de fundador é um investimento. Como você passa a ganhar <em>recorrência</em> sobre a sua rede, ela se paga.</p>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">Produto 1 · o que você revende</span>
+          <h2 class="headline size-md anim-el">MAIA completa, a esteira de IA</h2>
+          <div class="prod-grid">
+            <div class="prod-hero anim-el">
+              <span class="kicker">Implantação · cliente final</span>
+              <div class="big">R$ 15<span class="u">k</span> a 25<span class="u">k</span></div>
+              <div class="sub">A solução inteira de inteligência artificial rodando dentro da empresa do cliente.</div>
+            </div>
+            <div class="stat-row anim-el">
+              <div class="stat"><span class="lbl">Comissão na venda (implantação)</span><span class="val cyan">10% · R$ 1.500 a 2.500</span></div>
+              <div class="stat"><span class="lbl">Recorrência por cliente</span><span class="val purple">R$ 56/mês</span></div>
+              <div class="stat"><span class="lbl">A conta da recorrência</span><span class="val" style="font-size:0.98rem;">R$ 597 − 6% (imposto) · 10% pra você</span></div>
+              <div class="stat hl"><span class="lbl">Suporte e manutenção</span><span class="val grn">Por nossa conta</span></div>
+            </div>
+          </div>
+          <p class="force-line anim-el">Você conecta o cliente, a gente sustenta a operação. <em>Manutenção, suporte, atualização e skills por nossa conta.</em></p>
+        </div>
       </div>
     </section>
 
-    <!-- ===== SLIDE 4 - RECORRÊNCIA R$ 597 (o motor) ===== -->
+    <!-- ===== SLIDE 4 - PRODUTO 2: SDR — so a Lis ===== -->
     <section data-slide="4">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
-        <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
-        <span class="eyebrow anim-el">A recorrência que sustenta tudo</span>
-        <h2 class="headline size-md anim-el">R$ 597 por mês, <span class="glow">sempre</span></h2>
-        <p class="body-text anim-el">Mesmo com o super desconto na adesão, a recorrência de <strong>R$ 597/mês</strong> é mantida. Não é margem, é o custo do suporte contínuo, e ele é pesado.</p>
-        <ul class="bullets">
-          <li class="anim-el">Configuração, integração de <strong>APIs</strong> e treinamento inicial</li>
-          <li class="anim-el">Manutenção, atualização e novas <strong>skills</strong> por nossa conta</li>
-          <li class="anim-el">Servidor e APIs ficam no nome do cliente, <strong>fora da mensalidade</strong></li>
-        </ul>
-        <p class="closing-line anim-el">Você conecta. A gente sustenta.</p>
+        <div class="stage-head">
+          <div class="prod-logo anim-el">
+            <span class="logo-chip avatar"><img src="assets/lis-avatar.png" alt="Lis, a SDR de IA" /></span>
+            <span class="pl-meta"><span class="pl-name">Lis</span><span class="pl-role">SDR · 24/7</span></span>
+          </div>
+        </div>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">Produto 2 · a porta de entrada</span>
+          <h2 class="headline size-md anim-el">SDR, o atendimento que qualifica 24/7</h2>
+          <div class="prod-grid">
+            <div class="prod-hero anim-el">
+              <span class="kicker">Implantação · cliente final</span>
+              <div class="big">R$ 5<span class="u">k</span> a 8<span class="u">k</span></div>
+              <div class="sub">Ticket mais leve, entrada natural pra apresentar a MAIA depois.</div>
+            </div>
+            <div class="stat-row anim-el">
+              <div class="stat"><span class="lbl">Comissão na venda (implantação)</span><span class="val cyan">R$ 400 a 700</span></div>
+              <div class="stat"><span class="lbl">Recorrência por cliente</span><span class="val purple">R$ 38/mês</span></div>
+              <div class="stat"><span class="lbl">A conta da recorrência</span><span class="val" style="font-size:0.92rem;">R$ 597 − 6% (imposto) − R$ 180 (infra) · 10% pra você</span></div>
+              <div class="stat hl"><span class="lbl">Suporte e manutenção</span><span class="val grn">Por nossa conta</span></div>
+            </div>
+          </div>
+          <p class="force-line anim-el">Ticket leve na entrada. Depois da avaliação de <em>90 dias</em>, você assume o script, o atendimento e treina a SDR.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ===== SLIDE 5 - PRODUTO 1: MAIA — so o simbolo da MAIA (sem logo Agencia) ===== -->
+    <!-- ===== SLIDE 5 - PRODUTO 3: GESTÃO DE REDES — Digital Master ===== -->
     <section data-slide="5">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
-        <span class="eyebrow anim-el">Produto 1 · o que você revende</span>
-        <div class="prod-logo anim-el">
-          <span class="logo-chip"><img src="assets/maia-symbol.png" alt="MAIA" /></span>
-          <span class="pl-meta"><span class="pl-name">MAIA</span><span class="pl-role">Esteira de IA</span></span>
-        </div>
-        <h2 class="headline size-md anim-el">MAIA completa, a esteira de IA</h2>
-        <div class="prod-grid">
-          <div class="prod-hero anim-el">
-            <span class="kicker">Implantação · cliente final</span>
-            <div class="big">R$ 15<span class="u">k</span> a 25<span class="u">k</span></div>
-            <div class="sub">A solução inteira de inteligência artificial rodando dentro da empresa do cliente.</div>
-          </div>
-          <div class="stat-row anim-el">
-            <div class="stat"><span class="lbl">Comissão na venda (implantação)</span><span class="val cyan">10% · R$ 1.500 a 2.500</span></div>
-            <div class="stat"><span class="lbl">Recorrência por cliente</span><span class="val purple">R$ 597 − 6% (imposto)</span></div>
-            <div class="stat hl"><span class="lbl">Suporte e manutenção</span><span class="val grn">Por nossa conta</span></div>
+        <div class="stage-head">
+          <div class="prod-logo anim-el">
+            <span class="logo-chip"><img src="assets/logo-digital-master.png" alt="Digital Master" style="border-radius:8px;" /></span>
+            <span class="pl-meta"><span class="pl-name">Digital Master</span><span class="pl-role">Gestão de Redes</span></span>
           </div>
         </div>
-        <p class="force-line anim-el">Você conecta o cliente, a gente sustenta a operação. <em>Manutenção, suporte, atualização e skills por nossa conta.</em></p>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">Produto 3 · comissão única de indicação</span>
+          <h2 class="headline size-md anim-el">Gestão de Redes Sociais com MAIA</h2>
+          <div class="prod-grid">
+            <div class="prod-hero anim-el">
+              <span class="kicker">Valor da adesão · cliente final</span>
+              <div class="big">R$ 1,5<span class="u">k</span> a 3,5<span class="u">k</span></div>
+              <div class="sub">A MAIA produzindo e gerindo a presença digital do cliente.</div>
+            </div>
+            <div class="stat-row anim-el">
+              <div class="stat hl"><span class="lbl">Comissão de indicação (única)</span><span class="val cyan">30%</span></div>
+              <div class="stat"><span class="lbl">Quando é paga</span><span class="val grn" style="font-size:1.02rem;">Na adesão e após 90 dias, se o cliente renovar</span></div>
+              <div class="stat"><span class="lbl">Formato</span><span class="val purple">Uma vez, sobre a adesão</span></div>
+            </div>
+          </div>
+          <p class="force-line anim-el">Comissão de <em>30%</em> sobre a adesão, paga <em>uma única vez</em>, não recorrente.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ===== SLIDE 6 - PRODUTO 2: SDR — so a Lis (sem logo Agencia) ===== -->
+    <!-- ===== SLIDE 6 - O TAMANHO (RECORRÊNCIA) ===== -->
     <section data-slide="6">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
-      <div class="stage">
-        <span class="eyebrow anim-el">Produto 2 · a porta de entrada</span>
-        <div class="prod-logo anim-el">
-          <span class="logo-chip avatar"><img src="assets/lis-avatar.png" alt="Lis, a SDR de IA" /></span>
-          <span class="pl-meta"><span class="pl-name">Lis</span><span class="pl-role">SDR · 24/7</span></span>
+      <div class="stage center">
+        <div class="stage-head">
+          <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
         </div>
-        <h2 class="headline size-md anim-el">SDR, o atendimento que qualifica 24/7</h2>
-        <div class="prod-grid">
-          <div class="prod-hero anim-el">
-            <span class="kicker">Implantação · cliente final</span>
-            <div class="big">R$ 5<span class="u">k</span> a 8<span class="u">k</span></div>
-            <div class="sub">Ticket mais leve, entrada natural pra apresentar a MAIA depois.</div>
-          </div>
-          <div class="stat-row anim-el">
-            <div class="stat"><span class="lbl">Comissão na venda (implantação)</span><span class="val cyan">R$ 400 a 700</span></div>
-            <div class="stat"><span class="lbl">Recorrência por cliente</span><span class="val purple">R$ 597 − 6% (imposto) − R$ 180 (infra)</span></div>
-            <div class="stat hl"><span class="lbl">Suporte e manutenção</span><span class="val grn">Por nossa conta</span></div>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">O tamanho da coisa</span>
+          <h2 class="headline anim-el">Renda recorrente sobre uma rede <span class="glow">que você já tem</span></h2>
+          <p class="subhead anim-el" style="margin-inline:auto;">Simulação com base de 100 clientes. Todo mês, no automático.</p>
+          <div class="sim">
+            <div class="sim-card anim-el">
+              <div class="cap">SDR a 10%</div>
+              <div class="num">R$ 3.811</div>
+              <div class="per">por mês</div>
+            </div>
+            <div class="sim-card anim-el">
+              <div class="cap">MAIA a 10%</div>
+              <div class="num">R$ 5.611</div>
+              <div class="per">por mês</div>
+            </div>
+            <div class="sim-card max anim-el">
+              <div class="cap">SDR a 20%</div>
+              <div class="num">R$ 7.623</div>
+              <div class="per">por mês</div>
+            </div>
           </div>
         </div>
-        <p class="force-line anim-el">Ticket leve na entrada. Depois da avaliação de <em>90 dias</em>, você assume o script, o atendimento e treina a SDR.</p>
       </div>
     </section>
 
-    <!-- ===== SLIDE 7 - PRODUTO 3: REDES SOCIAIS — so Digital Master (sem logo Agencia) ===== -->
+    <!-- ===== SLIDE 7 - ADESÃO DO PARCEIRO (FUNDADOR) ===== -->
     <section data-slide="7">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
-        <span class="eyebrow anim-el">Produto 3 · comissão única de indicação</span>
-        <div class="prod-logo anim-el">
-          <span class="logo-chip"><img src="assets/logo-digital-master.png" alt="Digital Master" style="border-radius:8px;" /></span>
-          <span class="pl-meta"><span class="pl-name">Digital Master</span><span class="pl-role">Gestão de Redes</span></span>
-        </div>
-        <h2 class="headline size-md anim-el">Gestão de Redes Sociais com MAIA</h2>
-        <div class="prod-grid">
-          <div class="prod-hero anim-el">
-            <span class="kicker">Valor da adesão · cliente final</span>
-            <div class="big">R$ 1,5<span class="u">k</span> a 3,5<span class="u">k</span></div>
-            <div class="sub">A MAIA produzindo e gerindo a presença digital do cliente.</div>
+        <div class="stage-head"></div>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">A sua adesão · condição de fundador</span>
+          <h2 class="headline size-md anim-el">A MAIA no <span class="glow">seu</span> negócio, preço de fundador</h2>
+          <div class="prod-grid">
+            <div class="prod-hero anim-el">
+              <span class="kicker">Fundadores · os 10 primeiros</span>
+              <div class="big">R$ 10.000</div>
+              <div class="sub">Preço cheio da MAIA no seu negócio: R$ 15.000. Depois dos fundadores, a adesão sobe gradual: 12k → 15k, conforme a gente valida.</div>
+            </div>
+            <div class="stat-row anim-el">
+              <div class="stat"><span class="lbl">Sua comissão como parceiro</span><span class="val cyan">10%</span></div>
+              <div class="stat"><span class="lbl">Vagas de fundador</span><span class="val purple">10</span></div>
+              <div class="stat hl"><span class="lbl">A lógica</span><span class="val">Recorrência paga a adesão</span></div>
+            </div>
           </div>
-          <div class="stat-row anim-el">
-            <div class="stat hl"><span class="lbl">Comissão de indicação (única)</span><span class="val cyan">30%</span></div>
-            <div class="stat"><span class="lbl">Quando é paga</span><span class="val grn">Após avaliação de 90 dias</span></div>
-            <div class="stat"><span class="lbl">Formato</span><span class="val purple">Uma vez, sobre a adesão</span></div>
-          </div>
+          <p class="force-line anim-el">A adesão de fundador é um investimento. Como você passa a ganhar <em>recorrência</em> sobre a sua rede, ela se paga.</p>
         </div>
-        <p class="force-line anim-el">Comissão de <em>30%</em> sobre a adesão, paga <em>uma única vez</em> após a avaliação de 90 dias. Não é recorrente.</p>
       </div>
     </section>
 
-    <!-- ===== SLIDE 8 - O TAMANHO (RECORRÊNCIA) ===== -->
+    <!-- ===== SLIDE 8 - RECORRÊNCIA R$ 597 (o motor) ===== -->
     <section data-slide="8">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
-      <div class="stage center">
-        <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
-        <span class="eyebrow anim-el">O tamanho da coisa</span>
-        <h2 class="headline anim-el">Renda recorrente sobre uma rede <span class="glow">que você já tem</span></h2>
-        <p class="subhead anim-el" style="margin-inline:auto;">Simulação com base de 100 clientes. Todo mês, no automático.</p>
-        <div class="sim">
-          <div class="sim-card anim-el">
-            <div class="cap">SDR a 10%</div>
-            <div class="num">R$ 3.811</div>
-            <div class="per">por mês</div>
-          </div>
-          <div class="sim-card anim-el">
-            <div class="cap">MAIA a 10%</div>
-            <div class="num">R$ 5.611</div>
-            <div class="per">por mês</div>
-          </div>
-          <div class="sim-card max anim-el">
-            <div class="cap">SDR a 20%</div>
-            <div class="num">R$ 7.623</div>
-            <div class="per">por mês</div>
-          </div>
+      <div class="stage">
+        <div class="stage-head">
+          <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
+        </div>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">A recorrência que sustenta tudo</span>
+          <h2 class="headline size-md anim-el">R$ 597 por mês, <span class="glow">sempre</span></h2>
+          <p class="body-text anim-el">Mesmo com o super desconto na adesão, a recorrência de <strong>R$ 597/mês</strong> é mantida. Não é margem, é o custo do suporte contínuo, e ele é pesado.</p>
+          <ul class="bullets">
+            <li class="anim-el">Configuração, integração de <strong>APIs</strong> e treinamento inicial</li>
+            <li class="anim-el">Manutenção, atualização e novas <strong>skills</strong> por nossa conta</li>
+            <li class="anim-el">Servidor e APIs ficam no nome do cliente, <strong>fora da mensalidade</strong></li>
+          </ul>
+          <p class="closing-line anim-el">Você conecta. A gente sustenta.</p>
         </div>
       </div>
     </section>
@@ -672,40 +735,47 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
     <section data-slide="9">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
-        <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
-        <span class="eyebrow anim-el">A meta que paga a sua MAIA</span>
-        <h2 class="headline size-md anim-el">Recupere o investimento em <span class="glow">~1 mês</span></h2>
-        <div class="meta-band">
-          <div class="meta-chip anim-el"><div class="mc-num">6</div><div class="mc-lbl">clientes indicados</div></div>
-          <div class="meta-chip anim-el"><div class="mc-num purple">45</div><div class="mc-lbl">dias de prazo</div></div>
-          <div class="meta-chip anim-el"><div class="mc-num">R$ 90k</div><div class="mc-lbl">6 vendas de R$ 15k</div></div>
-          <div class="meta-chip anim-el"><div class="mc-num purple">~R$ 9k</div><div class="mc-lbl">sua comissão · devolve os R$ 10k</div></div>
+        <div class="stage-head">
+          <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
         </div>
-        <div class="roi">
-          <div class="roi-card win anim-el">
-            <span class="rc-tag">Bateu a meta</span>
-            <p>As comissões das indicações <b>já devolvem o investimento</b>. Você põe ~R$ 9.000 no bolso e recupera os R$ 10.000 em cerca de um mês. Preço de fundador mantido.</p>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">A meta que paga a sua MAIA</span>
+          <h2 class="headline size-md anim-el">Recupere o investimento em <span class="glow">~1 mês</span></h2>
+          <div class="meta-band">
+            <div class="meta-chip anim-el"><div class="mc-num">6</div><div class="mc-lbl">clientes indicados</div></div>
+            <div class="meta-chip anim-el"><div class="mc-num purple">45</div><div class="mc-lbl">dias de prazo</div></div>
+            <div class="meta-chip anim-el"><div class="mc-num">R$ 90k</div><div class="mc-lbl">6 vendas de R$ 15k</div></div>
+            <div class="meta-chip anim-el"><div class="mc-num purple">~R$ 9k</div><div class="mc-lbl">sua comissão · devolve os R$ 10k</div></div>
           </div>
-          <div class="roi-card miss anim-el">
-            <span class="rc-tag">Não bateu</span>
-            <p>Você <b>completa o valor cheio da MAIA (R$ 15.000)</b> no seu negócio, ou o acesso é suspenso. A gente tem acesso ao servidor, então a condição é justa pros dois lados.</p>
+          <div class="roi">
+            <div class="roi-card win anim-el">
+              <span class="rc-tag">Bateu a meta</span>
+              <p>As comissões das indicações <b>já devolvem o investimento</b>. Você põe ~R$ 9.000 no bolso e recupera os R$ 10.000 em cerca de um mês. Preço de fundador mantido.</p>
+            </div>
+            <div class="roi-card miss anim-el">
+              <span class="rc-tag">Não bateu</span>
+              <p>Você <b>completa o valor cheio da MAIA (R$ 15.000)</b> no seu negócio, ou o acesso é suspenso. A gente tem acesso ao servidor, então a condição é justa pros dois lados.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== SLIDE 10 - CONTRATO E COMUNIDADE — sem logo Agencia no topo ===== -->
+    <!-- ===== SLIDE 10 - CONTRATO E COMUNIDADE ===== -->
     <section data-slide="10">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
-        <span class="eyebrow anim-el">Contrato · claro e recíproco</span>
-        <h2 class="headline size-md anim-el">Regras na mesa, sem letra miúda</h2>
-        <ul class="bullets">
-          <li class="anim-el"><strong>90 dias</strong>, avaliação, renovação por mais 90. Ciclos de 90 em 90 dias, com aditivo quando necessário.</li>
-          <li class="anim-el">Cláusula que separa os dois papéis: você como <strong>cliente</strong> (usa a MAIA no seu negócio) e como <strong>parceiro</strong> (revende). Coisas distintas.</li>
-          <li class="anim-el">Você entra na <strong>comunidade de fundadores</strong>: encontros, demonstrações e treinamento de venda e prospecção.</li>
-        </ul>
-        <p class="force-line anim-el">Transparência total. <em>Cada condição está escrita e explicada</em> antes de qualquer assinatura.</p>
+        <div class="stage-head"></div>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">Contrato · claro e recíproco</span>
+          <h2 class="headline size-md anim-el">Regras na mesa, sem letra miúda</h2>
+          <ul class="bullets">
+            <li class="anim-el"><strong>90 dias</strong>, avaliação, renovação por mais 90. Ciclos de 90 em 90 dias, com aditivo quando necessário.</li>
+            <li class="anim-el">Cláusula que separa os dois papéis: você como <strong>cliente</strong> (usa a MAIA no seu negócio) e como <strong>parceiro</strong> (revende). Coisas distintas.</li>
+            <li class="anim-el">Você entra na <strong>comunidade de fundadores</strong>: encontros, demonstrações e treinamento de venda e prospecção.</li>
+          </ul>
+          <p class="force-line anim-el">Transparência total. <em>Cada condição está escrita e explicada</em> antes de qualquer assinatura.</p>
+        </div>
       </div>
     </section>
 
@@ -713,36 +783,39 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
     <section data-slide="11">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
-        <div class="slide-logo side anim-el">
-          <img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" />
-          <span class="sl-meta"><span class="sl-name">Agência no Bolso</span><span class="sl-role">Programa de Parceria</span></span>
-        </div>
-        <span class="eyebrow anim-el">Próximos passos · como opera</span>
-        <h2 class="headline size-md anim-el">Do piloto à MAIA rodando no seu negócio</h2>
-        <div class="flow four">
-          <div class="flow-step anim-el">
-            <div class="num">1</div>
-            <h4>Fechar o modelo</h4>
-            <p>Com os números na mesa, travamos os percentuais e desenhamos o piloto <strong>agora</strong>.</p>
-          </div>
-          <div class="flow-step anim-el">
-            <div class="num">2</div>
-            <h4>Você conecta</h4>
-            <p>Você <strong>indica e agenda</strong> a reunião. A gente <strong>apresenta e vende</strong>.</p>
-          </div>
-          <div class="flow-step anim-el">
-            <div class="num">3</div>
-            <h4>Você assume a SDR</h4>
-            <p>A gente capacita você pra conduzir o <strong>script</strong>, o atendimento e as demonstrações.</p>
-          </div>
-          <div class="flow-step anim-el">
-            <div class="num">4</div>
-            <h4>MAIA no seu dia a dia</h4>
-            <p>Quem vende bem é quem <strong>usa todo dia</strong>. Você opera e recomenda com propriedade.</p>
+        <div class="stage-head">
+          <div class="slide-logo side anim-el">
+            <img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" />
+            <span class="sl-meta"><span class="sl-name">Agência no Bolso</span><span class="sl-role">Programa de Parceria</span></span>
           </div>
         </div>
-        <p class="closing-line anim-el">Torne-se uma pessoa extraordinária. Movimento gera resultado.</p>
-        <p class="legal anim-el"><b>AGÊNCIA NO BOLSO INOVA SIMPLES (I.S.)</b> · CNPJ 63.598.117/0001-39</p>
+        <div class="stage-body">
+          <span class="eyebrow anim-el">Próximos passos · como opera</span>
+          <h2 class="headline size-md anim-el">Do piloto à MAIA rodando no seu negócio</h2>
+          <div class="flow four">
+            <div class="flow-step anim-el">
+              <div class="num">1</div>
+              <h4>Fechar o modelo</h4>
+              <p>Com os números na mesa, travamos os percentuais e desenhamos o piloto <strong>agora</strong>.</p>
+            </div>
+            <div class="flow-step anim-el">
+              <div class="num">2</div>
+              <h4>Você conecta</h4>
+              <p>Você <strong>indica e agenda</strong> a reunião. A gente <strong>apresenta e vende</strong>.</p>
+            </div>
+            <div class="flow-step anim-el">
+              <div class="num">3</div>
+              <h4>Você assume a SDR</h4>
+              <p>A gente capacita você pra conduzir o <strong>script</strong>, o atendimento e as demonstrações.</p>
+            </div>
+            <div class="flow-step anim-el">
+              <div class="num">4</div>
+              <h4>MAIA no seu dia a dia</h4>
+              <p>Quem vende bem é quem <strong>usa todo dia</strong>. Você opera e recomenda com propriedade.</p>
+            </div>
+          </div>
+          <p class="legal anim-el"><b>AGÊNCIA NO BOLSO INOVA SIMPLES (I.S.)</b> · CNPJ 63.598.117/0001-39</p>
+        </div>
         <div class="deck-actions anim-el">
           <a class="btn btn-cta" href="https://wa.me/5586994748499?text=Quero%20receber%20o%20contrato%20da%20parceria%20Ag%C3%AAncia%20no%20Bolso" target="_blank" rel="noopener">
             <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.05-1.33A9.93 9.93 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18.2c-1.6 0-3.09-.47-4.34-1.28l-.31-.2-2.99.78.8-2.92-.2-.32A8.16 8.16 0 0 1 3.8 12c0-4.52 3.68-8.2 8.2-8.2s8.2 3.68 8.2 8.2-3.68 8.2-8.2 8.2z"/></svg></span>
