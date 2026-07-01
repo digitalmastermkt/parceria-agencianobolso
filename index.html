@@ -110,12 +110,17 @@ html, body { background: var(--void); color: var(--smoke); font-family: var(--fo
 .body-text strong { color: var(--cyan); font-weight: 600; }
 
 .force-line {
-  font-family: var(--font-display); font-size: 1.4rem; font-weight: 500;
-  color: var(--smoke); line-height: 1.42;
-  border-left: 3px solid var(--cyan); padding-left: 1.2rem;
-  margin-top: 1.6rem; opacity: 0; max-width: 66ch;
+  font-family: var(--font-display); font-size: 1.42rem; font-weight: 500;
+  color: var(--smoke); line-height: 1.5;
+  margin-top: 1.8rem; padding-top: 1.4rem; opacity: 0; max-width: 66ch;
+  position: relative;
 }
-.force-line em { font-style: normal; color: var(--cyan); }
+.force-line::before {
+  content:''; position:absolute; top:0; left:0; width: 44px; height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  border-radius: 2px;
+}
+.force-line em { font-style: normal; color: var(--cyan); font-weight: 600; }
 
 .closing-line {
   font-family: var(--font-display); font-size: 1.5rem; font-weight: 600;
@@ -290,7 +295,7 @@ footer.site-footer {
   position: fixed; bottom: 1.4rem; left: 3vw; right: 3vw;
   display: flex; justify-content: space-between; align-items: center;
   font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em;
-  color: rgba(229,229,229,0.45); text-transform: uppercase; z-index: 50; pointer-events: none;
+  color: rgba(229,229,229,0.62); text-transform: uppercase; z-index: 50; pointer-events: none;
 }
 footer.site-footer .right { color: var(--cyan); font-weight: 600; }
 
@@ -628,13 +633,22 @@ function updateCounter() {
   if (el) el.textContent = `${String(i.h + 1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
 }
 
+const REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 function animateSlide(slide) {
   if (!slide) return;
-  const bg = slide.querySelector('.slide-bg');
-  if (bg) gsap.fromTo(bg, { opacity: 0 }, { opacity: 1, duration: 0.9, ease: 'power2.out' });
-  const orbs = slide.querySelectorAll('.orb');
-  if (orbs.length) gsap.fromTo(orbs, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 0.55, duration: 2.4, ease: 'power1.out' });
   const els = slide.querySelectorAll('.anim-el');
+  const bg = slide.querySelector('.slide-bg');
+  const orbs = slide.querySelectorAll('.orb');
+  if (REDUCE) {
+    // No motion: reveal everything instantly.
+    if (bg) bg.style.opacity = 1;
+    orbs.forEach(o => o.style.opacity = 0.55);
+    els.forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+    return;
+  }
+  if (bg) gsap.fromTo(bg, { opacity: 0 }, { opacity: 1, duration: 0.9, ease: 'power2.out' });
+  if (orbs.length) gsap.fromTo(orbs, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 0.55, duration: 2.4, ease: 'power1.out' });
   if (els.length) gsap.fromTo(els,
     { opacity: 0, y: 26 },
     { opacity: 1, y: 0, duration: 0.66, ease: 'power2.out', stagger: 0.11, delay: 0.2 });
