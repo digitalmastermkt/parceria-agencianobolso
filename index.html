@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Parceria Agência no Bolso · Apresentação</title>
+<meta name="description" content="Programa de Parceria Agência no Bolso, revenda da MAIA. Condições de fundador com transparência total." />
+<meta property="og:title" content="Parceria Agência no Bolso" />
+<meta property="og:description" content="Modelo ganha-ganha: você traz a rede, a gente entrega a tecnologia rodando." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+<style>
+/* ======================= DESIGN TOKENS - AGÊNCIA NO BOLSO ======================= */
+:root {
+  --void: #0A0A0F;
+  --card: #13131A;
+  --card-2: #191922;
+  --line: #27272A;
+  --line-strong: #34343d;
+  --cyan: #00D4FF;
+  --purple: #A855F7;
+  --smoke: #E5E5E5;
+  --muted: #9CA3AF;
+  --success: #10B981;
+  --font-display: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Monaco, Consolas, monospace;
+}
+
+/* ======================= BASE ======================= */
+html, body { background: var(--void); color: var(--smoke); font-family: var(--font-body); }
+.reveal { font-family: var(--font-body); background: var(--void); }
+.reveal-viewport { background: var(--void); }
+.reveal .slides { text-align: left; background: var(--void); }
+.reveal .slides section { background: var(--void); }
+.reveal .backgrounds { background: var(--void); }
+.reveal section { padding: 0; height: 100vh; width: 100vw; }
+.reveal .controls { display: none !important; }
+.reveal .progress { color: var(--cyan); height: 3px; }
+::selection { background: rgba(0,212,255,0.25); }
+
+/* Ambient background texture per slide */
+.slide-bg {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden;
+  background:
+    radial-gradient(1100px 620px at 82% 18%, rgba(168,85,247,0.14), transparent 60%),
+    radial-gradient(900px 560px at 12% 88%, rgba(0,212,255,0.12), transparent 62%),
+    var(--void);
+}
+.slide-bg::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 62px 62px;
+  mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 78%);
+}
+.slide-bg .orb {
+  position:absolute; border-radius:50%; filter: blur(60px); opacity:0.55;
+}
+.slide-bg .orb.c { width:420px; height:420px; background: radial-gradient(circle, rgba(0,212,255,0.32), transparent 68%); top:-120px; right:8%; }
+.slide-bg .orb.p { width:520px; height:520px; background: radial-gradient(circle, rgba(168,85,247,0.24), transparent 68%); bottom:-180px; left:-80px; }
+
+/* ======================= STAGE (content container) ======================= */
+.stage {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 7vh 7vw 10vh;
+  max-width: 1600px; margin: 0 auto;
+}
+.stage.center { align-items: center; text-align: center; }
+
+/* ======================= TEXT PRIMITIVES ======================= */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.82rem; color: var(--cyan);
+  letter-spacing: 0.34em; text-transform: uppercase;
+  margin-bottom: 1.6rem; opacity: 0;
+  display:inline-flex; align-items:center; gap:0.7rem;
+}
+.eyebrow::before { content:''; width: 26px; height: 1px; background: linear-gradient(90deg, var(--cyan), transparent); display:inline-block; }
+.stage.center .eyebrow::before { display:none; }
+
+.headline {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 3.9rem; line-height: 1.04; letter-spacing: -0.03em;
+  color: var(--smoke); margin: 0 0 1.4rem 0; opacity: 0;
+}
+.headline .glow { color: var(--cyan); }
+.headline.size-md { font-size: 3.2rem; }
+.headline.size-lg { font-size: 4.7rem; }
+
+.subhead {
+  font-family: var(--font-body); font-size: 1.42rem; font-weight: 400;
+  color: var(--muted); line-height: 1.5; margin: 0 0 2.1rem 0; opacity: 0; max-width: 60ch;
+}
+.subhead strong { color: var(--smoke); font-weight: 600; }
+
+.body-text {
+  font-size: 1.32rem; font-weight: 400; line-height: 1.62;
+  color: #d6d6dc; margin: 0 0 1.6rem 0; opacity: 0; max-width: 62ch;
+}
+.body-text strong { color: var(--cyan); font-weight: 600; }
+
+.force-line {
+  font-family: var(--font-display); font-size: 1.4rem; font-weight: 500;
+  color: var(--smoke); line-height: 1.42;
+  border-left: 3px solid var(--cyan); padding-left: 1.2rem;
+  margin-top: 1.6rem; opacity: 0; max-width: 66ch;
+}
+.force-line em { font-style: normal; color: var(--cyan); }
+
+.closing-line {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 600;
+  background: linear-gradient(100deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  margin-top: 1.6rem; opacity: 0; letter-spacing: -0.01em;
+}
+
+/* ======================= COVER ======================= */
+.brand-row { display:flex; align-items:center; gap:0.9rem; margin-bottom: 2.4rem; opacity:0; }
+.brand-mark {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; color: var(--void);
+  box-shadow: 0 0 22px rgba(0,212,255,0.4), 0 0 40px rgba(168,85,247,0.22);
+}
+.brand-name {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--smoke);
+}
+.cover-tags { display:flex; gap:0.7rem; flex-wrap:wrap; margin-top: 2.4rem; opacity:0; }
+.cover-tags .pill {
+  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.55rem 1.1rem; border-radius: 999px;
+  border: 1px solid rgba(0,212,255,0.35); color: var(--cyan);
+  background: rgba(0,212,255,0.06);
+}
+.cover-meta {
+  font-family: var(--font-mono); font-size: 0.9rem; color: var(--muted);
+  margin-top: 2.2rem; letter-spacing: 0.06em; opacity:0;
+}
+
+/* ======================= TWO-COLUMN (ganha-ganha) ======================= */
+.duo {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.6rem; align-items: stretch;
+  margin-top: 0.6rem; width: 100%;
+}
+.duo-card {
+  border: 1px solid var(--line); background: var(--card);
+  border-radius: 18px; padding: 2rem 1.9rem; opacity: 0;
+  position: relative; overflow: hidden;
+}
+.duo-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.duo-card.you::before  { background: linear-gradient(90deg, var(--cyan), transparent); }
+.duo-card.us::before   { background: linear-gradient(90deg, var(--purple), transparent); }
+.duo-card .tag {
+  font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
+  display:block; margin-bottom: 1.2rem;
+}
+.duo-card.you .tag { color: var(--cyan); }
+.duo-card.us .tag  { color: var(--purple); }
+.duo-card ul { list-style:none; padding:0; margin:0; }
+.duo-card li {
+  font-size: 1.12rem; color: #e0e0e6; line-height: 1.4;
+  padding: 0.62rem 0 0.62rem 1.5rem; position: relative;
+}
+.duo-card li::before {
+  content:''; position:absolute; left:0; top:1.05rem; width:0.55rem; height:0.55rem; border-radius:2px;
+}
+.duo-card.you li::before { background: var(--cyan); box-shadow: 0 0 10px rgba(0,212,255,0.6); }
+.duo-card.us li::before  { background: var(--purple); box-shadow: 0 0 10px rgba(168,85,247,0.6); }
+.duo-plus {
+  align-self:center; font-family: var(--font-display); font-weight: 800; font-size: 2.4rem;
+  color: var(--muted); opacity: 0;
+}
+
+/* ======================= PRODUCT SLIDE ======================= */
+.prod-grid {
+  display: grid; grid-template-columns: 1.05fr 1.35fr; gap: 2rem; align-items: center; margin-top: 0.4rem;
+}
+.prod-hero {
+  border: 1px solid var(--line); border-radius: 20px; padding: 2.2rem 2rem;
+  background: linear-gradient(160deg, rgba(0,212,255,0.07), rgba(168,85,247,0.05)), var(--card);
+  opacity: 0;
+}
+.prod-hero .kicker {
+  font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); display:block; margin-bottom: 0.8rem;
+}
+.prod-hero .big {
+  font-family: var(--font-mono); font-weight: 600; font-size: 2.9rem; line-height: 1;
+  color: var(--smoke); letter-spacing: -0.02em; margin-bottom: 0.4rem;
+}
+.prod-hero .big .u { font-size: 1.1rem; color: var(--muted); font-weight: 400; }
+.prod-hero .sub { font-size: 1rem; color: var(--muted); margin-top: 0.6rem; }
+
+.stat-row { display: grid; gap: 1rem; opacity: 0; }
+.stat {
+  border: 1px solid var(--line); border-radius: 14px; background: var(--card);
+  padding: 1.15rem 1.3rem; display:flex; justify-content:space-between; align-items:center; gap: 1rem;
+}
+.stat .lbl { font-size: 1rem; color: var(--muted); }
+.stat .val { font-family: var(--font-mono); font-weight: 600; font-size: 1.35rem; color: var(--smoke); white-space: nowrap; }
+.stat .val.cyan { color: var(--cyan); }
+.stat .val.purple { color: var(--purple); }
+.stat .val.grn { color: var(--success); }
+.stat.hl { border-color: rgba(0,212,255,0.35); background: linear-gradient(120deg, rgba(0,212,255,0.08), transparent), var(--card); }
+
+/* ======================= FLOW (numbered steps) ======================= */
+.flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 1rem; }
+.flow.four { grid-template-columns: repeat(4, 1fr); }
+.flow-step {
+  border: 1px solid var(--line); border-radius: 16px; background: var(--card);
+  padding: 1.6rem 1.4rem; opacity: 0; position: relative;
+}
+.flow-step .num {
+  font-family: var(--font-mono); font-weight: 600; font-size: 0.95rem;
+  width: 2.3rem; height: 2.3rem; border-radius: 9px;
+  display:flex; align-items:center; justify-content:center;
+  color: var(--void); background: linear-gradient(135deg, var(--cyan), var(--purple));
+  margin-bottom: 1.1rem;
+}
+.flow-step h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.22rem; color: var(--smoke); margin: 0 0 0.6rem; letter-spacing: -0.01em; }
+.flow-step p { font-size: 1.02rem; color: var(--muted); line-height: 1.5; margin: 0; }
+.flow-step p strong { color: var(--cyan); font-weight: 600; }
+
+/* ======================= SIM (recorrência) ======================= */
+.sim { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 1.2rem; }
+.sim-card {
+  border: 1px solid var(--line); border-radius: 18px; padding: 2.2rem 1.8rem; text-align:center;
+  background: var(--card); opacity: 0; position: relative; overflow:hidden;
+}
+.sim-card.max { border-color: rgba(168,85,247,0.4); background: linear-gradient(165deg, rgba(168,85,247,0.10), transparent), var(--card); }
+.sim-card .cap { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.sim-card .num {
+  font-family: var(--font-mono); font-weight: 600; font-size: 3rem; line-height: 1; letter-spacing: -0.03em;
+  color: var(--smoke);
+}
+.sim-card.max .num { color: var(--purple); }
+.sim-card .per { font-size: 0.95rem; color: var(--muted); margin-top: 0.5rem; }
+
+/* ======================= META / ROI ======================= */
+.roi { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0.6rem; }
+.roi-card { border: 1px solid var(--line); border-radius: 18px; padding: 1.9rem 1.7rem; background: var(--card); opacity: 0; }
+.roi-card.win { border-color: rgba(16,185,129,0.4); background: linear-gradient(160deg, rgba(16,185,129,0.09), transparent), var(--card); }
+.roi-card.miss { border-color: rgba(245,158,11,0.35); }
+.roi-card .rc-tag { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; display:block; margin-bottom: 0.9rem; }
+.roi-card.win .rc-tag { color: var(--success); }
+.roi-card.miss .rc-tag { color: #F59E0B; }
+.roi-card p { font-size: 1.1rem; color: #dcdce2; line-height: 1.5; margin: 0; }
+.roi-card p b { color: var(--smoke); }
+
+.meta-band {
+  display:flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 0.4rem; margin-bottom: 1.6rem;
+}
+.meta-chip {
+  border: 1px solid var(--line); border-radius: 12px; background: var(--card);
+  padding: 1rem 1.4rem; opacity: 0; min-width: 150px;
+}
+.meta-chip .mc-num { font-family: var(--font-mono); font-weight: 600; font-size: 1.7rem; color: var(--cyan); }
+.meta-chip .mc-num.purple { color: var(--purple); }
+.meta-chip .mc-lbl { font-size: 0.92rem; color: var(--muted); margin-top: 0.3rem; }
+
+/* ======================= CONTRATO (bullets premium) ======================= */
+.bullets { list-style:none; padding:0; margin: 0.4rem 0 0; display:grid; gap: 1rem; max-width: 78ch; }
+.bullets li {
+  font-size: 1.18rem; color: #dedee4; line-height: 1.5;
+  padding: 1.05rem 1.3rem 1.05rem 3rem; position: relative; opacity: 0;
+  border: 1px solid var(--line); border-radius: 14px; background: var(--card);
+}
+.bullets li::before {
+  content:''; position:absolute; left: 1.2rem; top: 1.45rem;
+  width: 0.62rem; height: 0.62rem; border-radius: 2px;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  box-shadow: 0 0 10px rgba(0,212,255,0.5);
+}
+.bullets li strong { color: var(--cyan); font-weight: 600; }
+
+/* ======================= FOOTER ======================= */
+footer.site-footer {
+  position: fixed; bottom: 1.4rem; left: 3vw; right: 3vw;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em;
+  color: rgba(229,229,229,0.45); text-transform: uppercase; z-index: 50; pointer-events: none;
+}
+footer.site-footer .right { color: var(--cyan); font-weight: 600; }
+
+/* ======================= NAV ARROWS ======================= */
+.custom-nav {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(19,19,26,0.6); backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,212,255,0.4); color: var(--cyan);
+  font-size: 26px; display:flex; align-items:center; justify-content:center;
+  cursor: pointer; z-index: 100; transition: all 0.2s;
+  box-shadow: 0 0 18px rgba(0,212,255,0.18);
+}
+.custom-nav:hover { background: rgba(0,212,255,0.14); box-shadow: 0 0 28px rgba(0,212,255,0.4); }
+.custom-nav.left { left: 26px; } .custom-nav.right { right: 26px; }
+
+/* ======================= CNPJ / CLOSE ======================= */
+.legal { font-family: var(--font-mono); font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-top: 1.8rem; opacity: 0; }
+.legal b { color: var(--smoke); }
+
+/* ======================= RESPONSIVE ======================= */
+@media (max-width: 1180px) {
+  .headline { font-size: 3rem; } .headline.size-lg { font-size: 3.4rem; } .headline.size-md { font-size: 2.6rem; }
+  .subhead, .body-text { font-size: 1.15rem; }
+  .prod-grid { grid-template-columns: 1fr; }
+  .flow, .flow.four { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 820px) {
+  .stage { padding: 8vh 7vw 12vh; }
+  .headline { font-size: 2.3rem; } .headline.size-lg { font-size: 2.5rem; } .headline.size-md { font-size: 2.1rem; }
+  .subhead, .body-text { font-size: 1.05rem; }
+  .duo { grid-template-columns: 1fr; } .duo-plus { justify-self:center; margin: 0.2rem 0; }
+  .sim, .flow, .flow.four, .roi { grid-template-columns: 1fr; }
+  .stat { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  .custom-nav { width: 48px; height: 48px; font-size: 20px; }
+  .custom-nav.left { left: 10px; } .custom-nav.right { right: 10px; }
+  footer.site-footer { font-size: 0.62rem; left: 4vw; right: 4vw; }
+  .cover-tags { gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ===== SLIDE 1 - CAPA ===== -->
+    <section data-slide="1">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <div class="brand-row anim-el">
+          <div class="brand-mark">A</div>
+          <span class="brand-name">Agência no Bolso</span>
+        </div>
+        <span class="eyebrow anim-el">Programa de Parceria</span>
+        <h1 class="headline size-lg anim-el">Parceria <span class="glow">Agência no Bolso</span></h1>
+        <p class="subhead anim-el">Nossas condições, com transparência total. Você traz a rede, a gente entrega a tecnologia rodando.</p>
+        <div class="cover-tags anim-el">
+          <span class="pill">MAIA</span>
+          <span class="pill">SDR 24/7</span>
+          <span class="pill">Modelo ganha-ganha</span>
+        </div>
+        <p class="cover-meta anim-el">Apresentação reservada · Condições de fundador</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 2 - ESPÍRITO DA PARCERIA ===== -->
+    <section data-slide="2">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <span class="eyebrow anim-el">O espírito da parceria</span>
+        <h2 class="headline size-md anim-el">Cada um entra com a sua força</h2>
+        <div class="duo">
+          <div class="duo-card you anim-el">
+            <span class="tag">Você traz</span>
+            <ul>
+              <li>Credibilidade e relacionamento</li>
+              <li>Networking e associações</li>
+              <li>Empresários na sua rede</li>
+              <li>O acesso que dinheiro não compra</li>
+            </ul>
+          </div>
+          <span class="duo-plus anim-el">+</span>
+          <div class="duo-card us anim-el">
+            <span class="tag">A gente entrega</span>
+            <ul>
+              <li>MAIA, esteira completa de IA</li>
+              <li>SDR, atendimento e qualificação 24/7</li>
+              <li>Execução, suporte e manutenção</li>
+              <li>Produto validado em operação real</li>
+            </ul>
+          </div>
+        </div>
+        <p class="force-line anim-el">Juntos, <em>um mercado que nenhum dos dois lados abriria sozinho</em> na mesma escala.</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 3 - ADESÃO DO PARCEIRO (FUNDADOR) ===== -->
+    <section data-slide="3">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <span class="eyebrow anim-el">A sua adesão · condição de fundador</span>
+        <h2 class="headline size-md anim-el">A MAIA no <span class="glow">seu</span> negócio, preço de fundador</h2>
+        <div class="prod-grid">
+          <div class="prod-hero anim-el">
+            <span class="kicker">Fundadores · os 10 primeiros</span>
+            <div class="big">R$ 5.000</div>
+            <div class="sub">Preço cheio da MAIA no seu negócio: R$ 15.000. Depois dos fundadores, a adesão sobe gradual: 7k → 8k → 10k, conforme a gente valida.</div>
+          </div>
+          <div class="stat-row anim-el">
+            <div class="stat"><span class="lbl">Sua comissão como parceiro</span><span class="val cyan">10%</span></div>
+            <div class="stat"><span class="lbl">Vagas de fundador</span><span class="val purple">10</span></div>
+            <div class="stat hl"><span class="lbl">A lógica</span><span class="val">Recorrência paga a adesão</span></div>
+          </div>
+        </div>
+        <p class="force-line anim-el">A adesão de fundador é um investimento. Como você passa a ganhar <em>recorrência</em> sobre a sua rede, ela se paga.</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 4 - RECORRÊNCIA R$ 597 (o motor) ===== -->
+    <section data-slide="4">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <span class="eyebrow anim-el">A recorrência que sustenta tudo</span>
+        <h2 class="headline size-md anim-el">R$ 597 por mês, <span class="glow">sempre</span></h2>
+        <p class="body-text anim-el">Mesmo com o super desconto na adesão, a recorrência de <strong>R$ 597/mês</strong> é mantida. Não é margem, é o custo do suporte contínuo, e ele é pesado.</p>
+        <ul class="bullets">
+          <li class="anim-el">Configuração, integração de <strong>APIs</strong> e treinamento inicial</li>
+          <li class="anim-el">Manutenção, atualização e novas <strong>skills</strong> por nossa conta</li>
+          <li class="anim-el">Servidor e APIs ficam no nome do cliente, <strong>fora da mensalidade</strong></li>
+        </ul>
+        <p class="closing-line anim-el">Você conecta. A gente sustenta.</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 5 - PRODUTO 1: MAIA ===== -->
+    <section data-slide="5">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <span class="eyebrow anim-el">Produto 1 · o que você revende</span>
+        <h2 class="headline size-md anim-el">MAIA completa, a esteira de IA</h2>
+        <div class="prod-grid">
+          <div class="prod-hero anim-el">
+            <span class="kicker">Implantação · cliente final</span>
+            <div class="big">R$ 15<span class="u">k</span> a 25<span class="u">k</span></div>
+            <div class="sub">A solução inteira de inteligência artificial rodando dentro da empresa do cliente.</div>
+          </div>
+          <div class="stat-row anim-el">
+            <div class="stat"><span class="lbl">Comissão na venda</span><span class="val cyan">10%</span></div>
+            <div class="stat"><span class="lbl">Recorrência por cliente</span><span class="val purple">10% · ~R$ 56/mês</span></div>
+            <div class="stat hl"><span class="lbl">Suporte e manutenção</span><span class="val grn">Por nossa conta</span></div>
+          </div>
+        </div>
+        <p class="force-line anim-el">Você conecta o cliente, a gente sustenta a operação. <em>Manutenção, suporte, atualização e skills por nossa conta.</em></p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 6 - PRODUTO 2: SDR ===== -->
+    <section data-slide="6">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <span class="eyebrow anim-el">Produto 2 · a porta de entrada</span>
+        <h2 class="headline size-md anim-el">SDR, o atendimento que qualifica 24/7</h2>
+        <div class="prod-grid">
+          <div class="prod-hero anim-el">
+            <span class="kicker">Implantação · cliente final</span>
+            <div class="big">R$ 5<span class="u">k</span> a 8<span class="u">k</span></div>
+            <div class="sub">Ticket mais leve, entrada natural pra apresentar a MAIA depois.</div>
+          </div>
+          <div class="stat-row anim-el">
+            <div class="stat"><span class="lbl">Comissão na venda</span><span class="val cyan">10%</span></div>
+            <div class="stat hl"><span class="lbl">Recorrência que sobe</span><span class="val purple">10% → 20%</span></div>
+            <div class="stat"><span class="lbl">Quando sobe</span><span class="val grn">Após 90 dias</span></div>
+          </div>
+        </div>
+        <p class="force-line anim-el">A recorrência chega a <em>20%</em> depois da avaliação de 90 dias, quando você assume o script, o atendimento e treina a SDR.</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 7 - PRODUTO 3: REDES SOCIAIS ===== -->
+    <section data-slide="7">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <span class="eyebrow anim-el">Produto 3 · recorrência de serviço</span>
+        <h2 class="headline size-md anim-el">Gestão de Redes Sociais com MAIA</h2>
+        <div class="prod-grid">
+          <div class="prod-hero anim-el">
+            <span class="kicker">Valor do serviço · por mês</span>
+            <div class="big">R$ 1,5<span class="u">k</span> a 3,5<span class="u">k</span></div>
+            <div class="sub">A MAIA produzindo e gerindo a presença digital do cliente, mês a mês.</div>
+          </div>
+          <div class="stat-row anim-el">
+            <div class="stat hl"><span class="lbl">Comissão de indicação</span><span class="val cyan">30%</span></div>
+            <div class="stat"><span class="lbl">Você põe no bolso</span><span class="val purple">~R$ 400 a 1.000</span></div>
+            <div class="stat"><span class="lbl">Formato</span><span class="val grn">Recorrente</span></div>
+          </div>
+        </div>
+        <p class="force-line anim-el">Comissão de <em>30%</em> por indicação, sobre um serviço que a rede já contrata todo mês.</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 8 - O TAMANHO (RECORRÊNCIA) ===== -->
+    <section data-slide="8">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage center">
+        <span class="eyebrow anim-el">O tamanho da coisa</span>
+        <h2 class="headline anim-el">Renda recorrente sobre uma rede <span class="glow">que você já tem</span></h2>
+        <p class="subhead anim-el" style="margin-inline:auto;">Simulação com base de 100 clientes. Todo mês, no automático.</p>
+        <div class="sim">
+          <div class="sim-card anim-el">
+            <div class="cap">SDR a 10%</div>
+            <div class="num">R$ 3.811</div>
+            <div class="per">por mês</div>
+          </div>
+          <div class="sim-card anim-el">
+            <div class="cap">MAIA a 10%</div>
+            <div class="num">R$ 5.611</div>
+            <div class="per">por mês</div>
+          </div>
+          <div class="sim-card max anim-el">
+            <div class="cap">SDR a 20%</div>
+            <div class="num">R$ 7.623</div>
+            <div class="per">por mês</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 9 - A META E O ROI (fechamento) ===== -->
+    <section data-slide="9">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <span class="eyebrow anim-el">A meta que paga a sua MAIA</span>
+        <h2 class="headline size-md anim-el">Recupere o investimento em <span class="glow">~1 mês</span></h2>
+        <div class="meta-band">
+          <div class="meta-chip anim-el"><div class="mc-num">3</div><div class="mc-lbl">clientes indicados</div></div>
+          <div class="meta-chip anim-el"><div class="mc-num purple">45</div><div class="mc-lbl">dias de prazo</div></div>
+          <div class="meta-chip anim-el"><div class="mc-num">R$ 45k</div><div class="mc-lbl">3 vendas de R$ 15k</div></div>
+          <div class="meta-chip anim-el"><div class="mc-num purple">~R$ 4,5k</div><div class="mc-lbl">sua comissão · devolve os R$ 5k</div></div>
+        </div>
+        <div class="roi">
+          <div class="roi-card win anim-el">
+            <span class="rc-tag">Bateu a meta</span>
+            <p>As comissões das indicações <b>já devolvem o investimento</b>. Você põe ~R$ 4.500 no bolso e recupera os R$ 5.000 em cerca de um mês. Preço de fundador mantido.</p>
+          </div>
+          <div class="roi-card miss anim-el">
+            <span class="rc-tag">Não bateu</span>
+            <p>Você <b>completa o valor cheio da MAIA (R$ 15.000)</b> no seu negócio, ou o acesso é suspenso. A gente tem acesso ao servidor, então a condição é justa pros dois lados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 10 - CONTRATO E COMUNIDADE ===== -->
+    <section data-slide="10">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <span class="eyebrow anim-el">Contrato · claro e recíproco</span>
+        <h2 class="headline size-md anim-el">Regras na mesa, sem letra miúda</h2>
+        <ul class="bullets">
+          <li class="anim-el"><strong>90 dias</strong>, avaliação, renovação por mais 90. Ciclos de 90 em 90 dias, com aditivo quando necessário.</li>
+          <li class="anim-el">Cláusula que separa os dois papéis: você como <strong>cliente</strong> (usa a MAIA no seu negócio) e como <strong>parceiro</strong> (revende). Coisas distintas.</li>
+          <li class="anim-el">Você entra na <strong>comunidade de fundadores</strong>: encontros, demonstrações e treinamento de venda e prospecção.</li>
+        </ul>
+        <p class="force-line anim-el">Transparência total. <em>Cada condição está escrita e explicada</em> antes de qualquer assinatura.</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 11 - PRÓXIMOS PASSOS ===== -->
+    <section data-slide="11">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <span class="eyebrow anim-el">Próximos passos · como opera</span>
+        <h2 class="headline size-md anim-el">Do piloto à MAIA rodando no seu negócio</h2>
+        <div class="flow four">
+          <div class="flow-step anim-el">
+            <div class="num">1</div>
+            <h4>Fechar o modelo</h4>
+            <p>Com os números na mesa, travamos os percentuais e desenhamos o piloto <strong>agora</strong>.</p>
+          </div>
+          <div class="flow-step anim-el">
+            <div class="num">2</div>
+            <h4>Técnico é nosso</h4>
+            <p>Nos primeiros <strong>90 dias</strong>, manutenção, suporte, atualização e skills ficam 100% com a gente.</p>
+          </div>
+          <div class="flow-step anim-el">
+            <div class="num">3</div>
+            <h4>Você assume a SDR</h4>
+            <p>A gente capacita você pra conduzir o <strong>script</strong>, o atendimento e as demonstrações.</p>
+          </div>
+          <div class="flow-step anim-el">
+            <div class="num">4</div>
+            <h4>MAIA no seu dia a dia</h4>
+            <p>Quem vende bem é quem <strong>usa todo dia</strong>. Você opera e recomenda com propriedade.</p>
+          </div>
+        </div>
+        <p class="closing-line anim-el">Torne-se uma pessoa extraordinária. Movimento gera resultado.</p>
+        <p class="legal anim-el"><b>AGÊNCIA NO BOLSO INOVA SIMPLES (I.S.)</b><br/>CNPJ 63.598.117/0001-39</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<button class="custom-nav left" id="navPrev" aria-label="Anterior">‹</button>
+<button class="custom-nav right" id="navNext" aria-label="Próximo">›</button>
+
+<footer class="site-footer">
+  <span class="left">Parceria Agência no Bolso · MAIA + SDR</span>
+  <span class="right" id="slide-counter">01 / 11</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const deck = new Reveal({
+  hash: true, controls: false, progress: true, center: false,
+  width: '100%', height: '100%', margin: 0, minScale: 1, maxScale: 1,
+  transition: 'fade', transitionSpeed: 'default', backgroundTransition: 'fade',
+  keyboard: {
+    32: 'next',
+    70: () => { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); }
+  }
+});
+
+deck.initialize().then(() => { animateSlide(deck.getCurrentSlide()); updateCounter(); });
+deck.on('slidechanged', (e) => { animateSlide(e.currentSlide); updateCounter(); });
+
+document.getElementById('navPrev').addEventListener('click', () => deck.prev());
+document.getElementById('navNext').addEventListener('click', () => deck.next());
+
+function updateCounter() {
+  const i = deck.getIndices();
+  const total = deck.getTotalSlides();
+  const el = document.getElementById('slide-counter');
+  if (el) el.textContent = `${String(i.h + 1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+}
+
+function animateSlide(slide) {
+  if (!slide) return;
+  const bg = slide.querySelector('.slide-bg');
+  if (bg) gsap.fromTo(bg, { opacity: 0 }, { opacity: 1, duration: 0.9, ease: 'power2.out' });
+  const orbs = slide.querySelectorAll('.orb');
+  if (orbs.length) gsap.fromTo(orbs, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 0.55, duration: 2.4, ease: 'power1.out' });
+  const els = slide.querySelectorAll('.anim-el');
+  if (els.length) gsap.fromTo(els,
+    { opacity: 0, y: 26 },
+    { opacity: 1, y: 0, duration: 0.66, ease: 'power2.out', stagger: 0.11, delay: 0.2 });
+}
+</script>
+</body>
+</html>
