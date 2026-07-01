@@ -441,8 +441,15 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
   /* actions e footer no mobile */
   .deck-actions { bottom: 4.4rem; right: 4vw; left: 4vw; justify-content: center; flex-wrap: wrap; }
   .btn { font-size: 0.82rem; padding: 0.62rem 0.95rem; }
-  footer.site-footer { bottom: 1rem; font-size: 0.56rem; flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+  footer.site-footer {
+    bottom: 0; left: 0; right: 0; padding: 0.7rem 4vw 0.7rem;
+    font-size: 0.56rem; flex-direction: column; align-items: flex-start; gap: 0.3rem;
+    background: linear-gradient(to top, rgba(10,10,15,0.96) 55%, rgba(10,10,15,0) 100%);
+    backdrop-filter: blur(2px);
+  }
   footer.site-footer .foot-cnpj { font-size: 0.58rem; }
+  /* garante que o conteudo do ultimo slide (mais alto) nao fique atras do rodape */
+  .stage { padding-bottom: 17vh; }
 }
 </style>
 </head>
