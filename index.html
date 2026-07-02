@@ -73,6 +73,65 @@ img { max-width: 100%; height: auto; }
 .slide-bg .orb.c { width:420px; height:420px; background: radial-gradient(circle, rgba(0,212,255,0.32), transparent 68%); top:-120px; right:8%; }
 .slide-bg .orb.p { width:520px; height:520px; background: radial-gradient(circle, rgba(168,85,247,0.24), transparent 68%); bottom:-180px; left:-80px; }
 
+/* ===== BACKGROUND PHOTOS (sempre atras de veu escuro; texto soberano) ===== */
+.slide-bg .bg-photo {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit: cover; object-position: center; display:block;
+}
+/* capa: imagem full-bleed + veu pesado (texto fica sobre a zona mais escura) */
+.slide-bg .bg-photo.full { opacity: 0.9; }
+.slide-bg .bg-veil {
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to top, rgba(10,10,15,0.96) 0%, rgba(10,10,15,0.35) 30%, rgba(10,10,15,0.15) 60%),
+    linear-gradient(100deg, rgba(10,10,15,0.94) 0%, rgba(10,10,15,0.82) 40%, rgba(10,10,15,0.55) 72%, rgba(10,10,15,0.68) 100%);
+}
+/* faixa lateral direita, mascarada e discreta (slides de produto) */
+.slide-bg .bg-side {
+  position:absolute; top:0; right:0; bottom:0; width:58%;
+  overflow:hidden;
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 96%);
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 96%);
+}
+.slide-bg .bg-side img {
+  width:100%; height:100%; object-fit:cover; object-position:center; display:block;
+  opacity: 0.26;
+}
+.slide-bg .bg-side.dim img { opacity: 0.15; }
+.slide-bg .bg-side.faint img { opacity: 0.11; }
+.slide-bg .bg-side::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(10,10,15,0.92) 0%, rgba(10,10,15,0.2) 34%, transparent 60%);
+}
+/* imagem central rebaixada (slide de numeros centrado) */
+.slide-bg .bg-glowimg {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center 68%; opacity: 0.17;
+  -webkit-mask-image: radial-gradient(ellipse 70% 62% at 50% 66%, rgba(0,0,0,1), transparent 78%);
+  mask-image: radial-gradient(ellipse 70% 62% at 50% 66%, rgba(0,0,0,1), transparent 78%);
+}
+
+/* ===== FUNDADORES (avatares circulares premium) ===== */
+.founder-row { display:flex; align-items:center; gap:0.85rem; opacity:0; }
+.founder-row .faces { display:flex; flex:0 0 auto; }
+.founder-row .faces img {
+  width:50px; height:50px; border-radius:50%; object-fit:cover; display:block;
+  border:2px solid var(--card-2);
+  box-shadow: 0 0 0 1px rgba(0,212,255,0.35), 0 4px 14px rgba(0,0,0,0.45);
+  margin-left:-13px;
+}
+.founder-row .faces img:first-child { margin-left:0; }
+.founder-row .f-cap {
+  font-family: var(--font-mono); font-size:0.74rem; letter-spacing:0.12em;
+  text-transform:uppercase; color: var(--muted); line-height:1.5;
+}
+.founder-row .f-cap b { color: var(--smoke); font-weight:600; }
+.duo-card .founder-row { margin-top:1.15rem; padding-top:1.05rem; border-top:1px solid var(--line); }
+@media (max-width: 560px) {
+  .founder-row .faces img { width:42px; height:42px; }
+  .founder-row .f-cap { font-size:0.64rem; }
+}
+
 /* ======================= STAGE (content container) =======================
    RAIZ DO LAYOUT: cada slide e um flex-column de altura total, dividido em
    3 zonas verticais: head (logo) + body (titulo/conteudo, centrado e contido)
@@ -508,7 +567,11 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
 
     <!-- ===== SLIDE 1 - CAPA ===== -->
     <section data-slide="1">
-      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="slide-bg">
+        <img class="bg-photo full" src="assets/bg-orchestra.webp" alt="" aria-hidden="true" decoding="async" />
+        <div class="bg-veil"></div>
+        <span class="orb c"></span><span class="orb p"></span>
+      </div>
       <div class="stage">
         <div class="stage-head"></div>
         <div class="stage-body">
@@ -557,6 +620,14 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
                 <li>Execução, suporte e manutenção</li>
                 <li>Produto validado em operação real</li>
               </ul>
+              <div class="founder-row anim-el">
+                <span class="faces">
+                  <img src="assets/avatar-salatiel.webp" alt="Salatiel Batista" loading="lazy" decoding="async" />
+                  <img src="assets/avatar-joel.webp" alt="Joel Visgueira" loading="lazy" decoding="async" />
+                  <img src="assets/avatar-raquel.webp" alt="Raquel Coelho" loading="lazy" decoding="async" />
+                </span>
+                <span class="f-cap"><b>Salatiel · Joel · Raquel</b><br>Fundadores</span>
+              </div>
             </div>
           </div>
           <p class="force-line anim-el">Juntos, <em>um mercado que nenhum dos dois lados abriria sozinho</em> na mesma escala.</p>
@@ -566,7 +637,10 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
 
     <!-- ===== SLIDE 3 - PRODUTO 1: MAIA — so o simbolo da MAIA ===== -->
     <section data-slide="3">
-      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="slide-bg">
+        <div class="bg-side"><img src="assets/bg-network.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div>
+        <span class="orb c"></span><span class="orb p"></span>
+      </div>
       <div class="stage">
         <div class="stage-head">
           <div class="prod-logo anim-el">
@@ -597,7 +671,10 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
 
     <!-- ===== SLIDE 4 - PRODUTO 2: SDR — so a Lis ===== -->
     <section data-slide="4">
-      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="slide-bg">
+        <div class="bg-side"><img src="assets/bg-whatsapp.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div>
+        <span class="orb c"></span><span class="orb p"></span>
+      </div>
       <div class="stage">
         <div class="stage-head">
           <div class="prod-logo anim-el">
@@ -628,7 +705,10 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
 
     <!-- ===== SLIDE 5 - PRODUTO 3: GESTÃO DE REDES — Digital Master ===== -->
     <section data-slide="5">
-      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="slide-bg">
+        <div class="bg-side dim"><img src="assets/bg-calendar.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div>
+        <span class="orb c"></span><span class="orb p"></span>
+      </div>
       <div class="stage">
         <div class="stage-head">
           <div class="prod-logo anim-el">
@@ -658,7 +738,10 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
 
     <!-- ===== SLIDE 6 - O TAMANHO (RECORRÊNCIA) ===== -->
     <section data-slide="6">
-      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="slide-bg">
+        <img class="bg-glowimg" src="assets/bg-vault.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <span class="orb c"></span><span class="orb p"></span>
+      </div>
       <div class="stage center">
         <div class="stage-head">
           <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
@@ -731,7 +814,10 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
 
     <!-- ===== SLIDE 9 - A META E O ROI (fechamento) ===== -->
     <section data-slide="9">
-      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="slide-bg">
+        <div class="bg-side faint"><img src="assets/bg-hero.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div>
+        <span class="orb c"></span><span class="orb p"></span>
+      </div>
       <div class="stage">
         <div class="stage-head">
           <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
@@ -812,7 +898,15 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
               <p>Quem vende bem é quem <strong>usa todo dia</strong>. Você opera e recomenda com propriedade.</p>
             </div>
           </div>
-          <p class="legal anim-el"><b>AGÊNCIA NO BOLSO INOVA SIMPLES (I.S.)</b> · CNPJ 63.598.117/0001-39</p>
+          <div class="founder-row anim-el" style="margin-top:1.6rem;">
+            <span class="faces">
+              <img src="assets/avatar-salatiel.webp" alt="Salatiel Batista" loading="lazy" decoding="async" />
+              <img src="assets/avatar-joel.webp" alt="Joel Visgueira" loading="lazy" decoding="async" />
+              <img src="assets/avatar-raquel.webp" alt="Raquel Coelho" loading="lazy" decoding="async" />
+            </span>
+            <span class="f-cap"><b>Salatiel · Joel · Raquel</b><br>Fundadores · Agência no Bolso</span>
+          </div>
+          <p class="legal anim-el" style="margin-top:1rem;"><b>AGÊNCIA NO BOLSO INOVA SIMPLES (I.S.)</b> · CNPJ 63.598.117/0001-39</p>
         </div>
         <div class="deck-actions anim-el">
           <a class="btn btn-cta" href="https://wa.me/5586994748499?text=Quero%20receber%20o%20contrato%20da%20parceria%20Ag%C3%AAncia%20no%20Bolso" target="_blank" rel="noopener">
