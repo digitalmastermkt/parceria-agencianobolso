@@ -435,6 +435,44 @@ img { max-width: 100%; height: auto; }
 .sim-card.max .num { color: var(--purple); }
 .sim-card .per { font-size: 0.95rem; color: var(--muted); margin-top: 0.5rem; }
 
+/* ======================= GRÁFICO DE CRESCIMENTO (recorrência escala com a rede) ======================= */
+.grow {
+  width: 100%; max-width: 780px; margin: 1.7rem auto 0;
+  border: 1px solid var(--line); border-radius: 18px; background: var(--card);
+  padding: 1.6rem 1.8rem 1.3rem; opacity: 0;
+}
+.grow .g-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  margin-bottom: 1.3rem; flex-wrap: wrap;
+}
+.grow .g-title { font-family: var(--font-display); font-weight: 600; font-size: 1.08rem; color: var(--smoke); }
+.grow .g-note { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
+.grow .g-bars {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: end;
+  height: 190px;
+}
+.grow .g-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 0.55rem; }
+.grow .g-val { font-family: var(--font-mono); font-weight: 600; font-size: 1.12rem; color: var(--smoke); letter-spacing: -0.01em; }
+.grow .g-bar {
+  width: 100%; max-width: 88px; border-radius: 10px 10px 0 0; position: relative;
+  background: linear-gradient(180deg, var(--cyan), rgba(0,212,255,0.28));
+  height: 0; transition: height 0.95s cubic-bezier(0.22,1,0.36,1);
+  box-shadow: 0 0 26px rgba(0,212,255,0.18);
+}
+.grow .g-col:last-child .g-bar {
+  background: linear-gradient(180deg, var(--purple), rgba(168,85,247,0.3));
+  box-shadow: 0 0 30px rgba(168,85,247,0.22);
+}
+.grow.drawn .g-bar { height: var(--h); }
+.grow .g-base { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.03em; }
+.grow .g-base b { color: var(--smoke); font-weight: 600; }
+@media (max-width: 560px) {
+  .grow { padding: 1.2rem 1.15rem 1rem; }
+  .grow .g-bars { height: 150px; gap: 0.9rem; }
+  .grow .g-val { font-size: 0.92rem; }
+  .grow .g-base { font-size: 0.68rem; }
+}
+
 /* ======================= META / ROI ======================= */
 .roi { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0.6rem; }
 .roi-card { border: 1px solid var(--line); border-radius: 18px; padding: 1.9rem 1.7rem; background: var(--card); opacity: 0; }
@@ -571,6 +609,105 @@ footer.site-footer .right { color: var(--cyan); font-weight: 600; }
   margin-bottom: 1.1rem; opacity: 0;
 }
 .tree-ref b { color: var(--smoke); font-weight: 600; }
+
+/* ======================= ÁRVORE DE INDICAÇÃO (diagrama visual da rede) =======================
+   Diagrama de árvore em 3 níveis: VOCÊ no topo -> indicados diretos (nível 1, 10%)
+   -> indicados deles (nível 2, 5% pra quem recrutou). Linhas SVG desenhadas atrás,
+   nós em HTML sobrepostos. Responsivo: no mobile vira lista vertical indentada. */
+.reftree {
+  position: relative; width: 100%; margin: 0.2rem 0 1rem;
+  --n1: var(--cyan); --n2: var(--purple);
+}
+.reftree-svg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 1; overflow: visible;
+}
+.reftree-svg path {
+  fill: none; stroke-width: 2.5; stroke-linecap: round;
+  stroke-dasharray: var(--len); stroke-dashoffset: var(--len);
+}
+.reftree.drawn .reftree-svg path { stroke-dashoffset: 0; transition: stroke-dashoffset 1s cubic-bezier(0.22,1,0.36,1); }
+.reftree-svg .lvl1 { stroke: rgba(0,212,255,0.8); filter: drop-shadow(0 0 3px rgba(0,212,255,0.5)); }
+.reftree-svg .lvl2 { stroke: rgba(168,85,247,0.7); filter: drop-shadow(0 0 3px rgba(168,85,247,0.4)); }
+
+/* grade de posicionamento dos nós (3 linhas). z acima do SVG. */
+.reftree-rows { position: relative; z-index: 2; display: grid; gap: 3.6rem; }
+.reftree-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: nowrap; }
+.reftree-row.r2 { gap: 0.7rem; }
+
+/* nó base */
+.rt-node {
+  position: relative; border-radius: 14px; background: var(--card-2);
+  border: 1px solid var(--line-strong); padding: 0.72rem 0.95rem;
+  text-align: center; min-width: 0; opacity: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+.rt-node .rt-name {
+  display: block;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.02rem;
+  color: var(--smoke); letter-spacing: -0.01em; line-height: 1.15;
+}
+.rt-node .rt-sub {
+  display: block;
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em;
+  color: var(--muted); margin-top: 0.22rem; text-transform: uppercase;
+}
+.rt-node .rt-pct {
+  display: inline-block; margin-top: 0.55rem;
+  font-family: var(--font-mono); font-weight: 600; font-size: 0.74rem;
+  padding: 0.2rem 0.6rem; border-radius: 999px; letter-spacing: 0.02em; white-space: nowrap;
+}
+
+/* nó topo: VOCÊ (destaque, gradiente de borda) */
+.rt-node.rt-you {
+  min-width: 190px; padding: 0.95rem 1.6rem;
+  background: linear-gradient(150deg, rgba(0,212,255,0.14), rgba(168,85,247,0.12)), var(--card-2);
+  border-color: transparent;
+  box-shadow: 0 0 0 1px rgba(0,212,255,0.5), 0 10px 30px rgba(0,212,255,0.16);
+}
+.rt-node.rt-you .rt-name { font-size: 1.5rem; }
+.rt-node.rt-you .rt-badge {
+  font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--cyan); display:block; margin-bottom: 0.15rem;
+}
+
+/* nível 1: indicados diretos */
+.rt-node.rt-l1 { min-width: 150px; border-color: rgba(0,212,255,0.4); }
+.rt-node.rt-l1 .rt-pct { color: var(--cyan); background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.35); }
+/* nível 2: sub-indicados */
+.rt-node.rt-l2 { min-width: 104px; padding: 0.55rem 0.6rem; border-color: rgba(168,85,247,0.32); background: var(--card); }
+.rt-node.rt-l2 .rt-name { font-size: 0.86rem; }
+.rt-node.rt-l2 .rt-pct { margin-top: 0.4rem; font-size: 0.66rem; color: var(--purple); background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.32); padding: 0.12rem 0.45rem; }
+
+/* legenda de fluxo de comissão (setas subindo) */
+.rt-legend {
+  display: flex; justify-content: center; gap: 1.4rem; flex-wrap: wrap;
+  margin-top: 0.2rem; opacity: 0;
+}
+.rt-legend .rl-item {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-mono); font-size: 0.78rem; color: #cfcfd6; letter-spacing: 0.01em;
+}
+.rt-legend .rl-dot { width: 0.62rem; height: 0.62rem; border-radius: 50%; flex: 0 0 auto; }
+.rt-legend .rl-dot.d1 { background: var(--cyan); box-shadow: 0 0 8px rgba(0,212,255,0.6); }
+.rt-legend .rl-dot.d2 { background: var(--purple); box-shadow: 0 0 8px rgba(168,85,247,0.6); }
+.rt-legend .rl-dot.d0 { background: linear-gradient(135deg, var(--cyan), var(--purple)); }
+.rt-legend b { color: var(--smoke); font-weight: 600; }
+
+@media (max-width: 820px) {
+  .reftree-svg { display: none; }
+  .reftree-rows { gap: 0.7rem; }
+  .reftree-row { flex-wrap: wrap; }
+  .reftree-row.r2 { padding-left: 1.1rem; }
+  .rt-node.rt-you { min-width: 0; width: 100%; }
+  .rt-node.rt-l1 { flex: 1 1 44%; min-width: 0; }
+  .rt-node.rt-l2 { flex: 1 1 30%; }
+}
+@media (max-width: 560px) {
+  .reftree-row.r1 { gap: 0.6rem; }
+  .rt-node.rt-you .rt-name { font-size: 1.25rem; }
+  .rt-node.rt-l1 .rt-name { font-size: 0.92rem; }
+}
 
 /* layout comissão: coluna de vendas + box regra de ouro */
 .comm-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 1.4rem; align-items: stretch; }
@@ -964,6 +1101,30 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
               <div class="per">por mês</div>
             </div>
           </div>
+
+          <div class="grow anim-el" id="growChart" style="text-align:left;">
+            <div class="g-head">
+              <span class="g-title">Recorrência MAIA cresce com a sua rede</span>
+              <span class="g-note">comissão de 10% · por mês</span>
+            </div>
+            <div class="g-bars">
+              <div class="g-col">
+                <span class="g-val">R$ 1.403</span>
+                <div class="g-bar" style="--h:25%;"></div>
+                <span class="g-base"><b>25</b> clientes</span>
+              </div>
+              <div class="g-col">
+                <span class="g-val">R$ 2.806</span>
+                <div class="g-bar" style="--h:50%;"></div>
+                <span class="g-base"><b>50</b> clientes</span>
+              </div>
+              <div class="g-col">
+                <span class="g-val">R$ 5.611</span>
+                <div class="g-bar" style="--h:100%;"></div>
+                <span class="g-base"><b>100</b> clientes</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1074,32 +1235,70 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
         </div>
         <div class="stage-body">
           <span class="sim-note anim-el">Exemplo simulado · valores de referência</span>
-          <h2 class="headline size-md anim-el">Estrutura de comissão em rede — <span class="glow">2 níveis</span></h2>
+          <h2 class="headline size-md anim-el">A sua árvore de <span class="glow">indicação</span></h2>
 
-          <div class="tree">
-            <div class="tree-node n-a anim-el"><div class="tn-name">Parceiro A</div><div class="tn-rel">Vende a B</div></div>
-            <div class="tree-node n-b anim-el"><div class="tn-name">Parceiro B</div><div class="tn-rel">Recrutado por A</div></div>
-            <div class="tree-node n-c anim-el"><div class="tn-name">Parceiro C</div><div class="tn-rel">Recrutado por B</div></div>
-            <div class="tree-node n-d anim-el"><div class="tn-name">Parceiro D</div><div class="tn-rel">Recrutado por C</div></div>
+          <!-- ===== DIAGRAMA VISUAL DA ÁRVORE DE INDICAÇÃO ===== -->
+          <div class="reftree anim-el" id="reftree">
+            <svg class="reftree-svg" id="reftreeSvg" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <div class="reftree-rows">
+              <!-- Nível 0: VOCÊ -->
+              <div class="reftree-row r0">
+                <div class="rt-node rt-you anim-el" data-node="you">
+                  <span class="rt-badge">Topo da rede</span>
+                  <span class="rt-name">VOCÊ</span>
+                </div>
+              </div>
+              <!-- Nível 1: indicados diretos (10%) -->
+              <div class="reftree-row r1">
+                <div class="rt-node rt-l1 anim-el" data-node="d1"><span class="rt-name">Indicado 1</span><span class="rt-sub">venda direta</span><span class="rt-pct">você ganha 10%</span></div>
+                <div class="rt-node rt-l1 anim-el" data-node="d2"><span class="rt-name">Indicado 2</span><span class="rt-sub">venda direta</span><span class="rt-pct">você ganha 10%</span></div>
+              </div>
+              <!-- Nível 2: indicados dos indicados (5% pra quem recrutou) -->
+              <div class="reftree-row r2">
+                <div class="rt-node rt-l2 anim-el" data-node="n1"><span class="rt-name">Rede do 1</span><span class="rt-pct">+5%</span></div>
+                <div class="rt-node rt-l2 anim-el" data-node="n2"><span class="rt-name">Rede do 1</span><span class="rt-pct">+5%</span></div>
+                <div class="rt-node rt-l2 anim-el" data-node="n3"><span class="rt-name">Rede do 2</span><span class="rt-pct">+5%</span></div>
+                <div class="rt-node rt-l2 anim-el" data-node="n4"><span class="rt-name">Rede do 2</span><span class="rt-pct">+5%</span></div>
+              </div>
+            </div>
           </div>
-          <p class="tree-ref anim-el">Valores de referência: <b>implantação R$ 25.000</b> · <b>recorrência líquida R$ 561,00/mês</b></p>
+          <div class="rt-legend anim-el">
+            <span class="rl-item"><span class="rl-dot d1"></span>Indicação <b>direta</b>: sua comissão de <b>10%</b></span>
+            <span class="rl-item"><span class="rl-dot d2"></span>Indicação <b>da sua rede</b>: você ainda leva <b>5%</b></span>
+            <span class="rl-item"><span class="rl-dot d0"></span>Vale pra <b>implantação e recorrência</b></span>
+          </div>
+          <p class="tree-ref anim-el" style="text-align:center;margin-top:0.9rem;">Referência: <b>implantação R$ 25.000</b> · <b>recorrência líquida R$ 561,00/mês</b>. O nível encerra em 1: ninguém ganha da rede da rede.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 12 - COMISSÃO NA PRÁTICA (venda a venda) ===== -->
+    <section data-slide="12">
+      <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
+      <div class="stage">
+        <div class="stage-head">
+          <div class="slide-logo anim-el"><img src="assets/logo-agencia-ondark.png" alt="Agência no Bolso" /></div>
+        </div>
+        <div class="stage-body">
+          <span class="sim-note anim-el">Exemplo simulado · valores de referência</span>
+          <h2 class="headline size-md anim-el">A comissão descendo pela rede, <span class="glow">venda a venda</span></h2>
 
           <div class="comm-grid">
             <div class="sales-col">
               <div class="sale-card anim-el">
-                <div class="sc-head">Venda 1 — B compra de A</div>
+                <div class="sc-head">Venda 1 · B compra de A</div>
                 <span class="sc-line"><span class="who">A</span> (vendedor direto): <span class="cy">10% = R$ 2.500</span> · recorrência <span class="pu">R$ 56,10/mês</span></span>
               </div>
               <div class="sale-card anim-el">
-                <div class="sc-head">Venda 2 — C compra de B</div>
+                <div class="sc-head">Venda 2 · C compra de B</div>
                 <span class="sc-line"><span class="who">B</span> (vendedor direto): <span class="cy">10% = R$ 2.500</span> · recorrência <span class="pu">R$ 56,10/mês</span></span>
                 <span class="sc-line"><span class="who">A</span> (recrutou B · 1 nível): <span class="cy">5% = R$ 1.250</span> · recorrência <span class="pu">R$ 28,05/mês</span></span>
               </div>
               <div class="sale-card anim-el">
-                <div class="sc-head">Venda 3 — D compra de C</div>
+                <div class="sc-head">Venda 3 · D compra de C</div>
                 <span class="sc-line"><span class="who">C</span> (vendedor direto): <span class="cy">10% = R$ 2.500</span> · recorrência <span class="pu">R$ 56,10/mês</span></span>
                 <span class="sc-line"><span class="who">B</span> (recrutou C · 1 nível): <span class="cy">5% = R$ 1.250</span> · recorrência <span class="pu">R$ 28,05/mês</span></span>
-                <span class="sc-line off"><span class="who">A</span>: 0% — nível encerrado (nem implantação, nem recorrência)</span>
+                <span class="sc-line off"><span class="who">A</span>: 0% · nível encerrado (nem implantação, nem recorrência)</span>
               </div>
             </div>
 
@@ -1109,20 +1308,20 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
                 <li>Vale <b>igual</b> pra implantação e recorrência.</li>
                 <li><b>Vendedor direto</b>: sempre 10%.</li>
                 <li><b>Recrutador</b> (1 nível acima): sempre 5%.</li>
-                <li>Ninguém ganha da venda de quem seu recrutado recrutou — <b>nível encerra em 1</b>.</li>
+                <li>Ninguém ganha da venda de quem seu recrutado recrutou: <b>nível encerra em 1</b>.</li>
               </ul>
             </div>
           </div>
 
           <div class="disclaimer-band anim-el">
-            Comissão sempre sobre o <b>valor real da venda</b> — nunca sobre valor fixo. Salatiel é o dono da MAIA, <b>fora dessa árvore de comissão</b>.
+            Comissão sempre sobre o <b>valor real da venda</b>, nunca sobre valor fixo. Salatiel é o dono da MAIA, <b>fora dessa árvore de comissão</b>.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== SLIDE 12 - PROJEÇÃO: LUCRATIVIDADE DO FUNDADOR ===== -->
-    <section data-slide="12">
+    <!-- ===== SLIDE 13 - PROJEÇÃO: LUCRATIVIDADE DO FUNDADOR ===== -->
+    <section data-slide="13">
       <div class="slide-bg"><span class="orb c"></span><span class="orb p"></span></div>
       <div class="stage">
         <div class="stage-head">
@@ -1162,18 +1361,18 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
           <div class="paga-box anim-el">
             <div class="pb-tag">O fundador se paga e ainda lucra</div>
             <p>Com apenas <strong style="color:var(--smoke)">2 vendas diretas</strong> (R$ 2.500 cada), os R$ 5.000 do crédito já estão quitados. A mensalidade da própria MAIA custa R$ 597/mês, e a recorrência total (direto + rede) de R$ 1.374,45/mês cobre essa mensalidade com folga.</p>
-            <p class="lucro">Lucro líquido recorrente do fundador: <b>R$ 777,45/mês</b> — todo mês, enquanto os clientes da rede continuarem ativos.</p>
+            <p class="lucro">Lucro líquido recorrente do fundador: <b>R$ 777,45/mês</b>, todo mês, enquanto os clientes da rede continuarem ativos.</p>
           </div>
 
           <div class="disclaimer-band anim-el">
-            Tamanho da rede (5 recrutados) é <b>exemplo ilustrativo</b> — não é meta obrigatória.
+            Tamanho da rede (5 recrutados) é <b>exemplo ilustrativo</b>, não é meta obrigatória.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== SLIDE 13 - OS SÓCIOS (a equipe que entrega) ===== -->
-    <section data-slide="13">
+    <!-- ===== SLIDE 14 - OS SÓCIOS (a equipe que entrega) ===== -->
+    <section data-slide="14">
       <div class="slide-bg">
         <div class="bg-side faint"><img src="assets/bg-orchestra.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div>
         <span class="orb c"></span><span class="orb p"></span>
@@ -1230,7 +1429,7 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
     <span class="left">Parceria Agência no Bolso · MAIA + SDR</span>
     <span class="foot-cnpj"><b>Agência no Bolso Inova Simples (I.S.)</b> · CNPJ 63.598.117/0001-39</span>
   </span>
-  <span class="right" id="slide-counter">01 / 13</span>
+  <span class="right" id="slide-counter">01 / 14</span>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
@@ -1259,8 +1458,10 @@ function updateCounter() {
   const el = document.getElementById('slide-counter');
   if (el) el.textContent = `${String(i.h + 1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
   // Na capa (slide 1) nao ha anterior: esconde a seta esquerda.
+  // No mobile (<=820px) as setas ficam escondidas pelo CSS — nao forçar inline.
   const prev = document.getElementById('navPrev');
-  if (prev) prev.style.display = (i.h === 0) ? 'none' : 'flex';
+  const isMobile = window.matchMedia('(max-width: 820px)').matches;
+  if (prev) prev.style.display = isMobile ? '' : (i.h === 0 ? 'none' : 'flex');
 }
 
 const REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1282,7 +1483,73 @@ function animateSlide(slide) {
   if (els.length) gsap.fromTo(els,
     { opacity: 0, y: 26 },
     { opacity: 1, y: 0, duration: 0.66, ease: 'power2.out', stagger: 0.11, delay: 0.2 });
+
+  // Árvore de indicação: desenhar os conectores quando o slide entra
+  const tree = slide.querySelector('#reftree');
+  if (tree) drawReferralTree(tree, !REDUCE);
+
+  // Gráfico de crescimento: subir as barras quando o slide entra
+  const grow = slide.querySelector('#growChart');
+  if (grow) {
+    grow.classList.remove('drawn');
+    if (REDUCE) { grow.classList.add('drawn'); }
+    else { void grow.getBoundingClientRect(); requestAnimationFrame(() => grow.classList.add('drawn')); }
+  }
 }
+
+/* Desenha os conectores SVG entre VOCÊ -> nível 1 -> nível 2.
+   Recalcula geometria a partir das posições reais dos nós (responsivo). */
+function drawReferralTree(tree, animate) {
+  const svg = tree.querySelector('#reftreeSvg');
+  const you = tree.querySelector('[data-node="you"]');
+  if (!svg || !you) return;
+  // No mobile o SVG está escondido (display:none): não desenhar.
+  if (getComputedStyle(svg).display === 'none') return;
+
+  const L1 = [...tree.querySelectorAll('.rt-l1')];
+  const map = { d1: ['n1','n2'], d2: ['n3','n4'] };
+  const box = tree.getBoundingClientRect();
+  const cx = (el) => { const r = el.getBoundingClientRect(); return { x: r.left - box.left + r.width/2, top: r.top - box.top, bottom: r.top - box.top + r.height }; };
+
+  svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+  let paths = '';
+  const curve = (x1,y1,x2,y2) => { const my = (y1+y2)/2; return `M ${x1} ${y1} C ${x1} ${my}, ${x2} ${my}, ${x2} ${y2}`; };
+
+  const you_c = cx(you);
+  L1.forEach((l1) => {
+    const c = cx(l1);
+    paths += `<path class="lvl1" d="${curve(you_c.x, you_c.bottom, c.x, c.top)}"/>`;
+    (map[l1.dataset.node] || []).forEach((id) => {
+      const child = tree.querySelector(`[data-node="${id}"]`);
+      if (!child) return;
+      const cc = cx(child);
+      paths += `<path class="lvl2" d="${curve(c.x, c.bottom, cc.x, cc.top)}"/>`;
+    });
+  });
+  svg.innerHTML = paths;
+
+  // define comprimento de cada traço p/ animar o "desenho"
+  tree.classList.remove('drawn');
+  svg.querySelectorAll('path').forEach((p) => {
+    const len = p.getTotalLength();
+    p.style.setProperty('--len', len);
+  });
+  if (animate) { void svg.getBoundingClientRect(); requestAnimationFrame(() => tree.classList.add('drawn')); }
+  else tree.classList.add('drawn');
+}
+
+// Redesenhar a árvore no resize (debounced) se o slide dela estiver visível
+let _rtT;
+window.addEventListener('resize', () => {
+  clearTimeout(_rtT);
+  _rtT = setTimeout(() => {
+    const t = document.querySelector('.present #reftree, section.present #reftree');
+    const tree = document.querySelector('#reftree');
+    if (tree && tree.closest('section') && tree.closest('section').classList.contains('present')) {
+      drawReferralTree(tree, false);
+    }
+  }, 180);
+});
 </script>
 </body>
 </html>
