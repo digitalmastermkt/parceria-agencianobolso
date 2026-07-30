@@ -555,6 +555,10 @@ footer.site-footer .right { color: var(--cyan); font-weight: 600; }
   border-color: var(--line-strong);
 }
 .btn-pdf:hover { border-color: var(--purple); color: #fff; box-shadow: 0 6px 22px rgba(168,85,247,0.28); }
+/* botão de download inline dentro de um slide */
+.slide-download { margin-top: 1.35rem; display: flex; }
+.slide-download .btn { font-size: 0.86rem; }
+@media (max-width: 640px){ .slide-download { margin-top: 1rem; } .slide-download .btn { width: 100%; justify-content: center; } }
 
 /* ======================= NAV ARROWS ======================= */
 .custom-nav {
@@ -1223,6 +1227,12 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
             <li class="anim-el">Você entra na <strong>comunidade de fundadores</strong>: encontros, demonstrações e treinamento de venda e prospecção.</li>
           </ul>
           <p class="force-line anim-el">Transparência total. <em>Cada condição está escrita e explicada</em> antes de qualquer assinatura.</p>
+          <div class="slide-download anim-el">
+            <a class="btn btn-pdf" href="contrato-padrao-parceria-associado-fundador.pdf?v=1" download>
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+              Baixar contrato padrão (PDF)
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1270,6 +1280,12 @@ body.pdf-mode .custom-nav, body.pdf-mode .deck-actions { display: none !importan
             <span class="rl-item"><span class="rl-dot d0"></span>Vale pra <b>implantação e recorrência</b></span>
           </div>
           <p class="tree-ref anim-el" style="text-align:center;margin-top:0.9rem;">Referência: <b>implantação R$ 25.000</b> · <b>recorrência líquida R$ 561,00/mês</b>. O nível encerra em 1: ninguém ganha da rede da rede.</p>
+          <div class="slide-download anim-el" style="justify-content:center;">
+            <a class="btn btn-cta" href="apresentacao-parceria-agencia-no-bolso.pdf?v=1" download>
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+              Baixar proposta (PDF)
+            </a>
+          </div>
         </div>
       </div>
     </section>
