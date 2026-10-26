@@ -4,39 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Programa de Parceria MaIA · Agência no Bolso</title>
-<meta name="description" content="Três jeitos de ganhar com a MaIA: Parceiro Indicador, Parceiro Divulgador e Embaixador. Regras, comissões e exemplos, com transparência total.">
+<meta name="description" content="Construa sua rede com a MaIA e ganhe todo mês: Parceiro Indicador, Parceiro Divulgador e Embaixador. Comissões, árvore de rede e simulações de ganho.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Agência no Bolso — MaIA">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Programa de Parceria MaIA">
-<meta property="og:description" content="Indicador, Divulgador ou Embaixador: três jeitos de ganhar indicando a MaIA.">
+<meta property="og:description" content="Construa sua rede com a MaIA e ganhe todo mês. Indicador, Divulgador ou Embaixador.">
 <meta property="og:url" content="https://parceria.agencianobolso.com.br/">
-<meta property="og:image" content="https://parceria.agencianobolso.com.br/assets/og-parceria.png?v=2">
+<meta property="og:image" content="https://parceria.agencianobolso.com.br/assets/og-parceria.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Programa de Parceria MaIA">
-<meta name="twitter:description" content="Indicador, Divulgador ou Embaixador: três jeitos de ganhar indicando a MaIA.">
-<meta name="twitter:image" content="https://parceria.agencianobolso.com.br/assets/og-parceria.png?v=2">
+<meta name="twitter:description" content="Construa sua rede com a MaIA e ganhe todo mês. Indicador, Divulgador ou Embaixador.">
+<meta name="twitter:image" content="https://parceria.agencianobolso.com.br/assets/og-parceria.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --fundo:#0E0E11; --fundo2:#16161B; --cartao:#1C1C22; --linha:#2E2E36;
+  --fundo:#0E0E11; --fundo2:#15151A; --cartao:#1C1C22; --linha:#2E2E36;
   --texto:#F4F1EC; --suave:#B3B0BA;
-  --coral:#F0603A; --coral-esc:#B4380F;
-  --ind:#2DD4BF; --div:#F0603A; --emb:#E8B04B;
-  --claro:#FBF7F2; --claro2:#F3ECE3; --tinta:#1A1A1F; --tinta-suave:#57534E; --linha-clara:#E4DAD0;
+  --coral:#F0603A; --coral-esc:#B4380F; --ouro:#F2B544; --ouro-esc:#7A5200;
+  --ind:#2DD4BF; --ind-esc:#0F766E; --div:#F0603A; --emb:#F2B544;
+  --claro:#FBF7F2; --tinta:#1A1A1F; --tinta-suave:#57534E; --linha-clara:#E4DAD0;
   --fd:'Bricolage Grotesque','Inter',system-ui,sans-serif;
   --fb:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
 html.a11y-contraste{
   --fundo:#000; --fundo2:#000; --cartao:#000; --linha:#fff; --texto:#fff; --suave:#fff;
-  --coral:#FFD600; --coral-esc:#000; --ind:#FFD600; --div:#FFD600; --emb:#FFD600;
-  --claro:#000; --claro2:#000; --tinta:#fff; --tinta-suave:#fff; --linha-clara:#fff;
+  --coral:#FFD600; --coral-esc:#FFD600; --ouro:#FFD600; --ouro-esc:#FFD600; --ind:#FFD600; --ind-esc:#FFD600; --div:#FFD600; --emb:#FFD600;
+  --claro:#000; --tinta:#fff; --tinta-suave:#fff; --linha-clara:#fff;
 }
 html.a11y-contraste a{color:#FFD600 !important}
+html.a11y-contraste .slide{background:#000 !important}
+html.a11y-contraste .cartao,html.a11y-contraste .degrau,html.a11y-contraste .tab-wrap,html.a11y-contraste .simu{background:#000 !important;border-color:#fff !important}
 html.a11y-legivel{--fd:'Inter',Arial,sans-serif}
 html.a11y-legivel body{letter-spacing:.03em;word-spacing:.08em;line-height:1.75}
 html.a11y-links a{text-decoration:underline !important;text-decoration-thickness:3px !important;outline:2px solid currentColor;outline-offset:2px}
@@ -47,132 +49,161 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity}
 body{margin:0;background:var(--fundo);color:var(--texto);font-family:var(--fb);font-size:1rem;line-height:1.55;overflow-x:hidden}
 img{max-width:100%;height:auto}
 a{color:var(--coral)}
-:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:3px;border-radius:4px}
 .pular{position:absolute;left:-999px;top:8px;background:var(--coral);color:#0E0E11;padding:12px 16px;font-weight:700;z-index:100;border-radius:8px}
 .pular:focus{left:12px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* topo */
-.topo{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(16px,4vw,40px);background:rgba(14,14,17,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+.topo{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px clamp(16px,4vw,40px);background:rgba(14,14,17,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
 html.a11y-contraste .topo{background:#000}
 .marca{display:flex;align-items:center;gap:10px;color:var(--texto);text-decoration:none;font-family:var(--fd);font-weight:800;letter-spacing:.02em}
 .marca .ponto{width:14px;height:14px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(240,96,58,.18)}
 .marca small{display:block;font-family:var(--fb);font-weight:500;font-size:.72rem;color:var(--suave);letter-spacing:.08em;text-transform:uppercase}
-.contador{font-variant-numeric:tabular-nums;color:var(--suave);font-size:.9rem}
+.topo .dir{display:flex;align-items:center;gap:14px}
+.contador{font-variant-numeric:tabular-nums;color:var(--suave);font-size:.9rem;margin:0}
+.btn-topo{min-height:44px;display:inline-flex;align-items:center;padding:8px 16px;border-radius:999px;background:var(--coral);color:#0E0E11;font-weight:700;text-decoration:none;font-size:.9rem}
+@media (max-width:520px){.btn-topo{display:none}}
 
-/* slides */
-main{display:block}
-.slide{position:relative;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;padding:96px clamp(16px,5vw,72px) 88px;overflow:hidden}
+.slide{position:relative;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;padding:92px clamp(16px,5vw,72px) 92px;overflow:hidden}
 .slide>.in{width:100%;max-width:1180px;margin:0 auto;position:relative;z-index:1}
 .slide.claro{background:var(--claro);color:var(--tinta)}
-.slide.claro .sobre{color:var(--coral-esc)}
-.slide.claro .lead,.slide.claro p.s{color:var(--tinta-suave)}
+.slide.ouro-bg{background:radial-gradient(900px 560px at 80% 10%,rgba(242,181,68,.20),transparent 60%),radial-gradient(800px 500px at 0% 100%,rgba(240,96,58,.14),transparent 60%),var(--fundo)}
+.slide.coral-bg{background:radial-gradient(1000px 600px at 85% 15%,rgba(240,96,58,.26),transparent 60%),radial-gradient(700px 480px at 5% 95%,rgba(242,181,68,.12),transparent 60%),var(--fundo)}
 .sobre{font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin:0 0 14px}
-h1,h2,h3{font-family:var(--fd);margin:0;line-height:1.05;letter-spacing:-.01em}
-h1{font-size:clamp(2.6rem,7vw,5.6rem);font-weight:800}
-h2{font-size:clamp(2rem,4.6vw,3.6rem);font-weight:800;margin-bottom:18px}
-h3{font-size:1.35rem;font-weight:700;margin-bottom:8px}
-.lead{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--suave);max-width:760px;margin:0 0 28px}
+.slide.claro .sobre{color:var(--coral-esc)}
+h1,h2,h3{font-family:var(--fd);margin:0;line-height:1.04;letter-spacing:-.015em}
+h1{font-size:clamp(2.5rem,6.6vw,5.4rem);font-weight:800}
+h2{font-size:clamp(2rem,4.6vw,3.6rem);font-weight:800;margin-bottom:16px}
+h3{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.dest{color:var(--coral)} .dest-ouro{color:var(--ouro)}
+.slide.claro .dest{color:var(--coral-esc)} .slide.claro .dest-ouro{color:var(--ouro-esc)}
+.lead{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--suave);max-width:780px;margin:0 0 26px}
+.slide.claro .lead{color:var(--tinta-suave)}
 .grade{display:grid;gap:18px}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:960px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+@media (max-width:520px){.g4{grid-template-columns:1fr}}
 .cartao{background:var(--cartao);border:1px solid var(--linha);border-radius:18px;padding:22px}
 .slide.claro .cartao{background:#fff;border-color:var(--linha-clara)}
 .cartao p{margin:0 0 8px}
+.cartao .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(240,96,58,.14);color:var(--coral);margin-bottom:12px}
+.slide.claro .cartao .ic{color:var(--coral-esc)}
+.cartao .ic svg{width:24px;height:24px}
 .lista{margin:0;padding:0;list-style:none}
-.lista li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--linha)}
+.lista li{padding:9px 0 9px 30px;position:relative;border-bottom:1px solid var(--linha)}
 .slide.claro .lista li{border-color:var(--linha-clara)}
 .lista li:last-child{border-bottom:0}
-.lista li::before{content:"";position:absolute;left:4px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--coral)}
-.num{font-family:var(--fd);font-weight:800;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1}
+.lista li::before{content:"✓";position:absolute;left:2px;top:8px;font-weight:800;color:var(--coral)}
+.slide.claro .lista li::before{color:var(--coral-esc)}
+.num{font-family:var(--fd);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1}
 .etq{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:1.5px solid currentColor}
 .c-ind{color:var(--ind)} .c-div{color:var(--div)} .c-emb{color:var(--emb)}
-.slide.claro .c-ind{color:#0F766E} .slide.claro .c-div{color:var(--coral-esc)} .slide.claro .c-emb{color:#8A5A00}
-html.a11y-contraste .slide.claro .c-ind,html.a11y-contraste .slide.claro .c-div,html.a11y-contraste .slide.claro .c-emb{color:#FFD600}
-.borda-ind{border-top:5px solid var(--ind)} .borda-div{border-top:5px solid var(--div)} .borda-emb{border-top:5px solid var(--emb)}
-.nota{font-size:.9rem;color:var(--suave);margin-top:18px}
+.slide.claro .c-ind{color:var(--ind-esc)} .slide.claro .c-div{color:var(--coral-esc)} .slide.claro .c-emb{color:var(--ouro-esc)}
+.borda-ind{border-top:5px solid var(--ind) !important} .borda-div{border-top:5px solid var(--div) !important} .borda-emb{border-top:5px solid var(--emb) !important}
+.nota{font-size:.88rem;color:var(--suave);margin-top:16px}
 .slide.claro .nota{color:var(--tinta-suave)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:12px;background:var(--coral);color:#0E0E11;font-weight:700;text-decoration:none;border:0;font-size:1rem}
-.btn.sec{background:transparent;color:var(--texto);border:1.5px solid var(--linha)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:14px;background:var(--coral);color:#0E0E11;font-weight:800;text-decoration:none;border:0;font-size:1.05rem;box-shadow:0 12px 30px rgba(240,96,58,.35)}
+.btn.ouro{background:var(--ouro);box-shadow:0 12px 30px rgba(242,181,68,.3)}
+.btn.sec{background:transparent;color:var(--texto);border:1.5px solid var(--linha);box-shadow:none}
 .slide.claro .btn.sec{color:var(--tinta);border-color:var(--tinta)}
 html.a11y-contraste .btn{background:#FFD600;color:#000 !important}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
 
 /* capa */
-.capa{background:radial-gradient(900px 520px at 85% 20%,rgba(240,96,58,.22),transparent 60%),radial-gradient(700px 480px at 10% 90%,rgba(232,176,75,.10),transparent 60%),var(--fundo)}
-html.a11y-contraste .capa{background:#000}
-.capa .in{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.capa .in{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
 @media (max-width:860px){.capa .in{grid-template-columns:1fr}}
-.capa h1 span{color:var(--coral)}
-.foto-maia{width:min(340px,70vw);aspect-ratio:1;border-radius:50%;overflow:hidden;border:5px solid var(--coral);margin:0 auto;box-shadow:0 30px 80px rgba(240,96,58,.25)}
+.foto-maia{position:relative;width:min(360px,72vw);aspect-ratio:1;margin:0 auto}
+.foto-maia .circ{width:100%;height:100%;border-radius:50%;overflow:hidden;border:5px solid var(--coral);box-shadow:0 30px 90px rgba(240,96,58,.35)}
 .foto-maia img{width:100%;height:100%;object-fit:cover;display:block}
-.tres-chips{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 26px}
+.selo{position:absolute;right:-6px;bottom:18px;background:var(--ouro);color:#1A1A1F;font-weight:800;border-radius:16px;padding:10px 14px;font-size:.9rem;line-height:1.2;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.selo b{display:block;font-family:var(--fd);font-size:1.5rem}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:6px 0 26px;max-width:680px}
+@media (max-width:520px){.stats{grid-template-columns:1fr}}
+.stat{border-left:3px solid var(--coral);padding:4px 0 4px 12px}
+.stat b{display:block;font-family:var(--fd);font-size:1.7rem;line-height:1.1}
+.stat span{font-size:.88rem;color:var(--suave)}
 
-/* escada */
+/* carreira */
 .escada{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:end}
 @media (max-width:860px){.escada{grid-template-columns:1fr}}
-.degrau{border-radius:18px;padding:22px;background:var(--cartao);border:1px solid var(--linha)}
-.degrau.d1{min-height:250px}.degrau.d2{min-height:300px}.degrau.d3{min-height:350px}
+.degrau{border-radius:20px;padding:24px;background:var(--cartao);border:1px solid var(--linha);position:relative}
+.degrau.d1{min-height:280px}.degrau.d2{min-height:340px}.degrau.d3{min-height:400px;background:linear-gradient(160deg,rgba(242,181,68,.16),var(--cartao) 60%)}
 @media (max-width:860px){.degrau.d1,.degrau.d2,.degrau.d3{min-height:0}}
 .slide.claro .degrau{background:#fff;border-color:var(--linha-clara)}
-html.a11y-contraste .slide.claro .cartao,html.a11y-contraste .slide.claro .degrau{background:#000;border-color:#fff}
-.degrau .quem{font-weight:600;margin:10px 0 8px}
-.degrau .ganha{color:var(--suave);margin:0}
+.slide.claro .degrau.d3{background:linear-gradient(160deg,#FFF3D6,#fff 60%)}
 .slide.claro .degrau .ganha{color:var(--tinta-suave)}
+.degrau .quem{font-weight:700;margin:12px 0 10px;font-size:1.05rem}
+.degrau .ganha{color:var(--suave);margin:0 0 10px}
+.degrau .med{width:54px;height:54px;margin-bottom:10px}
+
+/* links / passos */
+.lk{border-radius:16px;background:var(--cartao);border:1px solid var(--linha);padding:16px;display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:center}
+.lk svg{width:72px;height:72px;background:#fff;border-radius:8px;padding:5px}
+.lk code{display:block;font-size:.82rem;color:var(--suave);word-break:break-all;margin-top:4px}
+.passos{counter-reset:p;display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.passos li{counter-increment:p;display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start}
+.passos li::before{content:counter(p);width:38px;height:38px;border-radius:50%;background:var(--ind);color:#0E0E11;font-weight:800;display:grid;place-items:center}
+html.a11y-contraste .passos li::before{background:#FFD600;color:#000}
 
 /* tabelas */
 .tab-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--linha-clara);background:#fff}
-html.a11y-contraste .tab-wrap{background:#000;border-color:#fff}
-table{width:100%;border-collapse:collapse;min-width:560px;font-size:.98rem}
-caption{text-align:left;padding:14px 16px 0;font-weight:700}
+table{width:100%;border-collapse:collapse;min-width:560px;font-size:.98rem;color:var(--tinta)}
 th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--linha-clara);vertical-align:top}
-thead th{background:var(--tinta);color:#fff;font-weight:600}
-html.a11y-contraste thead th{background:#000;border-bottom:2px solid #fff}
+thead th{background:#1A1A1F;color:#fff;font-weight:600}
+html.a11y-contraste table{color:#fff} html.a11y-contraste thead th{background:#000;border-bottom:2px solid #fff}
 tbody th{font-weight:700}
+td.big{font-family:var(--fd);font-weight:800;font-size:1.25rem}
 tr:last-child td,tr:last-child th{border-bottom:0}
 
-/* links do indicador */
-.linkbox{display:grid;gap:14px}
-.lk{border-radius:16px;background:var(--cartao);border:1px solid var(--linha);padding:18px;display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:center}
-.qr{width:64px;height:64px;border-radius:10px;background:
- conic-gradient(from 90deg at 30% 30%,#fff 25%,#0E0E11 0 50%,#fff 0 75%,#0E0E11 0) 0 0/16px 16px;border:6px solid #fff}
-.lk code{display:block;font-size:.85rem;color:var(--suave);word-break:break-all;margin-top:4px}
-.passos{counter-reset:p;display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.passos li{counter-increment:p;display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
-.passos li::before{content:counter(p);width:36px;height:36px;border-radius:50%;background:var(--ind);color:#0E0E11;font-weight:800;display:grid;place-items:center}
-html.a11y-contraste .passos li::before{background:#FFD600;color:#000}
+/* simulacoes */
+.simu{border-radius:22px;padding:24px;background:linear-gradient(160deg,#1F1F27,#141418);border:1px solid var(--linha)}
+.slide.claro .simu{background:#fff;border-color:var(--linha-clara)}
+.soma{display:grid;gap:10px}
+.parcela{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--linha)}
+.slide.claro .parcela{background:var(--claro);border-color:var(--linha-clara)}
+.parcela small{display:block;color:var(--suave);font-size:.85rem}
+.slide.claro .parcela small{color:var(--tinta-suave)}
+.parcela .v{font-family:var(--fd);font-weight:800;font-size:1.35rem;white-space:nowrap}
+.parcela.menos .v{color:var(--suave)}
+.total{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:6px;padding:18px;border-radius:16px;background:var(--coral);color:#0E0E11}
+.total.ouro{background:var(--ouro)}
+.total.ind{background:var(--ind)}
+html.a11y-contraste .total{background:#FFD600;color:#000}
+.total b{font-family:var(--fd);font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1}
+.total span{font-weight:700}
+.colunas{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:end;padding:10px 4px 0}
+.col{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%}
+.col .pista{height:190px;width:100%;display:flex;align-items:flex-end;justify-content:center}
+.col .bar{width:100%;max-width:90px;border-radius:12px 12px 4px 4px;background:linear-gradient(180deg,var(--ouro),var(--coral))}
+html.a11y-contraste .col .bar{background:#FFD600}
+.col .val{font-family:var(--fd);font-weight:800;font-size:1.05rem;text-align:center}
+.col .mes{color:var(--suave);font-size:.85rem}
 
 /* arvore */
-.arvore{display:grid;gap:14px;justify-items:center}
-.no{border-radius:14px;padding:12px 16px;text-align:center;min-width:180px;background:#fff;border:1.5px solid var(--linha-clara)}
-html.a11y-contraste .no{background:#000;border-color:#fff}
-.no b{display:block;font-family:var(--fd);font-size:1.1rem}
-.no.voce{background:var(--tinta);color:#fff;border-color:var(--tinta)}
-.nivel{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.seta{color:var(--tinta-suave);font-weight:700}
-
-/* simulacao */
-.barras{display:grid;gap:12px}
-.barra{display:grid;grid-template-columns:120px 1fr 130px;gap:12px;align-items:center}
-@media (max-width:560px){.barra{grid-template-columns:90px 1fr;}.barra .v{grid-column:2}}
-.trilho{height:18px;border-radius:9px;background:var(--linha);overflow:hidden}
-.trilho i{display:block;height:100%;background:linear-gradient(90deg,var(--coral),var(--emb));border-radius:9px}
-html.a11y-contraste .trilho i{background:#FFD600}
-.barra .v{font-family:var(--fd);font-weight:800;font-size:1.15rem}
+.arvore-wrap{border-radius:22px;background:#fff;border:1px solid var(--linha-clara);padding:10px}
+html.a11y-contraste .arvore-wrap{background:#000;border-color:#fff}
+.arvore-wrap{overflow-x:auto}
+.arvore-wrap svg{width:100%;min-width:620px;height:auto;display:block}
+.arv-grade{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:center}
+@media (max-width:960px){.arv-grade{grid-template-columns:1fr}}
+.legenda{display:grid;gap:10px}
+.legenda .it{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;padding:10px 12px;border-radius:14px;background:#fff;border:1px solid var(--linha-clara)}
+.legenda .it svg{width:44px;height:44px}
+.legenda b{font-family:var(--fd)}
 
 /* equipe */
-.socio{display:grid;grid-template-columns:88px 1fr;gap:16px;align-items:start}
-.socio img{width:88px;height:88px;border-radius:50%;object-fit:cover;border:3px solid var(--coral)}
+.socio{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:start}
+.socio img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--coral)}
 .socio .cargo{color:var(--coral);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin:2px 0 6px}
-html.a11y-contraste .socio .cargo{color:#FFD600}
 
-/* navegacao */
 .navs{position:fixed;right:clamp(12px,3vw,32px);bottom:20px;z-index:45;display:flex;gap:8px}
 .navs button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--linha);background:rgba(28,28,34,.92);color:var(--texto);font-size:1.3rem;cursor:pointer}
 html.a11y-contraste .navs button{background:#000;border-color:#fff}
 .rodape{padding:28px clamp(16px,5vw,72px) 100px;color:var(--suave);font-size:.88rem;border-top:1px solid var(--linha);text-align:center}
 
-/* acessibilidade */
 .a11y-botao{position:fixed;left:16px;bottom:20px;z-index:60;width:52px;height:52px;border-radius:50%;background:#1D4ED8;color:#fff;border:3px solid #fff;cursor:pointer;display:grid;place-items:center}
 .a11y-botao svg{width:28px;height:28px}
 .a11y-painel{position:fixed;left:16px;bottom:84px;z-index:61;width:min(320px,calc(100vw - 32px));background:#fff;color:#111;border-radius:16px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
@@ -183,61 +214,57 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
 .a11y-painel button[aria-pressed="true"]{background:#1D4ED8;color:#fff;border-color:#1D4ED8}
 .a11y-painel .rest{grid-column:1/-1;background:#F3F4F6}
 .a11y-painel .fechar{position:absolute;right:10px;top:10px;min-height:36px;width:36px;border:0;background:transparent;font-size:1.3rem}
-[vw]{right:16px !important;left:auto !important;bottom:80px !important;top:auto !important}
 </style>
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
+<!-- simbolos reaproveitados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+ <defs>
+  <symbol id="pessoa" viewBox="0 0 60 64"><circle cx="30" cy="18" r="12" fill="#F2C9A5"/><path d="M18 16c0-9 6-13 12-13s12 4 12 13c-3-4-7-6-12-6s-9 2-12 6z" fill="currentColor" opacity=".55"/><path d="M8 62c0-14 10-24 22-24s22 10 22 24z" fill="currentColor"/></symbol>
+  <symbol id="estrela" viewBox="0 0 100 100"><path fill="#F2B544" d="M50 2l7 12 13-6 2 14 14 1-5 13 12 8-11 9 6 13-14 2-1 14-13-5-9 11-9-11-13 5-1-14-14-2 6-13-11-9 12-8-5-13 14-1 2-14 13 6z"/></symbol>
+  <symbol id="qr" viewBox="0 0 21 21"><path fill="#111" d="M0 0h7v7H0zM2 2v3h3V2zM14 0h7v7h-7zm2 2v3h3V2zM0 14h7v7H0zm2 2v3h3v-3zM9 0h2v2H9zm2 2h2v3h-2zM9 5h2v2H9zm0 4h3v2H9zm5 0h2v2h-2zm4 0h3v2h-3zM8 12h2v2H8zm4 0h2v3h-2zm4 1h3v2h-3zm-7 3h2v2H9zm5 2h2v3h-2zm4-1h3v4h-3zm-9 2h3v2H9z"/></symbol>
+ </defs>
+</svg>
+
 <header class="topo">
   <a class="marca" href="#s1" aria-label="Agência no Bolso, voltar ao início"><span class="ponto" aria-hidden="true"></span><span>AGÊNCIA NO BOLSO<small>Programa de Parceria MaIA</small></span></a>
-  <p class="contador" aria-live="polite"><span id="atual">01</span> / <span id="total">14</span></p>
+  <div class="dir"><p class="contador" aria-live="polite"><span id="atual">01</span> / <span id="total">15</span></p><a class="btn-topo" href="#comecar">Quero ser parceiro</a></div>
 </header>
 
 <main id="conteudo" tabindex="-1">
 
 <!-- 1 CAPA -->
-<section class="slide capa" id="s1" aria-labelledby="t1">
+<section class="slide coral-bg capa" id="s1" aria-labelledby="t1">
  <div class="in">
   <div>
-   <p class="sobre">Programa de Parceria · 2026</p>
-   <h1 id="t1">Ganhe indicando a <span>MaIA</span></h1>
-   <p class="lead">Três jeitos de ser parceiro da Agência no Bolso. Do primeiro link que você compartilha até a renda recorrente sobre toda a sua rede.</p>
-   <div class="tres-chips">
-    <span class="etq c-ind">Parceiro Indicador</span>
-    <span class="etq c-div">Parceiro Divulgador</span>
-    <span class="etq c-emb">Embaixador</span>
+   <p class="sobre">Programa de Parceria MaIA</p>
+   <h1 id="t1">Construa sua rede.<br><span class="dest">Ganhe todo mês.</span></h1>
+   <p class="lead">Indique empresas para a MaIA, a inteligência artificial que atende, vende e agenda 24 horas. Nossa equipe apresenta e fecha a venda. Você recebe na implantação, na mensalidade e no crescimento da sua rede.</p>
+   <div class="stats">
+    <div class="stat"><b>até 15%</b><span>de cada mensalidade, todo mês</span></div>
+    <div class="stat"><b>R$ 2.350</b><span>por Enterprise que você indicar</span></div>
+    <div class="stat"><b>70% + 50%</b><span>sobre cada Embaixador da sua rede</span></div>
    </div>
-   <a class="btn" href="#s4">Ver os três caminhos</a>
+   <div class="acoes"><a class="btn" href="#comecar">Quero ser parceiro</a><a class="btn sec" href="#s7">Ver quanto posso ganhar</a></div>
   </div>
-  <div class="foto-maia"><img src="assets/maia.webp" alt="Retrato da MaIA, a inteligência artificial da Agência no Bolso" width="800" height="800"></div>
+  <div class="foto-maia"><div class="circ"><img src="assets/maia.webp" alt="Retrato da MaIA, a inteligência artificial da Agência no Bolso" width="800" height="800"></div><div class="selo"><b>24h</b>atendendo, vendendo<br>e agendando</div></div>
  </div>
 </section>
 
-<!-- 2 ESPIRITO -->
+<!-- 2 OPORTUNIDADE -->
 <section class="slide claro" id="s2" aria-labelledby="t2">
  <div class="in">
-  <p class="sobre">O espírito da parceria</p>
-  <h2 id="t2">Cada um entra com a sua força</h2>
-  <div class="grade g2">
-   <div class="cartao">
-    <h3>Você traz</h3>
-    <ul class="lista">
-     <li>Credibilidade e relacionamento</li>
-     <li>Empresários na sua rede e nas suas associações</li>
-     <li>O acesso que dinheiro não compra</li>
-    </ul>
-   </div>
-   <div class="cartao">
-    <h3>A gente entrega</h3>
-    <ul class="lista">
-     <li>A MaIA: atendimento, vendas e marketing com IA, 24 horas</li>
-     <li>A reunião de apresentação, a venda e a implantação</li>
-     <li>Suporte, manutenção e novas habilidades por nossa conta</li>
-    </ul>
-   </div>
+  <p class="sobre">A oportunidade</p>
+  <h2 id="t2">Toda empresa vai precisar de IA.<br><span class="dest">Quem chegar primeiro, ganha a rede.</span></h2>
+  <p class="lead">O empresário já sabe que precisa de inteligência artificial, mas não sabe por onde começar. Você conhece esses empresários. Nós temos o produto rodando em empresas reais.</p>
+  <div class="grade g4">
+   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Produto que já vende</h3><p>A MaIA já atende clientes de verdade, todos os dias, em vários segmentos.</p></div>
+   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7M17 11l2 2 4-4"/></svg></div><h3>Você não vende sozinho</h3><p>Você indica. Nossa equipe faz a reunião, apresenta e fecha.</p></div>
+   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg></div><h3>Renda que se acumula</h3><p>O cliente paga todo mês e você recebe todo mês. Cada venda soma na anterior.</p></div>
+   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Sem estoque e sem equipe</h3><p>Implantação, suporte e manutenção são por nossa conta.</p></div>
   </div>
-  <p class="nota">Você conecta. A gente vende, implanta e sustenta.</p>
  </div>
 </section>
 
@@ -246,87 +273,86 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  <div class="in">
   <p class="sobre">O que o seu indicado compra</p>
   <h2 id="t3">Os planos da MaIA</h2>
-  <p class="lead">A comissão sai sobre a implantação de qualquer plano. A mensalidade de manutenção é a mesma para todos.</p>
+  <p class="lead">Você ganha sobre a implantação de qualquer plano e, como Divulgador, sobre a mensalidade de R$ 597 de cada cliente.</p>
   <div class="grade g3">
-   <div class="cartao">
-    <h3>Start</h3>
-    <p class="s">A MaIA SDR: atende, qualifica e agenda 24 horas. 11 habilidades e 3 agentes.</p>
-    <p class="num">R$ 1.497</p><p>no Pix, ou 12x de R$ 166,45</p>
-   </div>
-   <div class="cartao">
-    <h3>Pro</h3>
-    <p class="s">A operação completa de IA para empresas em crescimento. 33 habilidades e 7 agentes.</p>
-    <p class="num">R$ 5.000</p><p>no Pix, ou 12x de R$ 583,35</p>
-   </div>
-   <div class="cartao">
-    <h3>Enterprise</h3>
-    <p class="s">Tudo o que a MaIA faz, com todas as habilidades e agentes.</p>
-    <p class="num">R$ 25.000</p><p>no Pix, ou 12x de R$ 2.410</p>
-   </div>
+   <div class="cartao"><h3>Start</h3><p>A MaIA SDR: atende, qualifica e agenda 24 horas.</p><p class="num">R$ 1.497</p><p>no Pix, ou 12x de R$ 166,45</p></div>
+   <div class="cartao borda-div"><h3>Pro</h3><p>A operação completa de IA para empresas em crescimento.</p><p class="num">R$ 5.000</p><p>no Pix, ou 12x de R$ 583,35</p></div>
+   <div class="cartao borda-emb"><h3>Enterprise</h3><p>Tudo o que a MaIA faz, com todas as habilidades e agentes.</p><p class="num">R$ 25.000</p><p>no Pix, ou 12x de R$ 2.410</p></div>
   </div>
-  <p class="nota">Mensalidade de manutenção: R$ 597/mês. Servidor e APIs ficam no nome do cliente.</p>
+  <p class="nota">Mensalidade de manutenção: R$ 597/mês em todos os planos.</p>
  </div>
 </section>
 
-<!-- 4 ESCADA -->
+<!-- 4 CARREIRA -->
 <section class="slide claro" id="s4" aria-labelledby="t4">
  <div class="in">
-  <p class="sobre">Três caminhos, uma escada</p>
-  <h2 id="t4">Escolha onde você entra</h2>
+  <p class="sobre">Plano de carreira</p>
+  <h2 id="t4">Três níveis. <span class="dest">Você escolhe até onde sobe.</span></h2>
   <div class="escada">
    <div class="degrau d1 borda-ind">
-    <span class="etq c-ind">1 · Parceiro Indicador</span>
+    <svg class="med" viewBox="0 0 60 64" aria-hidden="true" style="color:#0F766E"><use href="#pessoa"/></svg>
+    <span class="etq c-ind">Nível 1 · Indicador</span>
     <p class="quem">Para quem ainda não tem a MaIA</p>
-    <p class="ganha">Ganha uma vez, na implantação de cada venda que indicar, e sobre as vendas de quem trouxer para o programa.</p>
+    <p class="ganha">10% da implantação de cada venda sua e 5% das vendas de quem você trouxer.</p>
    </div>
    <div class="degrau d2 borda-div">
-    <span class="etq c-div">2 · Parceiro Divulgador</span>
-    <p class="quem">Para quem já comprou a MaIA Pro ou Enterprise</p>
-    <p class="ganha">Ganha na implantação e todo mês, na mensalidade dos clientes que indicou e da sua rede.</p>
+    <svg class="med" viewBox="0 0 60 64" aria-hidden="true" style="color:#B4380F"><use href="#pessoa"/></svg>
+    <span class="etq c-div">Nível 2 · Divulgador</span>
+    <p class="quem">Para quem comprou a MaIA Pro ou Enterprise</p>
+    <p class="ganha">Tudo do Indicador e mais 15% de cada mensalidade dos seus clientes e 10% dos clientes da sua rede, todo mês.</p>
    </div>
    <div class="degrau d3 borda-emb">
-    <span class="etq c-emb">3 · Embaixador</span>
-    <p class="quem">Para o Parceiro Divulgador do plano Enterprise</p>
-    <p class="ganha">Tudo o que o Divulgador ganha, mais um bônus mensal sobre as mensalidades de toda a rede de parceiros.</p>
+    <svg class="med" viewBox="0 0 100 100" aria-hidden="true"><use href="#estrela"/></svg>
+    <span class="etq c-emb">Nível 3 · Embaixador</span>
+    <p class="quem">Divulgador Enterprise que investe R$ 1.000/mês</p>
+    <p class="ganha">Tudo do Divulgador e mais 2% das mensalidades de toda a rede que construiu, e 70% + 50% sobre cada Embaixador da sua rede.</p>
    </div>
   </div>
-  <p class="nota">Quem começa como Indicador e compra a MaIA Pro sobe para Divulgador. Quem está no Enterprise pode chegar a Embaixador.</p>
  </div>
 </section>
 
 <!-- 5 INDICADOR -->
 <section class="slide" id="s5" aria-labelledby="t5">
- <div class="in">
-  <p class="sobre c-ind">Caminho 1</p>
-  <h2 id="t5">Parceiro Indicador</h2>
-  <p class="lead">Para consultores, contadores, agências e quem conhece empresários, mesmo sem ter a MaIA. Você indica, a gente vende, você ganha.</p>
-  <div class="grade g3">
-   <div class="cartao borda-ind"><p class="num c-ind">10%</p><h3>Na sua venda</h3><p>Da implantação de cada cliente que fechar pela sua indicação. Paga uma vez.</p></div>
-   <div class="cartao borda-ind"><p class="num c-ind">5%</p><h3>Na venda de quem você trouxe</h3><p>Da implantação vendida pelos indicadores que você recrutou. Um nível só.</p></div>
-   <div class="cartao borda-ind"><p class="num c-ind">R$ 0</p><h3>Para entrar</h3><p>Sem taxa e sem mensalidade. Cadastro com aprovação da nossa equipe.</p></div>
+ <div class="in grade g2" style="align-items:center">
+  <div>
+   <p class="sobre c-ind">Nível 1</p>
+   <h2 id="t5">Parceiro <span style="color:var(--ind)">Indicador</span></h2>
+   <p class="lead">Para consultores, contadores, agências e quem conhece empresários, mesmo sem ter a MaIA. Entrada gratuita.</p>
+   <div class="grade g2">
+    <div class="cartao borda-ind"><p class="num c-ind">10%</p><p>da implantação de cada venda que você indicar</p></div>
+    <div class="cartao borda-ind"><p class="num c-ind">5%</p><p>da implantação vendida por quem você trouxe</p></div>
+   </div>
+   <p class="nota">Recebe com nota fiscal: MEI, CNPJ ou nota fiscal avulsa.</p>
   </div>
-  <p class="nota">O Indicador não ganha sobre a mensalidade: a recorrência é a vantagem de quem já tem a MaIA. Programa em lançamento, com vagas do piloto por convite.</p>
+  <div class="grade" style="gap:12px">
+   <div class="lk"><svg viewBox="0 0 21 21" role="img" aria-label="QR code ilustrativo do link de agendamento"><use href="#qr"/></svg><div><h3>Indicar agendamento</h3><p style="margin:0">O empresário cai direto na agenda e marca a reunião.</p><code>agendar.agencianobolso.com.br/?a=seucodigo</code></div></div>
+   <div class="lk"><svg viewBox="0 0 21 21" role="img" aria-label="QR code ilustrativo do link de recrutamento"><use href="#qr"/></svg><div><h3>Indicar parceiros</h3><p style="margin:0">Quem entra por ele fica na sua rede.</p><code>parceria.agencianobolso.com.br/?u=seucodigo</code></div></div>
+   <ol class="passos" style="margin-top:6px">
+    <li><div><b>Compartilhe o link</b> no WhatsApp, nas redes ou no QR impresso.</div></li>
+    <li><div><b>O empresário marca a reunião.</b> A indicação fica no seu nome por 180 dias.</div></li>
+    <li><div><b>Nossa equipe fecha.</b> Você acompanha tudo na sua área.</div></li>
+   </ol>
+  </div>
  </div>
 </section>
 
-<!-- 6 COMO FUNCIONA INDICADOR -->
+<!-- 6 SIMULACAO INDICADOR -->
 <section class="slide" id="s6" aria-labelledby="t6">
  <div class="in grade g2" style="align-items:center">
   <div>
-   <p class="sobre c-ind">Como funciona</p>
-   <h2 id="t6">Dois links e um QR code</h2>
-   <div class="linkbox">
-    <div class="lk"><div class="qr" role="img" aria-label="QR code ilustrativo"></div><div><h3>Indicar agendamento</h3><p>O empresário cai direto na agenda e marca a reunião de apresentação da MaIA.</p><code>agendar.agencianobolso.com.br/?a=seucodigo</code></div></div>
-    <div class="lk"><div class="qr" role="img" aria-label="QR code ilustrativo"></div><div><h3>Indicar parceiros</h3><p>Quem se cadastra por ele fica ligado a você no programa.</p><code>parceria.agencianobolso.com.br/indicador?u=seucodigo</code></div></div>
-   </div>
+   <p class="sobre c-ind">Simulação · Indicador</p>
+   <h2 id="t6">Um mês de indicações</h2>
+   <p class="lead">Você indica 3 empresas que fecham, e 5 parceiros que você trouxe fecham 1 venda cada.</p>
+   <p class="nota">Valores sobre a implantação líquida: Enterprise R$ 23.500 · Pro R$ 4.700. Exemplo ilustrativo; o ganho depende das vendas fechadas.</p>
   </div>
-  <div>
-   <ol class="passos">
-    <li><div><b>Você compartilha o link</b><br>No WhatsApp, nas redes ou no QR impresso.</div></li>
-    <li><div><b>O empresário marca a reunião</b><br>A indicação fica no seu nome por 180 dias.</div></li>
-    <li><div><b>A nossa equipe apresenta e fecha</b><br>Você acompanha cada etapa na sua área.</div></li>
-    <li><div><b>Passada a garantia, você recebe</b><br>Exemplo: um Enterprise rende R$ 2.350 para você.</div></li>
-   </ol>
+  <div class="simu" role="group" aria-label="Simulação de ganhos do Indicador">
+   <div class="soma">
+    <div class="parcela"><div>1 Enterprise indicado por você<small>10% de R$ 23.500</small></div><span class="v">R$ 2.350</span></div>
+    <div class="parcela"><div>2 Pro indicados por você<small>10% de R$ 4.700, duas vezes</small></div><span class="v">R$ 940</span></div>
+    <div class="parcela"><div>4 Pro vendidos pela sua rede<small>5% de R$ 4.700, quatro vezes</small></div><span class="v">R$ 940</span></div>
+    <div class="parcela"><div>1 Enterprise vendido pela sua rede<small>5% de R$ 23.500</small></div><span class="v">R$ 1.175</span></div>
+    <div class="total ind"><span>Total no mês</span><b>R$ 5.405</b></div>
+   </div>
   </div>
  </div>
 </section>
@@ -334,153 +360,213 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
 <!-- 7 DIVULGADOR -->
 <section class="slide claro" id="s7" aria-labelledby="t7">
  <div class="in">
-  <p class="sobre c-div">Caminho 2</p>
-  <h2 id="t7">Parceiro Divulgador</h2>
-  <p class="lead">Para quem já usa a MaIA Pro ou Enterprise no próprio negócio. Você fala com propriedade e ganha na recorrência, mês a mês.</p>
+  <p class="sobre c-div">Nível 2</p>
+  <h2 id="t7">Parceiro <span class="dest">Divulgador</span>: a renda recorrente</h2>
+  <p class="lead">Para quem já usa a MaIA Pro ou Enterprise. Você fala com propriedade, e cada cliente que entra paga você todo mês, enquanto continuar cliente.</p>
   <div class="tab-wrap" role="region" aria-label="Tabela de comissões do Divulgador" tabindex="0">
    <table>
-    <caption class="sr">Comissões do Parceiro Divulgador</caption>
-    <thead><tr><th scope="col">Sobre o quê</th><th scope="col">Venda sua (1º nível)</th><th scope="col">Venda da sua rede (2º nível)</th></tr></thead>
+    <thead><tr><th scope="col">Comissão</th><th scope="col">Cliente seu (1º nível)</th><th scope="col">Cliente da sua rede (2º nível)</th></tr></thead>
     <tbody>
-     <tr><th scope="row">Implantação</th><td>10%</td><td>5%</td></tr>
-     <tr><th scope="row">Mensalidade, todo mês</th><td>15% · R$ 81,43 por cliente</td><td>10% · R$ 54,29 por cliente</td></tr>
-     <tr><th scope="row">Por quanto tempo</th><td colspan="2">Enquanto o cliente pagar e você for parceiro ativo</td></tr>
+     <tr><th scope="row">Na implantação</th><td class="big">10%</td><td class="big">5%</td></tr>
+     <tr><th scope="row">Na mensalidade, todo mês</th><td class="big">15% · R$ 81,43</td><td class="big">10% · R$ 54,29</td></tr>
+     <tr><th scope="row">Exemplo: 1 Enterprise</th><td>R$ 2.350 + R$ 81,43/mês</td><td>R$ 1.175 + R$ 54,29/mês</td></tr>
     </tbody>
    </table>
   </div>
-  <p class="nota">Percentuais sobre o valor líquido (mensalidade de R$ 597 → base de R$ 542,85). Sua rede são os parceiros que entraram pela sua indicação.</p>
+  <p class="nota">Sobre o valor líquido: mensalidade de R$ 597 → base de R$ 542,85. Sua rede são os parceiros que entraram pela sua indicação.</p>
  </div>
 </section>
 
-<!-- 8 ARVORE -->
-<section class="slide claro" id="s8" aria-labelledby="t8">
+<!-- 8 SIMULACAO DIVULGADOR -->
+<section class="slide" id="s8" aria-labelledby="t8">
  <div class="in grade g2" style="align-items:center">
   <div>
-   <p class="sobre c-div">Exemplo com um Enterprise</p>
-   <h2 id="t8">A comissão descendo pela rede</h2>
-   <ul class="lista">
-    <li><b>Você vende direto:</b> R$ 2.350 na implantação + R$ 81,43 todo mês.</li>
-    <li><b>Um parceiro que você trouxe vende:</b> ele leva os 10% e 15%, e você ainda leva R$ 1.175 + R$ 54,29 todo mês.</li>
-    <li><b>Para no 2º nível:</b> ninguém ganha sobre a rede da rede.</li>
-   </ul>
-   <p class="nota">Base líquida da implantação Enterprise: R$ 23.500.</p>
+   <p class="sobre c-div">Simulação · Divulgador</p>
+   <h2 id="t8">A sua renda mensal <span class="dest">crescendo mês a mês</span></h2>
+   <p class="lead">Ritmo de exemplo: você indica 2 clientes por mês e a sua rede traz mais 4. Só a comissão da mensalidade:</p>
+   <div class="grade g2" style="gap:12px">
+    <div class="cartao"><p class="num dest">8</p><p>clientes seus já pagam a sua própria MaIA (8 × R$ 81,43 = R$ 651)</p></div>
+    <div class="cartao"><p class="num dest-ouro">+</p><p>fora as comissões de implantação de cada venda nova</p></div>
+   </div>
   </div>
-  <div class="arvore" role="img" aria-label="Árvore: você no topo, dois clientes diretos e dois parceiros seus, cada parceiro com clientes próprios">
-   <div class="no voce"><b>Você</b>Divulgador</div>
-   <div class="seta" aria-hidden="true">↓</div>
-   <div class="nivel"><div class="no"><b>Cliente A</b>10% + 15%/mês</div><div class="no"><b>Parceiro B</b>entrou por você</div></div>
-   <div class="seta" aria-hidden="true">↓</div>
-   <div class="nivel"><div class="no"><b>Cliente do B</b>você: 5% + 10%/mês</div><div class="no"><b>Parceiro do B</b>para você: nível encerrado</div></div>
+  <div class="simu" role="img" aria-label="Gráfico: renda mensal recorrente no 3º mês R$ 1.140, no 6º mês R$ 2.280, no 9º mês R$ 3.420 e no 12º mês R$ 4.560">
+   <div class="colunas" aria-hidden="true">
+    <div class="col"><span class="val">R$ 1.140</span><div class="pista"><div class="bar" style="height:25%"></div></div><span class="mes">3º mês</span></div>
+    <div class="col"><span class="val">R$ 2.280</span><div class="pista"><div class="bar" style="height:50%"></div></div><span class="mes">6º mês</span></div>
+    <div class="col"><span class="val">R$ 3.420</span><div class="pista"><div class="bar" style="height:75%"></div></div><span class="mes">9º mês</span></div>
+    <div class="col"><span class="val">R$ 4.560</span><div class="pista"><div class="bar" style="height:100%"></div></div><span class="mes">12º mês</span></div>
+   </div>
+   <div class="total" style="margin-top:16px"><span>Por mês, no 12º mês</span><b>R$ 4.560</b></div>
+   <p class="nota" style="margin-bottom:0">24 clientes seus × R$ 81,43 + 48 da rede × R$ 54,29. Exemplo ilustrativo.</p>
   </div>
  </div>
 </section>
 
-<!-- 9 SIMULACAO -->
-<section class="slide" id="s9" aria-labelledby="t9">
+<!-- 9 EMBAIXADOR -->
+<section class="slide ouro-bg" id="s9" aria-labelledby="t9">
  <div class="in">
-  <p class="sobre c-div">Renda recorrente</p>
-  <h2 id="t9">A sua MaIA se paga com 8 clientes</h2>
-  <p class="lead">Só a comissão de mensalidade dos clientes que você indicou direto, todo mês, sem contar implantações nem a rede.</p>
-  <div class="barras" role="list">
-   <div class="barra" role="listitem"><span>8 clientes</span><div class="trilho" aria-hidden="true"><i style="width:8%"></i></div><span class="v">R$ 651/mês</span></div>
-   <div class="barra" role="listitem"><span>25 clientes</span><div class="trilho" aria-hidden="true"><i style="width:25%"></i></div><span class="v">R$ 2.036/mês</span></div>
-   <div class="barra" role="listitem"><span>50 clientes</span><div class="trilho" aria-hidden="true"><i style="width:50%"></i></div><span class="v">R$ 4.072/mês</span></div>
-   <div class="barra" role="listitem"><span>100 clientes</span><div class="trilho" aria-hidden="true"><i style="width:100%"></i></div><span class="v">R$ 8.143/mês</span></div>
-  </div>
-  <p class="nota">Conta: R$ 81,43 por cliente direto. 8 clientes já cobrem a mensalidade de R$ 597 da sua própria MaIA. Exemplo ilustrativo, não é promessa de ganho.</p>
- </div>
-</section>
-
-<!-- 10 EMBAIXADOR -->
-<section class="slide" id="s10" aria-labelledby="t10">
- <div class="in">
-  <p class="sobre c-emb">Caminho 3</p>
-  <h2 id="t10">Embaixador</h2>
-  <p class="lead">O topo da parceria, só para o Parceiro Divulgador do plano Enterprise. Além de tudo o que o Divulgador ganha, o Embaixador participa do crescimento da rede inteira.</p>
+  <p class="sobre c-emb">Nível 3</p>
+  <h2 id="t9"><span class="dest-ouro">Embaixador</span>: dono da própria rede</h2>
+  <p class="lead">O Parceiro Divulgador do plano Enterprise que investe <b>R$ 1.000 por mês</b> vira Embaixador. A partir daí, além de todas as comissões de Divulgador, ganha sobre a rede inteira que construiu.</p>
   <div class="grade g3">
-   <div class="cartao borda-emb"><p class="num c-emb">2%</p><h3>Bônus da rede</h3><p>Sobre o valor líquido das mensalidades de todos os clientes da rede de parceiros, dividido entre os Embaixadores ativos.</p></div>
-   <div class="cartao borda-emb"><p class="num c-emb">R$ 542,85</p><h3>Por mês, no exemplo</h3><p>Rede com 150 clientes e 3 Embaixadores ativos: cada um recebe esse valor todo mês, além das próprias comissões.</p></div>
-   <div class="cartao borda-emb"><h3>Para se manter</h3><ul class="lista"><li>Ser Divulgador Enterprise</li><li>3 parceiros ativos depois de 6 meses</li><li>1 ação por mês com a rede</li></ul></div>
+   <div class="cartao borda-emb"><p class="num c-emb">+2%</p><h3>Da sua rede inteira</h3><p>De todas as mensalidades da rede que você construiu, em qualquer profundidade. Só seu, sem dividir com ninguém.</p></div>
+   <div class="cartao borda-emb"><p class="num c-emb">70%</p><h3>No 1º mês de cada Embaixador</h3><p>Quando alguém da sua rede vira Embaixador, você recebe R$ 700 do primeiro investimento de R$ 1.000.</p></div>
+   <div class="cartao borda-emb"><p class="num c-emb">50%</p><h3>Todo mês depois</h3><p>E R$ 500 por mês de cada Embaixador da sua rede, enquanto ele continuar Embaixador.</p></div>
   </div>
-  <p class="nota">Regras revistas a cada 12 meses.</p>
+  <p class="nota">Requisito: ser Parceiro Divulgador do plano Enterprise e manter o investimento de R$ 1.000/mês.</p>
  </div>
 </section>
 
-<!-- 11 COMPARATIVO -->
-<section class="slide claro" id="s11" aria-labelledby="t11">
+<!-- 10 ARVORE -->
+<section class="slide claro" id="s10" aria-labelledby="t10">
+ <div class="in grade arv-grade">
+  <div class="arvore-wrap" role="region" aria-label="Árvore de rede, arraste para ver tudo no celular" tabindex="0">
+   <svg viewBox="0 0 900 640" role="img" aria-labelledby="arv-t arv-d">
+    <title id="arv-t">A sua árvore de rede</title>
+    <desc id="arv-d">Você no topo, como Embaixador. Abaixo, três parceiros que entraram por você: Amanda, Divulgadora; Jane, Divulgadora; e João, Indicador. Amanda trouxe Roberto e José. Jane trouxe Davi. João trouxe Tomás, que virou Embaixador, e Jennifer. Davi trouxe Elisa, Ricardo, Sara e Guilherme. Ricardo trouxe Timóteo, que também virou Embaixador. Você ganha 2% das mensalidades de toda essa rede e 70% mais 50% sobre Tomás e Timóteo.</desc>
+    <g fill="none" stroke="#B9AEA2" stroke-width="2">
+     <path d="M450 92 C450 120 160 120 160 168"/><path d="M450 92 V168"/><path d="M450 92 C450 120 740 120 740 168"/>
+     <path d="M160 236 C160 270 90 270 90 318"/><path d="M160 236 C160 270 240 270 240 318"/>
+     <path d="M450 236 V318"/>
+     <path d="M740 236 C740 270 640 270 640 318"/><path d="M740 236 C740 270 820 270 820 318"/>
+     <path d="M450 386 C450 420 300 420 300 468"/><path d="M450 386 C450 420 400 420 400 468"/><path d="M450 386 C450 420 500 420 500 468"/><path d="M450 386 C450 420 600 420 600 468"/>
+     <path d="M400 536 C400 560 400 560 400 572"/>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-weight="700" font-size="17" text-anchor="middle" fill="#1A1A1F">
+     <use href="#estrela" x="395" y="0" width="110" height="110"/><use href="#pessoa" x="420" y="22" width="60" height="64" style="color:#B4380F"/><text x="450" y="128">VOCÊ</text>
+     <use href="#pessoa" x="130" y="168" width="60" height="64" style="color:#B4380F"/><text x="160" y="254">AMANDA</text>
+     <use href="#pessoa" x="420" y="168" width="60" height="64" style="color:#B4380F"/><text x="450" y="254">JANE</text>
+     <use href="#pessoa" x="710" y="168" width="60" height="64" style="color:#0F766E"/><text x="740" y="254">JOÃO</text>
+     <use href="#pessoa" x="60" y="318" width="60" height="64" style="color:#0F766E"/><text x="90" y="404">ROBERTO</text>
+     <use href="#pessoa" x="210" y="318" width="60" height="64" style="color:#B4380F"/><text x="240" y="404">JOSÉ</text>
+     <use href="#pessoa" x="420" y="318" width="60" height="64" style="color:#B4380F"/><text x="450" y="404">DAVI</text>
+     <use href="#estrela" x="585" y="296" width="110" height="110"/><use href="#pessoa" x="610" y="318" width="60" height="64" style="color:#B4380F"/><text x="640" y="424">TOMÁS</text>
+     <use href="#pessoa" x="790" y="318" width="60" height="64" style="color:#0F766E"/><text x="820" y="404">JENNIFER</text>
+     <use href="#pessoa" x="270" y="468" width="60" height="64" style="color:#0F766E"/><text x="300" y="554">ELISA</text>
+     <use href="#pessoa" x="370" y="468" width="60" height="64" style="color:#B4380F"/><text x="400" y="554">RICARDO</text>
+     <use href="#pessoa" x="470" y="468" width="60" height="64" style="color:#0F766E"/><text x="500" y="554">SARA</text>
+     <use href="#pessoa" x="570" y="468" width="60" height="64" style="color:#B4380F"/><text x="600" y="554">GUILHERME</text>
+     <use href="#estrela" x="345" y="548" width="92" height="92"/><use href="#pessoa" x="371" y="566" width="40" height="44" style="color:#B4380F"/><text x="400" y="632" font-size="14">TIMÓTEO</text>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700">
+     <rect x="700" y="420" rx="10" width="190" height="48" fill="#1A1A1F"/><text x="795" y="440" text-anchor="middle" fill="#F2B544">Tomás virou Embaixador</text><text x="795" y="459" text-anchor="middle" fill="#fff">+R$ 700 e R$ 500/mês</text>
+     <rect x="460" y="580" rx="10" width="190" height="48" fill="#1A1A1F"/><text x="555" y="600" text-anchor="middle" fill="#F2B544">Timóteo também</text><text x="555" y="619" text-anchor="middle" fill="#fff">+R$ 700 e R$ 500/mês</text>
+    </g>
+   </svg>
+  </div>
+  <div>
+   <p class="sobre dest">A sua árvore</p>
+   <h2 id="t10" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Cada pessoa da rede trabalha <span class="dest">a seu favor</span></h2>
+   <div class="legenda">
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#0F766E"><use href="#pessoa"/></svg><div><b>Indicador</b><br>suas vendas e as dele rendem na implantação</div></div>
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#B4380F"><use href="#pessoa"/></svg><div><b>Divulgador</b><br>rende na implantação e na mensalidade, todo mês</div></div>
+    <div class="it"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#estrela"/></svg><div><b>Embaixador</b><br>você ganha 70% no 1º mês e 50% todo mês do investimento dele</div></div>
+   </div>
+   <p class="nota">Como Embaixador, você ainda leva 2% das mensalidades de todos os clientes dessa árvore.</p>
+  </div>
+ </div>
+</section>
+
+<!-- 11 SIMULACAO EMBAIXADOR -->
+<section class="slide ouro-bg" id="s11" aria-labelledby="t11">
+ <div class="in grade g2" style="align-items:center">
+  <div>
+   <p class="sobre c-emb">Simulação · Embaixador</p>
+   <h2 id="t11">O investimento que <span class="dest-ouro">se paga sozinho</span></h2>
+   <p class="lead">Exemplo: a rede que você construiu tem 300 clientes e 4 pessoas dela viraram Embaixadoras.</p>
+   <div class="grade g2" style="gap:12px">
+    <div class="cartao borda-emb"><p class="num c-emb">2</p><p>Embaixadores na sua rede já cobrem o seu investimento de R$ 1.000</p></div>
+    <div class="cartao borda-emb"><p class="num c-emb">R$ 2.800</p><p>no primeiro mês dos 4 Embaixadores (4 × R$ 700)</p></div>
+   </div>
+  </div>
+  <div class="simu" role="group" aria-label="Simulação de ganhos do Embaixador">
+   <div class="soma">
+    <div class="parcela"><div>2% da rede inteira<small>300 clientes × R$ 10,86</small></div><span class="v">R$ 3.257</span></div>
+    <div class="parcela"><div>4 Embaixadores na sua rede<small>4 × R$ 500 por mês</small></div><span class="v">R$ 2.000</span></div>
+    <div class="parcela menos"><div>Seu investimento de Embaixador<small>todo mês</small></div><span class="v">− R$ 1.000</span></div>
+    <div class="total ouro"><span>Bônus de Embaixador, por mês</span><b>R$ 4.257</b></div>
+   </div>
+   <p class="nota" style="margin-bottom:0">Somado a todas as comissões de Divulgador. Exemplo ilustrativo; o ganho depende da rede ativa.</p>
+  </div>
+ </div>
+</section>
+
+<!-- 12 COMPARATIVO -->
+<section class="slide claro" id="s12" aria-labelledby="t12">
  <div class="in">
   <p class="sobre">Lado a lado</p>
-  <h2 id="t11">Qual é o seu caminho?</h2>
-  <div class="tab-wrap" role="region" aria-label="Tabela comparativa dos três caminhos" tabindex="0">
+  <h2 id="t12">Qual é o seu nível?</h2>
+  <div class="tab-wrap" role="region" aria-label="Tabela comparativa dos três níveis" tabindex="0">
    <table>
-    <caption class="sr">Comparativo entre Indicador, Divulgador e Embaixador</caption>
     <thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col">Indicador</th><th scope="col">Divulgador</th><th scope="col">Embaixador</th></tr></thead>
     <tbody>
-     <tr><th scope="row">Precisa ter a MaIA?</th><td>Não</td><td>Sim, Pro ou Enterprise</td><td>Sim, Enterprise</td></tr>
-     <tr><th scope="row">Implantação, venda sua</th><td>10%</td><td>10%</td><td>10%</td></tr>
-     <tr><th scope="row">Implantação, venda da rede</th><td>5%</td><td>5%</td><td>5%</td></tr>
-     <tr><th scope="row">Mensalidade, venda sua</th><td>Não tem</td><td>15% todo mês</td><td>15% todo mês</td></tr>
-     <tr><th scope="row">Mensalidade, venda da rede</th><td>Não tem</td><td>10% todo mês</td><td>10% todo mês</td></tr>
-     <tr><th scope="row">Bônus da rede inteira</th><td>Não tem</td><td>Não tem</td><td>2%, dividido entre Embaixadores</td></tr>
-     <tr><th scope="row">Como entra</th><td>Cadastro e aprovação</td><td>Compra o Pro ou Enterprise e assina o termo</td><td>É Divulgador Enterprise e cumpre as metas</td></tr>
+     <tr><th scope="row">Para quem</th><td>Quem não tem a MaIA</td><td>Quem comprou Pro ou Enterprise</td><td>Divulgador Enterprise</td></tr>
+     <tr><th scope="row">Investimento</th><td>Gratuito</td><td>A própria MaIA</td><td>R$ 1.000/mês</td></tr>
+     <tr><th scope="row">Implantação: sua venda / da rede</th><td>10% / 5%</td><td>10% / 5%</td><td>10% / 5%</td></tr>
+     <tr><th scope="row">Mensalidade: seu cliente / da rede</th><td>—</td><td>15% / 10% todo mês</td><td>15% / 10% todo mês</td></tr>
+     <tr><th scope="row">Rede inteira</th><td>—</td><td>—</td><td>+2% de todas as mensalidades</td></tr>
+     <tr><th scope="row">Embaixador na sua rede</th><td>—</td><td>—</td><td>70% no 1º mês e 50% todo mês</td></tr>
     </tbody>
    </table>
   </div>
  </div>
 </section>
 
-<!-- 12 REGRAS -->
-<section class="slide" id="s12" aria-labelledby="t12">
+<!-- 13 REGRAS -->
+<section class="slide" id="s13" aria-labelledby="t13">
  <div class="in">
-  <p class="sobre">Regras na mesa</p>
-  <h2 id="t12">Transparência, sem letra miúda</h2>
+  <p class="sobre">Segurança para você</p>
+  <h2 id="t13">Regras claras, <span class="dest">tudo por escrito</span></h2>
   <div class="grade g2">
    <ul class="lista">
-    <li><b>Só ganha quando o cliente paga.</b> Nada por cadastro e nada por recrutar. Por isso não é pirâmide.</li>
-    <li><b>Liberação depois da garantia</b> de 30 dias do cliente.</li>
-    <li><b>Indicação vale 180 dias.</b> Se dois indicarem o mesmo cliente, a equipe confere o histórico.</li>
-    <li><b>Pagamento com nota fiscal</b> (MEI ou CNPJ), no dia seguinte ao pedido.</li>
+    <li><b>Você ganha sobre vendas reais.</b> Toda comissão nasce de um cliente que pagou.</li>
+    <li><b>Indicação no seu nome por 180 dias.</b></li>
+    <li><b>Liberação depois da garantia</b> de 30 dias do cliente, e pagamento no dia seguinte ao pedido.</li>
+    <li><b>Nota fiscal do jeito que você puder:</b> MEI, CNPJ ou nota fiscal avulsa.</li>
    </ul>
    <ul class="lista">
-    <li><b>Parceiro ativo:</b> 90 dias sem venda direta reduzem a comissão à metade; 12 meses sem venda direta encerram o 2º nível. Uma venda direta devolve tudo.</li>
-    <li><b>Divulgador com a própria MaIA em dia.</b> Mensalidade em atraso suspende a comissão.</li>
-    <li><b>Cliente indicado é sempre empresa</b> (CNPJ).</li>
-    <li><b>Só materiais aprovados.</b> Proibido prometer resultado ou ganho fácil.</li>
+    <li><b>Acompanhe tudo pelo celular:</b> links, QR code, indicações, vendas e recibos na sua área.</li>
+    <li><b>Parceiro ativo mantém tudo:</b> uma venda direta a cada 90 dias garante a comissão cheia.</li>
+    <li><b>Treinamento e materiais prontos</b> para você divulgar com segurança.</li>
+    <li><b>Contrato de parceria assinado digitalmente</b>, com cada regra explicada antes.</li>
    </ul>
   </div>
- </div>
-</section>
-
-<!-- 13 COMO COMECAR -->
-<section class="slide claro" id="s13" aria-labelledby="t13">
- <div class="in">
-  <p class="sobre">Próximo passo</p>
-  <h2 id="t13">Como começar</h2>
-  <div class="grade g3">
-   <div class="cartao borda-ind"><span class="etq c-ind">Indicador</span><p style="margin-top:12px">Faça o cadastro, aguarde a aprovação e receba os seus dois links com QR code.</p></div>
-   <div class="cartao borda-div"><span class="etq c-div">Divulgador</span><p style="margin-top:12px">Contrate a MaIA Pro ou Enterprise e assine o termo de parceiro. Já tem o Start? Faça o upgrade pagando só a diferença da implantação.</p></div>
-   <div class="cartao borda-emb"><span class="etq c-emb">Embaixador</span><p style="margin-top:12px">Seja Divulgador Enterprise, monte a sua rede e cumpra as metas de Embaixador.</p></div>
-  </div>
-  <p style="margin-top:26px"><a class="btn" href="https://agendar.agencianobolso.com.br">Agendar uma conversa</a></p>
  </div>
 </section>
 
 <!-- 14 EQUIPE -->
-<section class="slide" id="s14" aria-labelledby="t14">
+<section class="slide claro" id="s14" aria-labelledby="t14">
  <div class="in">
-  <p class="sobre">A equipe que entrega</p>
-  <h2 id="t14">Os sócios por trás da Agência no Bolso</h2>
+  <p class="sobre">Quem está com você</p>
+  <h2 id="t14">Os sócios da Agência no Bolso</h2>
   <div class="grade g3">
-   <div class="cartao socio"><img src="assets/socio-salatiel.webp" alt="Foto de Salatiel Batista"><div><h3>Salatiel Batista</h3><p class="cargo">CAIO/CPO</p><p class="s">Arquitetura tecnológica e visão de produto. Lidera a construção da MaIA e a metodologia comercial.</p></div></div>
-   <div class="cartao socio"><img src="assets/socio-raquel.webp" alt="Foto de Raquel Batista"><div><h3>Raquel Batista</h3><p class="cargo">CCO/BX</p><p class="s">Estratégia e identidade da marca. Lidera a presença digital e a experiência do cliente.</p></div></div>
-   <div class="cartao socio"><img src="assets/socio-joel.webp" alt="Foto de Joel Visgueira"><div><h3>Joel Visgueira</h3><p class="cargo">COO/CX</p><p class="s">Eficiência operacional e jornada do cliente, da implantação ao suporte.</p></div></div>
+   <div class="cartao socio"><img src="assets/socio-salatiel.webp" alt="Foto de Salatiel Batista"><div><h3>Salatiel Batista</h3><p class="cargo" style="color:var(--coral-esc)">CAIO/CPO</p><p>Arquitetura tecnológica e produto. Lidera a construção da MaIA e a metodologia comercial.</p></div></div>
+   <div class="cartao socio"><img src="assets/socio-raquel.webp" alt="Foto de Raquel Batista"><div><h3>Raquel Batista</h3><p class="cargo" style="color:var(--coral-esc)">CCO/BX</p><p>Estratégia e identidade da marca, presença digital e experiência do cliente.</p></div></div>
+   <div class="cartao socio"><img src="assets/socio-joel.webp" alt="Foto de Joel Visgueira"><div><h3>Joel Visgueira</h3><p class="cargo" style="color:var(--coral-esc)">COO/CX</p><p>Operação e jornada do cliente, da implantação ao suporte.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 15 CTA -->
+<section class="slide coral-bg" id="comecar" aria-labelledby="t15">
+ <div class="in">
+  <p class="sobre">Comece hoje</p>
+  <h2 id="t15">Sua rede já existe.<br><span class="dest">Comece a ganhar com ela.</span></h2>
+  <div class="grade g3" style="margin:10px 0 26px">
+   <div class="cartao borda-ind"><span class="etq c-ind">Indicador</span><p style="margin-top:12px">Cadastro gratuito. Em poucos minutos você recebe seus links e QR codes.</p></div>
+   <div class="cartao borda-div"><span class="etq c-div">Divulgador</span><p style="margin-top:12px">Contrate a MaIA Pro ou Enterprise e ative a sua renda recorrente. Já tem o Start? Faça o upgrade pagando só a diferença.</p></div>
+   <div class="cartao borda-emb"><span class="etq c-emb">Embaixador</span><p style="margin-top:12px">Divulgador Enterprise: ative o investimento de R$ 1.000/mês e passe a ganhar sobre a rede inteira.</p></div>
+  </div>
+  <div class="acoes">
+   <a class="btn" href="https://wa.me/5586981141438?text=Quero%20ser%20parceiro%20MaIA">Quero ser parceiro agora</a>
+   <a class="btn sec" href="https://agendar.agencianobolso.com.br">Agendar uma conversa</a>
   </div>
  </div>
 </section>
 
 </main>
 
-<footer class="rodape">Agência no Bolso Inova Simples (I.S.) · CNPJ 63.598.117/0001-39 · Programa de Parceria MaIA</footer>
+<footer class="rodape">Agência no Bolso Inova Simples (I.S.) · CNPJ 63.598.117/0001-39 · Programa de Parceria MaIA · Simulações ilustrativas, ganhos dependem das vendas realizadas.</footer>
 
 <nav class="navs" aria-label="Navegar entre os slides">
  <button type="button" id="ant" aria-label="Slide anterior">↑</button>
@@ -526,7 +612,6 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
     else if(e.key==='Home'){e.preventDefault();ir(0);} else if(e.key==='End'){e.preventDefault();ir(slides.length-1);}
   });
 
-  /* barra de acessibilidade */
   var H=document.documentElement, painel=document.getElementById('a11y-painel'), abrir=document.getElementById('a11y-abrir'), st=document.getElementById('a11y-status');
   var escalas=[100,112.5,125,150], est={esc:0,contraste:false,legivel:false,links:false,semmov:false};
   try{var s=JSON.parse(localStorage.getItem('a11y-parceria')||'null'); if(s) est=Object.assign(est,s);}catch(_){}
@@ -555,7 +640,6 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
   });
   aplicar();
 
-  /* VLibras, sem travar a página se cair */
   try{var v=document.createElement('script');v.src='https://vlibras.gov.br/app/vlibras-plugin.js';v.async=true;
     v.onload=function(){try{new window.VLibras.Widget('https://vlibras.gov.br/app');}catch(_){}};document.body.appendChild(v);}catch(_){}
 })();
