@@ -139,6 +139,18 @@ html.a11y-contraste .btn{background:#FFD600;color:#000 !important}
 .degrau .ganha{color:var(--suave);margin:0 0 10px}
 .degrau .med{width:54px;height:54px;margin-bottom:10px}
 
+/* planos */
+.planos .cartao{display:flex;flex-direction:column}
+.planos .num{font-size:clamp(1.7rem,2.6vw,2.3rem);margin:auto 0 4px;padding-top:12px}
+.planos .mens{margin:0}
+.planos .etq{align-self:flex-start}
+.planos .num+p{min-height:3.1em}
+@media (max-width:520px){.planos .num+p{min-height:0}}
+.planos .mens{font-weight:700;color:var(--texto)}
+.planos .cartao>p:not(.num):not(.mens){color:var(--suave)}
+.planos .cartao>p:first-of-type{color:var(--texto)}
+.planos .topo-linha{background:linear-gradient(160deg,rgba(242,181,68,.16),var(--cartao) 60%)}
+
 /* links / passos */
 .lk{border-radius:16px;background:var(--cartao);border:1px solid var(--linha);padding:16px;display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:center}
 .lk svg{width:72px;height:72px;background:#fff;border-radius:8px;padding:5px}
@@ -156,6 +168,7 @@ thead th{background:#1A1A1F;color:#fff;font-weight:600}
 html.a11y-contraste table{color:#fff} html.a11y-contraste thead th{background:#000;border-bottom:2px solid #fff}
 tbody th{font-weight:700}
 td.big{font-family:var(--fd);font-weight:800;font-size:1.25rem}
+td .sub{display:block;font-family:var(--fb);font-weight:500;font-size:.85rem;color:var(--tinta-suave);margin-top:2px}
 tr:last-child td,tr:last-child th{border-bottom:0}
 
 /* simulacoes */
@@ -190,6 +203,8 @@ html.a11y-contraste .arvore-wrap{background:#000;border-color:#fff}
 .arv-grade{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:center}
 @media (max-width:960px){.arv-grade{grid-template-columns:1fr}}
 .legenda{display:grid;gap:10px}
+.dica-arraste{display:none;margin:8px 4px 0;font-size:.88rem;color:var(--tinta-suave)}
+@media (max-width:700px){.dica-arraste{display:block}}
 .legenda .it{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;padding:10px 12px;border-radius:14px;background:#fff;border:1px solid var(--linha-clara)}
 .legenda .it svg{width:44px;height:44px}
 .legenda b{font-family:var(--fd)}
@@ -230,7 +245,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
 
 <header class="topo">
   <a class="marca" href="#s1" aria-label="Agência no Bolso, voltar ao início"><span class="ponto" aria-hidden="true"></span><span>AGÊNCIA NO BOLSO<small>Programa de Parceria MaIA</small></span></a>
-  <div class="dir"><p class="contador" aria-live="polite"><span id="atual">01</span> / <span id="total">15</span></p><a class="btn-topo" href="#comecar">Quero ser parceiro</a></div>
+  <div class="dir"><p class="contador" aria-live="polite"><span id="atual">01</span> / <span id="total">17</span></p><a class="btn-topo" href="#comecar">Quero ser parceiro</a></div>
 </header>
 
 <main id="conteudo" tabindex="-1">
@@ -244,7 +259,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
    <p class="lead">Indique empresas para a MaIA, a inteligência artificial que atende, vende e agenda 24 horas. Nossa equipe apresenta e fecha a venda. Você recebe na implantação, na mensalidade e no crescimento da sua rede.</p>
    <div class="stats">
     <div class="stat"><b>até 15%</b><span>de cada mensalidade, todo mês</span></div>
-    <div class="stat"><b>R$ 2.350</b><span>por Enterprise que você indicar</span></div>
+    <div class="stat"><b>R$ 2.350</b><span>por Magnata que você indicar</span></div>
     <div class="stat"><b>70% + 50%</b><span>sobre cada Embaixador da sua rede</span></div>
    </div>
    <div class="acoes"><a class="btn" href="#comecar">Quero ser parceiro</a><a class="btn sec" href="#s7">Ver quanto posso ganhar</a></div>
@@ -273,13 +288,14 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  <div class="in">
   <p class="sobre">O que o seu indicado compra</p>
   <h2 id="t3">Os planos da MaIA</h2>
-  <p class="lead">Você ganha sobre a implantação de qualquer plano e, como Divulgador, sobre a mensalidade de R$ 597 de cada cliente.</p>
-  <div class="grade g3">
-   <div class="cartao"><h3>Start</h3><p>A MaIA SDR: atende, qualifica e agenda 24 horas.</p><p class="num">R$ 1.497</p><p>no Pix, ou 12x de R$ 166,45</p></div>
-   <div class="cartao borda-div"><h3>Pro</h3><p>A operação completa de IA para empresas em crescimento.</p><p class="num">R$ 5.000</p><p>no Pix, ou 12x de R$ 583,35</p></div>
-   <div class="cartao borda-emb"><h3>Enterprise</h3><p>Tudo o que a MaIA faz, com todas as habilidades e agentes.</p><p class="num">R$ 25.000</p><p>no Pix, ou 12x de R$ 2.410</p></div>
+  <p class="lead">Você ganha sobre a implantação de qualquer plano e, como Divulgador, sobre a mensalidade de cada cliente, todo mês.</p>
+  <div class="grade g4 planos">
+   <div class="cartao"><h3>Start</h3><p>A MaIA com a Lis: atende, qualifica e agenda 24 horas no WhatsApp e no Instagram.</p><p class="num">R$ 1.497</p><p>à vista; no cartão, a taxa é repassada</p><p class="mens">+ R$ 297/mês</p></div>
+   <div class="cartao borda-div"><h3>Pro</h3><p>Tudo do Start, mais o Théo (posts, carrosséis e textos de venda) e a Eva (pós-venda e reativação).</p><p class="num">R$ 5.000</p><p>implantação</p><p class="mens">+ R$ 597/mês</p></div>
+   <div class="cartao borda-emb"><h3>Enterprise</h3><p>Tudo do Pro, com 7 agentes especialistas e prospecção ativa de clientes.</p><p class="num">R$ 12.000</p><p>ou até 12x de R$ 1.000</p><p class="mens">+ R$ 597/mês</p></div>
+   <div class="cartao borda-emb topo-linha"><span class="etq c-emb">Topo de linha</span><h3 style="margin-top:10px">Magnata</h3><p>Tudo do Enterprise, com 14 agentes (jurídico, financeiro, tributário, RH e mais), vários negócios numa só MaIA e suporte dedicado.</p><p class="num">R$ 25.000</p><p>implantação</p><p class="mens">+ R$ 597/mês</p></div>
   </div>
-  <p class="nota">Mensalidade de manutenção: R$ 597/mês em todos os planos.</p>
+  <p class="nota">Mensalidade de manutenção: R$ 297/mês no Start e R$ 597/mês no Pro, no Enterprise e no Magnata.</p>
  </div>
 </section>
 
@@ -298,13 +314,13 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
    <div class="degrau d2 borda-div">
     <svg class="med" viewBox="0 0 60 64" aria-hidden="true" style="color:#B4380F"><use href="#pessoa"/></svg>
     <span class="etq c-div">Nível 2 · Divulgador</span>
-    <p class="quem">Para quem comprou a MaIA Pro ou Enterprise</p>
+    <p class="quem">Para quem comprou a MaIA Pro, Enterprise ou Magnata</p>
     <p class="ganha">Tudo do Indicador e mais 15% de cada mensalidade dos seus clientes e 10% dos clientes da sua rede, todo mês.</p>
    </div>
    <div class="degrau d3 borda-emb">
     <svg class="med" viewBox="0 0 100 100" aria-hidden="true"><use href="#estrela"/></svg>
     <span class="etq c-emb">Nível 3 · Embaixador</span>
-    <p class="quem">Divulgador Enterprise que investe R$ 1.000/mês</p>
+    <p class="quem">Divulgador Enterprise ou Magnata que investe R$ 1.000/mês</p>
     <p class="ganha">Tudo do Divulgador e mais 2% das mensalidades de toda a rede que construiu, e 70% + 50% sobre cada Embaixador da sua rede.</p>
    </div>
   </div>
@@ -336,6 +352,55 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
+<!-- 5b ARVORE INDICADOR -->
+<section class="slide claro" id="arvore-indicador" aria-labelledby="t5b">
+ <div class="in grade arv-grade">
+  <div>
+  <div class="arvore-wrap" role="region" aria-label="Árvore do Indicador, arraste para ver tudo no celular" tabindex="0">
+   <svg viewBox="0 0 820 545" role="img" aria-labelledby="arvi-t arvi-d">
+    <title id="arvi-t">De onde vem o dinheiro do Indicador</title>
+    <desc id="arvi-d">Você no topo, como Parceiro Indicador. Abaixo, as empresas que você indicou e que fecharam: Ana fechou um Pro e rende 470 reais para você; Bruno fechou um Enterprise e rende 1.128 reais; Carla fechou um Start e rende 140 reais e 72 centavos. Esses valores são 10% da implantação líquida. Ao lado, Marcos, um Indicador que você trouxe. Lucas fechou um Magnata com o Marcos e rende 1.175 reais para você; Paula fechou um Pro com o Marcos e rende 235 reais. Esses são 5% da implantação. Total do exemplo: 3.148 reais e 72 centavos, pagos uma vez, sem mensalidade.</desc>
+    <g fill="none" stroke="#B9AEA2" stroke-width="2">
+    <path d="M410 132 C410 152 95 150 95 170"/>
+    <path d="M410 132 C410 152 275 150 275 170"/>
+    <path d="M410 132 C410 152 455 150 455 170"/>
+    <path d="M410 132 C410 152 650 150 650 170"/>
+    <path d="M650 306 C650 334 560 330 560 358"/><path d="M650 306 C650 334 735 330 735 358"/>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-weight="700" font-size="18" text-anchor="middle" fill="#1A1A1F">
+    <circle cx="410" cy="48" r="46" fill="#CCFBF1" stroke="#0F766E" stroke-width="3"/><use href="#pessoa" x="380" y="14" width="60" height="64" style="color:#0F766E"/><text x="410" y="122">VOCÊ</text>
+    <use href="#pessoa" x="65" y="172" width="60" height="64" style="color:#57534E"/><text x="95" y="258">ANA</text>
+    <use href="#pessoa" x="245" y="172" width="60" height="64" style="color:#57534E"/><text x="275" y="258">BRUNO</text>
+    <use href="#pessoa" x="425" y="172" width="60" height="64" style="color:#57534E"/><text x="455" y="258">CARLA</text>
+    <use href="#pessoa" x="620" y="172" width="60" height="64" style="color:#0F766E"/><text x="650" y="258">MARCOS</text>
+    <text x="650" y="280" font-size="15" fill="#0F766E">Indicador que</text><text x="650" y="298" font-size="15" fill="#0F766E">você trouxe</text>
+    <use href="#pessoa" x="530" y="360" width="60" height="64" style="color:#57534E"/><text x="560" y="446">LUCAS</text>
+    <use href="#pessoa" x="705" y="360" width="60" height="64" style="color:#57534E"/><text x="735" y="446">PAULA</text>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+    <rect x="17" y="270" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="95" y="296" fill="#5EEAD4">Fechou: Pro</text><text x="95" y="318" fill="#fff">+R$ 470</text>
+    <rect x="197" y="270" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="275" y="296" fill="#5EEAD4">Fechou: Enterprise</text><text x="275" y="318" fill="#fff">+R$ 1.128</text>
+    <rect x="377" y="270" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="455" y="296" fill="#5EEAD4">Fechou: Start</text><text x="455" y="318" fill="#fff">+R$ 140,72</text>
+    <rect x="482" y="458" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="560" y="484" fill="#5EEAD4">Fechou: Magnata</text><text x="560" y="506" fill="#fff">+R$ 1.175 (5%)</text>
+    <rect x="657" y="458" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="735" y="484" fill="#5EEAD4">Fechou: Pro</text><text x="735" y="506" fill="#fff">+R$ 235 (5%)</text>
+    <rect x="30" y="380" rx="14" width="410" height="124" fill="#0F766E"/><text x="235" y="412" fill="#fff">Total deste exemplo</text><text x="235" y="454" fill="#fff" font-size="34" font-family="Bricolage Grotesque,Inter,Arial,sans-serif" font-weight="800">R$ 3.148,72</text><text x="235" y="484" fill="#fff" font-weight="500">pago uma vez, na implantação de cada venda</text>
+    </g>
+   </svg>
+  </div>
+  <p class="dica-arraste" aria-hidden="true">Arraste a árvore para o lado para ver tudo →</p>
+  </div>
+  <div>
+   <p class="sobre c-ind">A árvore do Indicador</p>
+   <h2 id="t5b" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Cada venda vira <span class="c-ind">dinheiro na sua conta</span></h2>
+   <div class="legenda">
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#57534E"><use href="#pessoa"/></svg><div><b>Empresa que você indicou</b><br>10% da implantação de cada venda</div></div>
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#0F766E"><use href="#pessoa"/></svg><div><b>Indicador que você trouxe</b><br>cada venda dele rende 5% da implantação para você</div></div>
+   </div>
+   <p class="nota">O Indicador ganha uma vez, em cada venda nova, sem comissão de mensalidade. Valores sobre a implantação líquida (94%): Magnata R$ 23.500 · Enterprise R$ 11.280 · Pro R$ 4.700 · Start R$ 1.407,18.</p>
+  </div>
+ </div>
+</section>
+
 <!-- 6 SIMULACAO INDICADOR -->
 <section class="slide" id="s6" aria-labelledby="t6">
  <div class="in grade g2" style="align-items:center">
@@ -343,15 +408,16 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
    <p class="sobre c-ind">Simulação · Indicador</p>
    <h2 id="t6">Um mês de indicações</h2>
    <p class="lead">Você indica 3 empresas que fecham, e 5 parceiros que você trouxe fecham 1 venda cada.</p>
-   <p class="nota">Valores sobre a implantação líquida: Enterprise R$ 23.500 · Pro R$ 4.700. Exemplo ilustrativo; o ganho depende das vendas fechadas.</p>
+   <p class="nota">Valores sobre a implantação líquida (94% do valor): Magnata R$ 23.500 · Enterprise R$ 11.280 · Pro R$ 4.700 · Start R$ 1.407,18. Exemplo ilustrativo; o ganho depende das vendas fechadas.</p>
   </div>
   <div class="simu" role="group" aria-label="Simulação de ganhos do Indicador">
    <div class="soma">
-    <div class="parcela"><div>1 Enterprise indicado por você<small>10% de R$ 23.500</small></div><span class="v">R$ 2.350</span></div>
-    <div class="parcela"><div>2 Pro indicados por você<small>10% de R$ 4.700, duas vezes</small></div><span class="v">R$ 940</span></div>
-    <div class="parcela"><div>4 Pro vendidos pela sua rede<small>5% de R$ 4.700, quatro vezes</small></div><span class="v">R$ 940</span></div>
-    <div class="parcela"><div>1 Enterprise vendido pela sua rede<small>5% de R$ 23.500</small></div><span class="v">R$ 1.175</span></div>
-    <div class="total ind"><span>Total no mês</span><b>R$ 5.405</b></div>
+    <div class="parcela"><div>1 Magnata indicado por você<small>10% de R$ 23.500</small></div><span class="v">R$ 2.350</span></div>
+    <div class="parcela"><div>1 Enterprise indicado por você<small>10% de R$ 11.280</small></div><span class="v">R$ 1.128</span></div>
+    <div class="parcela"><div>1 Pro indicado por você<small>10% de R$ 4.700</small></div><span class="v">R$ 470</span></div>
+    <div class="parcela"><div>1 Enterprise e 2 Pro vendidos pela sua rede<small>5% de R$ 11.280 + 5% de R$ 4.700, duas vezes</small></div><span class="v">R$ 1.034</span></div>
+    <div class="parcela"><div>2 Start vendidos pela sua rede<small>5% de R$ 1.407,18, duas vezes</small></div><span class="v">R$ 140,72</span></div>
+    <div class="total ind"><span>Total no mês</span><b>R$ 5.122,72</b></div>
    </div>
   </div>
  </div>
@@ -362,18 +428,70 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  <div class="in">
   <p class="sobre c-div">Nível 2</p>
   <h2 id="t7">Parceiro <span class="dest">Divulgador</span>: a renda recorrente</h2>
-  <p class="lead">Para quem já usa a MaIA Pro ou Enterprise. Você fala com propriedade, e cada cliente que entra paga você todo mês, enquanto continuar cliente.</p>
+  <p class="lead">Para quem já usa a MaIA Pro, Enterprise ou Magnata. Você fala com propriedade, e cada cliente que entra paga você todo mês, enquanto continuar cliente.</p>
   <div class="tab-wrap" role="region" aria-label="Tabela de comissões do Divulgador" tabindex="0">
    <table>
     <thead><tr><th scope="col">Comissão</th><th scope="col">Cliente seu (1º nível)</th><th scope="col">Cliente da sua rede (2º nível)</th></tr></thead>
     <tbody>
      <tr><th scope="row">Na implantação</th><td class="big">10%</td><td class="big">5%</td></tr>
-     <tr><th scope="row">Na mensalidade, todo mês</th><td class="big">15% · R$ 81,43</td><td class="big">10% · R$ 54,29</td></tr>
-     <tr><th scope="row">Exemplo: 1 Enterprise</th><td>R$ 2.350 + R$ 81,43/mês</td><td>R$ 1.175 + R$ 54,29/mês</td></tr>
+     <tr><th scope="row">Na mensalidade, todo mês</th><td class="big">15% · R$ 81,43<small class="sub">no Start: R$ 40,51</small></td><td class="big">10% · R$ 54,29<small class="sub">no Start: R$ 27,01</small></td></tr>
+     <tr><th scope="row">Exemplo: 1 Magnata</th><td>R$ 2.350 + R$ 81,43/mês</td><td>R$ 1.175 + R$ 54,29/mês</td></tr>
+     <tr><th scope="row">Exemplo: 1 Enterprise</th><td>R$ 1.128 + R$ 81,43/mês</td><td>R$ 564 + R$ 54,29/mês</td></tr>
+     <tr><th scope="row">Exemplo: 1 Pro</th><td>R$ 470 + R$ 81,43/mês</td><td>R$ 235 + R$ 54,29/mês</td></tr>
+     <tr><th scope="row">Exemplo: 1 Start</th><td>R$ 140,72 + R$ 40,51/mês</td><td>R$ 70,36 + R$ 27,01/mês</td></tr>
     </tbody>
    </table>
   </div>
-  <p class="nota">Sobre o valor líquido: mensalidade de R$ 597 → base de R$ 542,85. Sua rede são os parceiros que entraram pela sua indicação.</p>
+  <p class="nota">Sobre o valor líquido: implantação × 94%; mensalidade de R$ 597 → base de R$ 542,85. No Start, a mensalidade de R$ 297 segue a mesma proporção: 297 × 542,85 ÷ 597 = base de R$ 270,06. Sua rede são os parceiros que entraram pela sua indicação.</p>
+ </div>
+</section>
+
+<!-- 7b ARVORE DIVULGADOR -->
+<section class="slide claro" id="arvore-divulgador" aria-labelledby="t7b">
+ <div class="in grade arv-grade">
+  <div>
+  <div class="arvore-wrap" role="region" aria-label="Árvore do Divulgador, arraste para ver tudo no celular" tabindex="0">
+   <svg viewBox="0 0 820 545" role="img" aria-labelledby="arvd-t arvd-d">
+    <title id="arvd-t">De onde vem o dinheiro do Divulgador</title>
+    <desc id="arvd-d">Você no topo, como Parceiro Divulgador. Abaixo, os seus clientes: Ana fechou um Magnata e rende 2.350 reais na implantação e 81 reais e 43 centavos por mês; Bruno fechou um Enterprise e rende 1.128 reais e 81 reais e 43 centavos por mês; Carla fechou um Start e rende 140 reais e 72 centavos e 40 reais e 51 centavos por mês. Ao lado, Diego, um Divulgador que você trouxe. Elisa fechou um Pro com o Diego e rende 235 reais e 54 reais e 29 centavos por mês para você; Fábio fechou um Enterprise com o Diego e rende 564 reais e 54 reais e 29 centavos por mês. Total do exemplo: 4.417 reais e 72 centavos nas implantações e mais 311 reais e 95 centavos todo mês.</desc>
+    <g fill="none" stroke="#B9AEA2" stroke-width="2">
+    <path d="M410 132 C410 152 95 150 95 170"/>
+    <path d="M410 132 C410 152 275 150 275 170"/>
+    <path d="M410 132 C410 152 455 150 455 170"/>
+    <path d="M410 132 C410 152 650 150 650 170"/>
+    <path d="M650 306 C650 334 560 330 560 358"/><path d="M650 306 C650 334 735 330 735 358"/>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-weight="700" font-size="18" text-anchor="middle" fill="#1A1A1F">
+    <circle cx="410" cy="48" r="46" fill="#FFE4DA" stroke="#B4380F" stroke-width="3"/><use href="#pessoa" x="380" y="14" width="60" height="64" style="color:#B4380F"/><text x="410" y="122">VOCÊ</text>
+    <use href="#pessoa" x="65" y="172" width="60" height="64" style="color:#57534E"/><text x="95" y="258">ANA</text>
+    <use href="#pessoa" x="245" y="172" width="60" height="64" style="color:#57534E"/><text x="275" y="258">BRUNO</text>
+    <use href="#pessoa" x="425" y="172" width="60" height="64" style="color:#57534E"/><text x="455" y="258">CARLA</text>
+    <use href="#pessoa" x="620" y="172" width="60" height="64" style="color:#B4380F"/><text x="650" y="258">DIEGO</text>
+    <text x="650" y="280" font-size="15" fill="#B4380F">Divulgador que</text><text x="650" y="298" font-size="15" fill="#B4380F">você trouxe</text>
+    <use href="#pessoa" x="530" y="360" width="60" height="64" style="color:#57534E"/><text x="560" y="446">ELISA</text>
+    <use href="#pessoa" x="705" y="360" width="60" height="64" style="color:#57534E"/><text x="735" y="446">FÁBIO</text>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+    <rect x="17" y="270" rx="10" width="156" height="78" fill="#1A1A1F"/><text x="95" y="296" fill="#FF9B7A">Fechou: Magnata</text><text x="95" y="318" fill="#fff">+R$ 2.350</text><text x="95" y="340" fill="#F2B544">+R$ 81,43/mês</text>
+    <rect x="197" y="270" rx="10" width="156" height="78" fill="#1A1A1F"/><text x="275" y="296" fill="#FF9B7A">Fechou: Enterprise</text><text x="275" y="318" fill="#fff">+R$ 1.128</text><text x="275" y="340" fill="#F2B544">+R$ 81,43/mês</text>
+    <rect x="377" y="270" rx="10" width="156" height="78" fill="#1A1A1F"/><text x="455" y="296" fill="#FF9B7A">Fechou: Start</text><text x="455" y="318" fill="#fff">+R$ 140,72</text><text x="455" y="340" fill="#F2B544">+R$ 40,51/mês</text>
+    <rect x="482" y="458" rx="10" width="156" height="78" fill="#1A1A1F"/><text x="560" y="484" fill="#FF9B7A">Fechou: Pro</text><text x="560" y="506" fill="#fff">+R$ 235</text><text x="560" y="528" fill="#F2B544">+R$ 54,29/mês</text>
+    <rect x="657" y="458" rx="10" width="156" height="78" fill="#1A1A1F"/><text x="735" y="484" fill="#FF9B7A">Fechou: Enterprise</text><text x="735" y="506" fill="#fff">+R$ 564</text><text x="735" y="528" fill="#F2B544">+R$ 54,29/mês</text>
+    <rect x="30" y="374" rx="14" width="410" height="160" fill="#B4380F"/><text x="235" y="404" fill="#fff">Total deste exemplo</text><text x="235" y="442" fill="#fff" font-size="30" font-family="Bricolage Grotesque,Inter,Arial,sans-serif" font-weight="800">R$ 4.417,72</text><text x="235" y="464" fill="#fff" font-weight="500">nas implantações, uma vez</text><text x="235" y="500" fill="#fff" font-size="26" font-family="Bricolage Grotesque,Inter,Arial,sans-serif" font-weight="800">+ R$ 311,95/mês</text><text x="235" y="522" fill="#fff" font-weight="500">enquanto esses clientes ficarem</text>
+    </g>
+   </svg>
+  </div>
+  <p class="dica-arraste" aria-hidden="true">Arraste a árvore para o lado para ver tudo →</p>
+  </div>
+  <div>
+   <p class="sobre dest">A árvore do Divulgador</p>
+   <h2 id="t7b" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Cada cliente paga você <span class="dest">todo mês</span></h2>
+   <div class="legenda">
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#57534E"><use href="#pessoa"/></svg><div><b>Cliente seu</b><br>10% da implantação e 15% da mensalidade, todo mês</div></div>
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#B4380F"><use href="#pessoa"/></svg><div><b>Divulgador que você trouxe</b><br>cada cliente dele rende 5% da implantação e 10% da mensalidade para você, todo mês</div></div>
+   </div>
+   <p class="nota">Mensalidade líquida: R$ 597 → R$ 542,85. No Start, a mensalidade é R$ 297 e a base líquida segue a mesma proporção: R$ 270,06. Por isso a parcela mensal do Start é menor.</p>
+  </div>
  </div>
 </section>
 
@@ -397,7 +515,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
     <div class="col"><span class="val">R$ 4.560</span><div class="pista"><div class="bar" style="height:100%"></div></div><span class="mes">12º mês</span></div>
    </div>
    <div class="total" style="margin-top:16px"><span>Por mês, no 12º mês</span><b>R$ 4.560</b></div>
-   <p class="nota" style="margin-bottom:0">24 clientes seus × R$ 81,43 + 48 da rede × R$ 54,29. Exemplo ilustrativo.</p>
+   <p class="nota" style="margin-bottom:0">24 clientes seus × R$ 81,43 + 48 da rede × R$ 54,29, todos com mensalidade de R$ 597 (Pro, Enterprise ou Magnata). Exemplo ilustrativo.</p>
   </div>
  </div>
 </section>
@@ -407,13 +525,13 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  <div class="in">
   <p class="sobre c-emb">Nível 3</p>
   <h2 id="t9"><span class="dest-ouro">Embaixador</span>: dono da própria rede</h2>
-  <p class="lead">O Parceiro Divulgador do plano Enterprise que investe <b>R$ 1.000 por mês</b> vira Embaixador. A partir daí, além de todas as comissões de Divulgador, ganha sobre a rede inteira que construiu.</p>
+  <p class="lead">O Parceiro Divulgador do plano Enterprise ou Magnata que investe <b>R$ 1.000 por mês</b> vira Embaixador. A partir daí, além de todas as comissões de Divulgador, ganha sobre a rede inteira que construiu.</p>
   <div class="grade g3">
    <div class="cartao borda-emb"><p class="num c-emb">+2%</p><h3>Da sua rede inteira</h3><p>De todas as mensalidades da rede que você construiu, em qualquer profundidade. Só seu, sem dividir com ninguém.</p></div>
    <div class="cartao borda-emb"><p class="num c-emb">70%</p><h3>No 1º mês de cada Embaixador</h3><p>Quando alguém da sua rede vira Embaixador, você recebe R$ 700 do primeiro investimento de R$ 1.000.</p></div>
    <div class="cartao borda-emb"><p class="num c-emb">50%</p><h3>Todo mês depois</h3><p>E R$ 500 por mês de cada Embaixador da sua rede, enquanto ele continuar Embaixador.</p></div>
   </div>
-  <p class="nota">Requisito: ser Parceiro Divulgador do plano Enterprise e manter o investimento de R$ 1.000/mês.</p>
+  <p class="nota">Requisito: ser Parceiro Divulgador do plano Enterprise ou Magnata e manter o investimento de R$ 1.000/mês.</p>
  </div>
 </section>
 
@@ -481,7 +599,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
   </div>
   <div class="simu" role="group" aria-label="Simulação de ganhos do Embaixador">
    <div class="soma">
-    <div class="parcela"><div>2% da rede inteira<small>300 clientes × R$ 10,86</small></div><span class="v">R$ 3.257</span></div>
+    <div class="parcela"><div>2% da rede inteira<small>300 clientes × 2% de R$ 542,85</small></div><span class="v">R$ 3.257</span></div>
     <div class="parcela"><div>4 Embaixadores na sua rede<small>4 × R$ 500 por mês</small></div><span class="v">R$ 2.000</span></div>
     <div class="parcela menos"><div>Seu investimento de Embaixador<small>todo mês</small></div><span class="v">− R$ 1.000</span></div>
     <div class="total ouro"><span>Bônus de Embaixador, por mês</span><b>R$ 4.257</b></div>
@@ -500,7 +618,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
    <table>
     <thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col">Indicador</th><th scope="col">Divulgador</th><th scope="col">Embaixador</th></tr></thead>
     <tbody>
-     <tr><th scope="row">Para quem</th><td>Quem não tem a MaIA</td><td>Quem comprou Pro ou Enterprise</td><td>Divulgador Enterprise</td></tr>
+     <tr><th scope="row">Para quem</th><td>Quem não tem a MaIA</td><td>Quem comprou Pro, Enterprise ou Magnata</td><td>Divulgador Enterprise ou Magnata</td></tr>
      <tr><th scope="row">Investimento</th><td>Gratuito</td><td>A própria MaIA</td><td>R$ 1.000/mês</td></tr>
      <tr><th scope="row">Implantação: sua venda / da rede</th><td>10% / 5%</td><td>10% / 5%</td><td>10% / 5%</td></tr>
      <tr><th scope="row">Mensalidade: seu cliente / da rede</th><td>—</td><td>15% / 10% todo mês</td><td>15% / 10% todo mês</td></tr>
@@ -554,8 +672,8 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
   <h2 id="t15">Sua rede já existe.<br><span class="dest">Comece a ganhar com ela.</span></h2>
   <div class="grade g3" style="margin:10px 0 26px">
    <div class="cartao borda-ind"><span class="etq c-ind">Indicador</span><p style="margin-top:12px">Cadastro gratuito. Em poucos minutos você recebe seus links e QR codes.</p></div>
-   <div class="cartao borda-div"><span class="etq c-div">Divulgador</span><p style="margin-top:12px">Contrate a MaIA Pro ou Enterprise e ative a sua renda recorrente. Já tem o Start? Faça o upgrade pagando só a diferença.</p></div>
-   <div class="cartao borda-emb"><span class="etq c-emb">Embaixador</span><p style="margin-top:12px">Divulgador Enterprise: ative o investimento de R$ 1.000/mês e passe a ganhar sobre a rede inteira.</p></div>
+   <div class="cartao borda-div"><span class="etq c-div">Divulgador</span><p style="margin-top:12px">Contrate a MaIA Pro, Enterprise ou Magnata e ative a sua renda recorrente. Já tem o Start? Faça o upgrade pagando só a diferença.</p></div>
+   <div class="cartao borda-emb"><span class="etq c-emb">Embaixador</span><p style="margin-top:12px">Divulgador Enterprise ou Magnata: ative o investimento de R$ 1.000/mês e passe a ganhar sobre a rede inteira.</p></div>
   </div>
   <div class="acoes">
    <a class="btn" href="https://wa.me/5586981141438?text=Quero%20ser%20parceiro%20MaIA">Quero ser parceiro agora</a>
@@ -591,7 +709,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  <p class="sr" role="status" id="a11y-status"></p>
 </div>
 
-<div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+<aside aria-label="Tradutor de Libras (VLibras)"><div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div></aside>
 
 <script>
 (function(){
@@ -639,6 +757,11 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
       if(e.shiftKey&&document.activeElement===p){e.preventDefault();u.focus();}else if(!e.shiftKey&&document.activeElement===u){e.preventDefault();p.focus();}}
   });
   aplicar();
+
+  // o VLibras cria caixas soltas no <body>; aqui elas ganham um rótulo de região (axe: region)
+  var vlNomes={'vlibras-access-wrapper':'VLibras: botão de acesso','vlibras-popup':'VLibras: aviso'};
+  function marcaVL(){Object.keys(vlNomes).forEach(function(id){var e=document.getElementById(id);if(e&&!e.hasAttribute('role')){e.setAttribute('role','complementary');e.setAttribute('aria-label',vlNomes[id]);}});}
+  try{new MutationObserver(marcaVL).observe(document.body,{childList:true});}catch(_){}
 
   try{var v=document.createElement('script');v.src='https://vlibras.gov.br/app/vlibras-plugin.js';v.async=true;
     v.onload=function(){try{new window.VLibras.Widget('https://vlibras.gov.br/app');}catch(_){}};document.body.appendChild(v);}catch(_){}
