@@ -180,6 +180,37 @@ html.a11y-contraste .trilha li{background:#000;border-color:#fff}
 .alinha{margin-top:16px;border-radius:16px;padding:16px 18px;background:rgba(242,181,68,.10);border:1.5px solid var(--ouro);color:var(--texto)}
 .alinha b{color:var(--ouro);font-family:var(--fd)}
 html.a11y-contraste .alinha b,html.a11y-contraste .ponto-ab b{color:#FFD600}
+.fluxo{list-style:none;margin:0 0 6px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:960px){.fluxo{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.fluxo{grid-template-columns:1fr}}
+.fluxo li{background:var(--cartao);border:1px solid var(--linha);border-radius:18px;padding:18px}
+.fluxo .n{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--coral);color:#0E0E11;font-family:var(--fd);font-weight:800;font-size:1.2rem;margin-bottom:10px}
+.fluxo li:nth-child(4) .n{background:var(--ouro)}
+html.a11y-contraste .fluxo .n{background:#FFD600;color:#000}
+.fluxo b{display:block;font-family:var(--fd);font-size:1.25rem;margin-bottom:4px}
+.fluxo li>span:last-child{color:var(--suave);font-size:.95rem}
+.calc{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:960px){.calc{grid-template-columns:1fr}}
+.calc-ent{display:grid;gap:10px}
+.calc fieldset{margin:0;border:1px solid var(--linha);border-radius:16px;padding:8px 12px 12px;background:var(--cartao)}
+.calc legend{font-weight:700;padding:0 6px;font-size:.95rem}
+.calc label{display:flex;flex-direction:column;gap:6px;font-size:.88rem;color:var(--suave)}
+.calc input[type=number],.calc select{min-height:44px;margin-top:auto;border-radius:10px;border:1.5px solid #6B6875;background:#0E0E11;color:var(--texto);font:600 1.05rem var(--fb);padding:6px 10px;width:100%}
+html.a11y-contraste .calc input[type=number],html.a11y-contraste .calc select{border-color:#fff;background:#000}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end}
+@media (max-width:520px){.trio{grid-template-columns:1fr}}
+.niveis{display:flex;flex-wrap:wrap;gap:10px}
+.niveis label{flex-direction:row;align-items:center;gap:8px;min-height:44px;padding:6px 14px;border-radius:999px;border:1.5px solid var(--linha);color:var(--texto);font-weight:700;font-size:.95rem;cursor:pointer}
+.niveis input{width:18px;height:18px;accent-color:var(--coral)}
+.calc .per{color:var(--texto);font-weight:700}
+.topo-calc{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:10px;align-items:stretch}
+@media (max-width:700px){.topo-calc{grid-template-columns:1fr}}
+.calc-sai{display:grid;gap:10px}
+.calc-sai .linha{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:9px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--linha)}
+.calc-sai .linha small{display:block;color:var(--suave);font-size:.84rem}
+.calc-sai .linha .v{font-family:var(--fd);font-weight:800;font-size:1.3rem;white-space:nowrap}
+.calc-sai .linha.menos .v{color:var(--suave)}
+.calc-sai .msg{margin:2px 0 0;color:var(--suave);font-size:.9rem}
 .jornada{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:j}
 .jornada li{counter-increment:j;position:relative;background:#fff;border:1px solid var(--linha-clara);border-radius:14px;padding:12px 14px 12px 50px;color:var(--tinta-suave);font-size:.92rem}
 .jornada li::before{content:counter(j);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--tinta);color:#fff;font-weight:800;display:grid;place-items:center;font-size:.85rem}
@@ -213,7 +244,7 @@ html.a11y-contraste .passos li::before{background:#FFD600;color:#000}
 /* tabelas */
 .tab-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--linha-clara);background:#fff}
 table{width:100%;border-collapse:collapse;min-width:560px;font-size:.98rem;color:var(--tinta)}
-th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--linha-clara);vertical-align:top}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--linha-clara);vertical-align:top}
 thead th{background:#1A1A1F;color:#fff;font-weight:600}
 html.a11y-contraste table{color:#fff} html.a11y-contraste thead th{background:#000;border-bottom:2px solid #fff}
 tbody th{font-weight:700}
@@ -306,82 +337,59 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  <div class="in">
   <div>
    <p class="sobre">Programa de Parceria MaIA</p>
-   <h1 id="t1">Construa sua rede.<br><span class="dest">Ganhe todo mês.</span></h1>
-   <p class="lead">Indique empresas para a MaIA, a inteligência artificial que atende, vende e agenda 24 horas. Nossa equipe apresenta e fecha a venda. Você recebe na implantação, na mensalidade e no crescimento da sua rede.</p>
+   <h1 id="t1">Você convida.<br>Nós vendemos.<br><span class="dest">Você ganha.</span></h1>
+   <p class="lead">Convide empresários para os eventos da MaIA, a inteligência artificial que atende, vende e agenda 24 horas. Nós apresentamos, vendemos e implantamos. Você ganha como parceiro: na implantação, na mensalidade e na rede que construir.</p>
    <div class="stats">
+    <div class="stat"><b>12 clientes</b><span>a cada 3 meses: a meta de referência</span></div>
     <div class="stat"><b>até 15%</b><span>de cada mensalidade, todo mês</span></div>
-    <div class="stat"><b>R$ 2.350</b><span>por Magnata que você indicar</span></div>
-    <div class="stat"><b>70% + 50%</b><span>sobre cada Embaixador da sua rede</span></div>
+    <div class="stat"><b>3 níveis</b><span>Indicador, Divulgador e Embaixador</span></div>
    </div>
-   <div class="acoes"><a class="btn" href="#comecar">Quero ser parceiro</a><a class="btn sec" href="#s7">Ver quanto posso ganhar</a></div>
+   <div class="acoes"><a class="btn" href="#comecar">Quero ser parceiro</a><a class="btn sec" href="#calculadora">Fazer a minha conta</a></div>
   </div>
   <div class="foto-maia"><div class="circ"><img src="assets/maia.webp" alt="Retrato da MaIA, a inteligência artificial da Agência no Bolso" width="800" height="800"></div><div class="selo"><b>24h</b>atendendo, vendendo<br>e agendando</div></div>
  </div>
 </section>
 
-<!-- 1b METODO 1A5C -->
-<section class="slide" id="metodo" aria-labelledby="tm">
- <div class="in">
-  <p class="pergunta">Onde você está hoje, e onde quer chegar?</p>
-  <p class="sobre">Como esta conversa funciona</p>
-  <h2 id="tm">Do ponto A ao ponto B, <span class="dest">pelo método 1A5C</span></h2>
-  <p class="lead">Um Alinhamento e cinco Cs. Cada parte desta apresentação responde a uma pergunta e leva você um passo adiante.</p>
-  <div class="metodo">
-   <div class="ponto-ab"><b>A</b><span>onde você está hoje</span></div>
-   <ol class="cinco">
-    <li><b>Clareza</b><span>O que eu quero e quanto preciso?</span></li>
-    <li><b>Caminho</b><span>Qual nível é o meu: Indicador, Divulgador ou Embaixador?</span></li>
-    <li><b>Caminhada</b><span>Quanto rende cada passo, com números pé no chão?</span></li>
-    <li><b>Constância</b><span>O que eu repito toda semana para chegar lá?</span></li>
-    <li><b>Conquista</b><span>Qual é o meu primeiro passo, hoje?</span></li>
-   </ol>
-   <div class="ponto-ab b"><b>B</b><span>onde você quer chegar</span></div>
-  </div>
-  <p class="alinha"><b>Alinhamento:</b> tudo isso sobre princípios e valores. Ganho só de venda real, regras por escrito, transparência nos números e respeito à lei. Ninguém ganha por entrar; ganha quem gera valor para o cliente.</p>
- </div>
-</section>
-
-<!-- 2 OPORTUNIDADE -->
+<!-- 2 CLAREZA OPORTUNIDADE -->
 <section class="slide claro" id="s2" aria-labelledby="t2">
  <div class="in">
-  <p class="pergunta">Quantos empresários você conhece que ainda atendem, vendem e agendam tudo na mão?</p>
+  <p class="pergunta">Quantos empresários você conhece que perdem cliente porque demoram a responder no WhatsApp?</p>
 <p class="sobre">A oportunidade</p>
   <h2 id="t2">Toda empresa vai precisar de IA.<br><span class="dest">Quem chegar primeiro, ganha a rede.</span></h2>
   <p class="lead">O empresário já sabe que precisa de inteligência artificial, mas não sabe por onde começar. Você conhece esses empresários. Nós temos o produto rodando em empresas reais.</p>
   <div class="grade g4">
    <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Produto que já vende</h3><p>A MaIA já atende clientes de verdade, todos os dias, em vários segmentos.</p></div>
-   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7M17 11l2 2 4-4"/></svg></div><h3>Você não vende sozinho</h3><p>Você indica. Nossa equipe faz a reunião, apresenta e fecha.</p></div>
+   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7M17 11l2 2 4-4"/></svg></div><h3>Você não precisa vender</h3><p>Você convida para o evento. Nós apresentamos a MaIA e fechamos a venda.</p></div>
    <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg></div><h3>Renda que se acumula</h3><p>O cliente paga todo mês e você recebe todo mês. Cada venda soma na anterior.</p></div>
    <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Sem estoque e sem equipe</h3><p>Implantação, suporte e manutenção são por nossa conta.</p></div>
   </div>
  </div>
 </section>
 
-<!-- 2b PERGUNTAS -->
-<section class="slide coral-bg" id="clareza" aria-labelledby="tq">
- <div class="in grade g2" style="align-items:center">
-  <div>
-   <p class="sobre">1º C · Clareza</p>
-   <h2 id="tq">Cinco perguntas de <span class="dest">clareza</span></h2>
-   <p class="lead">Responda com sinceridade. As respostas mostram o seu caminho dentro do programa, e é por elas que a gente segue.</p>
-  </div>
-  <ol class="perguntas">
-   <li><div><b>Quantos empresários você conhece?</b><span>Clientes, fornecedores, amigos, a sua rua. Essa é a sua rede hoje.</span></div></li>
-   <li><div><b>Quanto você quer ganhar por mês?</b><span>Um valor real. A partir dele, a gente calcula quantas vendas faltam.</span></div></li>
-   <li><div><b>Quanto custa a sua estrutura hoje?</b><span>A sua MaIA (corpo, cérebro e skills) pode ser paga pelas comissões.</span></div></li>
-   <li><div><b>Quantas horas por semana você pode dedicar?</b><span>Constância vale mais que pressa: 1 conversa por dia já muda o ano.</span></div></li>
-   <li><div><b>Onde você quer estar daqui a 12 meses?</b><span>Indicador, Divulgador ou Embaixador. Você escolhe o degrau.</span></div></li>
+<!-- 3 CLAREZA COMO FUNCIONA -->
+<section class="slide coral-bg" id="como" aria-labelledby="tcf">
+ <div class="in">
+  <p class="pergunta">E se você pudesse ganhar com a MaIA sem precisar vender nada?</p>
+  <p class="sobre">Como funciona</p>
+  <h2 id="tcf">O seu papel é convidar. <span class="dest">A venda é nossa.</span></h2>
+  <p class="lead">Quem apresenta e vende a MaIA é a nossa equipe, nos eventos. Você leva os empresários até lá e ganha conforme a sua categoria de parceiro.</p>
+  <ol class="fluxo">
+   <li><span class="n">1</span><b>Você convida</b><span>Empresários para o próximo evento da MaIA, com o seu link de parceiro.</span></li>
+   <li><span class="n">2</span><b>Nós apresentamos</b><span>No evento, mostramos a MaIA funcionando de verdade.</span></li>
+   <li><span class="n">3</span><b>Nós vendemos</b><span>A nossa equipe fecha, implanta e dá todo o suporte.</span></li>
+   <li><span class="n">4</span><b>Você recebe</b><span>Na implantação e, a partir do Divulgador, todo mês.</span></li>
   </ol>
+  <p class="alinha"><b>Meta de referência:</b> 12 clientes a cada 3 meses, um por semana. É o número que usamos nas contas desta apresentação. O potencial é bem maior: depende de quantos empresários você convida.</p>
  </div>
 </section>
 
-<!-- 3 PLANOS -->
+<!-- 4 CLAREZA PLANOS -->
 <section class="slide" id="s3" aria-labelledby="t3">
  <div class="in">
-  <p class="pergunta">O que exatamente você vai apresentar para esses empresários?</p>
-<p class="sobre">O que o seu indicado compra</p>
+  <p class="pergunta">O que o empresário encontra no nosso evento?</p>
+<p class="sobre">O que nós vendemos</p>
   <h2 id="t3">Os planos da MaIA</h2>
-  <p class="lead">Você ganha sobre a implantação de qualquer plano e, como Divulgador, sobre a mensalidade de cada cliente, todo mês.</p>
+  <p class="lead">Nós apresentamos os planos no evento e escolhemos com o empresário o que serve para ele. Você ganha sobre a implantação e, como Divulgador, sobre a mensalidade, todo mês.</p>
   <div class="grade g4 planos">
    <div class="cartao"><h3>Start</h3><p>A MaIA com a Lis: atende, qualifica e agenda 24 horas no WhatsApp e no Instagram.</p><p class="num">R$ 1.497</p><p>à vista; no cartão, a taxa é repassada</p><p class="mens">+ R$ 297/mês</p></div>
    <div class="cartao borda-div"><h3>Pro</h3><p>Tudo do Start, mais o Théo (posts, carrosséis e textos de venda) e a Eva (pós-venda e reativação).</p><p class="num">R$ 5.000</p><p>implantação</p><p class="mens">+ R$ 597/mês</p></div>
@@ -392,11 +400,11 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
-<!-- 4 CARREIRA -->
+<!-- 5 CAMINHO CARREIRA -->
 <section class="slide claro" id="s4" aria-labelledby="t4">
  <div class="in">
-  <p class="pergunta">Até onde você quer chegar, e em quanto tempo?</p>
-<p class="sobre">2º C · Caminho · Plano de carreira</p>
+  <p class="pergunta">Por onde você começa, e até onde pode chegar?</p>
+<p class="sobre">Plano de carreira</p>
   <h2 id="t4">Três níveis. <span class="dest">Você escolhe até onde sobe.</span></h2>
   <div class="escada">
    <div class="degrau d1 borda-ind">
@@ -419,42 +427,42 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
    </div>
   </div>
   <ol class="jornada" aria-label="Como você sobe de nível">
-   <li><b class="c-ind">Entre grátis</b><span>como Indicador e comece a indicar</span></li>
-   <li><b class="c-ind">Junte comissões</b><span>e compre a sua MaIA</span></li>
+   <li><b class="c-ind">Entre grátis</b><span>como Indicador e convide empresários para os eventos</span></li>
+   <li><b class="c-ind">Junte comissões</b><span>um trimestre de convites paga a sua MaIA Pro</span></li>
    <li><b class="c-div">Vire Divulgador</b><span>com a MaIA Pro ou acima: renda todo mês</span></li>
    <li><b class="c-emb">Vire Embaixador</b><span>no Enterprise ou Magnata: ganhe sobre a rede inteira</span></li>
   </ol>
  </div>
 </section>
 
-<!-- 5 INDICADOR -->
+<!-- 6 CAMINHO INDICADOR -->
 <section class="slide" id="s5" aria-labelledby="t5">
  <div class="in grade g2" style="align-items:center">
   <div>
-   <p class="pergunta">Você ainda não tem a MaIA? Então por onde você começa?</p>
-<p class="sobre c-ind">Nível 1</p>
+   <p class="pergunta">Você ainda não tem a MaIA. Dá para ganhar mesmo assim?</p>
+   <p class="sobre c-ind">Nível 1</p>
    <h2 id="t5">Parceiro <span style="color:var(--ind)">Indicador</span></h2>
-   <p class="lead">Para consultores, contadores, agências e quem conhece empresários, mesmo sem ter a MaIA. Entrada gratuita.</p>
+   <p class="lead">Para consultores, contadores, agências e quem conhece empresários, mesmo sem ter a MaIA. Entrada gratuita. Você convida, nós vendemos.</p>
    <div class="grade g2">
-    <div class="cartao borda-ind"><p class="num c-ind">10%</p><p>da implantação de cada venda que você indicar</p></div>
-    <div class="cartao borda-ind"><p class="num c-ind">5%</p><p>da implantação vendida por quem você trouxe</p></div>
+    <div class="cartao borda-ind"><p class="num c-ind">10%</p><p>da implantação de cada empresário que você convidou e fechou</p></div>
+    <div class="cartao borda-ind"><p class="num c-ind">5%</p><p>da implantação dos clientes de quem você trouxe como parceiro</p></div>
    </div>
-   <p style="margin:16px 0 0;font-weight:600">Mais um benefício: <span style="color:var(--ind)">as comissões podem pagar a sua própria MaIA.</span> Com ela, você sobe para Divulgador.</p>
+   <p style="margin:16px 0 0;font-weight:600">Mais um benefício: <span style="color:var(--ind)">as comissões pagam a sua própria MaIA.</span> Com ela, você sobe para Divulgador.</p>
    <p class="nota">Recebe com nota fiscal: MEI, CNPJ ou nota fiscal avulsa.</p>
   </div>
   <div class="grade" style="gap:12px">
-   <div class="lk"><svg viewBox="0 0 21 21" role="img" aria-label="QR code ilustrativo do link de agendamento"><use href="#qr"/></svg><div><h3>Indicar agendamento</h3><p style="margin:0">O empresário cai direto na agenda e marca a reunião.</p><code>agendar.agencianobolso.com.br/?a=seucodigo</code></div></div>
-   <div class="lk"><svg viewBox="0 0 21 21" role="img" aria-label="QR code ilustrativo do link de recrutamento"><use href="#qr"/></svg><div><h3>Indicar parceiros</h3><p style="margin:0">Quem entra por ele fica na sua rede.</p><code>parceria.agencianobolso.com.br/?u=seucodigo</code></div></div>
+   <div class="lk"><svg viewBox="0 0 21 21" role="img" aria-label="QR code ilustrativo do convite para o evento"><use href="#qr"/></svg><div><h3>Convite para o evento</h3><p style="margin:0">O empresário se inscreve no evento pelo seu link. A venda fica no seu nome.</p></div></div>
+   <div class="lk"><svg viewBox="0 0 21 21" role="img" aria-label="QR code ilustrativo do convite de parceiro"><use href="#qr"/></svg><div><h3>Convite de parceiro</h3><p style="margin:0">Quem entra como parceiro pelo seu link fica na sua rede.</p></div></div>
    <ol class="passos" style="margin-top:6px">
-    <li><div><b>Compartilhe o link</b> no WhatsApp, nas redes ou no QR impresso.</div></li>
-    <li><div><b>O empresário marca a reunião.</b> A indicação fica no seu nome por 180 dias.</div></li>
-    <li><div><b>Nossa equipe fecha.</b> Você acompanha tudo na sua área.</div></li>
+    <li><div><b>Convide</b> pelo WhatsApp, nas redes ou com o QR impresso.</div></li>
+    <li><div><b>Nós apresentamos e vendemos</b> no evento.</div></li>
+    <li><div><b>Você acompanha</b> tudo na sua área e recebe a comissão.</div></li>
    </ol>
   </div>
  </div>
 </section>
 
-<!-- 5b ARVORE INDICADOR -->
+<!-- 7 ARVORE INDICADOR -->
 <section class="slide claro" id="arvore-indicador" aria-labelledby="t5b">
  <div class="in grade arv-grade">
   <div>
@@ -505,7 +513,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
   <p class="dica-arraste" aria-hidden="true">Arraste a árvore para o lado para ver tudo →</p>
   </div>
   <div>
-   <p class="pergunta">Quanto rende cada venda, sua e de quem você trouxe?</p>
+   <p class="pergunta">Quanto rende cada empresário que você convida?</p>
 <p class="sobre c-ind">A árvore do Indicador</p>
    <h2 id="t5b" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Cada venda vira <span class="c-ind">dinheiro na sua conta</span></h2>
    <div class="legenda">
@@ -518,37 +526,37 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
-<!-- 6 SIMULACAO INDICADOR -->
+<!-- 8 SIMULACAO INDICADOR -->
 <section class="slide" id="s6" aria-labelledby="t6">
  <div class="in grade g2" style="align-items:center">
   <div>
-   <p class="pergunta">Em quanto tempo as suas comissões pagam a sua própria MaIA?</p>
-<p class="sobre c-ind">3º C · Caminhada · Indicador</p>
-   <h2 id="t6">Um ano de indicações <span style="color:var(--ind)">paga a sua MaIA Pro</span></h2>
-   <p class="lead">Ritmo pé no chão: <b>1 venda sua a cada 2 meses</b>, quase todas do Pro, e 2 parceiros que você trouxe fechando, juntos, 5 vendas no ano.</p>
-   <div class="cartao borda-ind" style="margin-bottom:6px"><p class="num c-ind" style="font-size:clamp(1.5rem,2.6vw,2rem)">Mais um benefício</p><p style="margin:6px 0 0">As comissões do ano juntam o valor da implantação da sua própria MaIA Pro (R$ 5.000). Com ela, você já entra como <b style="color:var(--div)">Divulgador</b> e passa a ganhar todo mês.</p></div>
-   <p class="nota">Valores sobre a implantação líquida (94% do valor): Enterprise R$ 11.280 · Pro R$ 4.700. Exemplo ilustrativo; o ganho depende das vendas fechadas.</p>
+   <p class="pergunta">Quanto rende um trimestre convidando empresários para os eventos?</p>
+   <p class="sobre c-ind">Simulação · Indicador</p>
+   <h2 id="t6">Um trimestre de convites <span style="color:var(--ind)">paga a sua MaIA Pro</span></h2>
+   <p class="lead">Meta de referência: 12 empresários seus fecham no trimestre, 9 no Pro e 3 no Enterprise. E 1 parceiro que você trouxe faz o mesmo.</p>
+   <div class="cartao borda-ind" style="margin-bottom:6px;padding:18px"><p class="num c-ind" style="font-size:clamp(1.4rem,2.4vw,1.9rem)">Mais um benefício</p><p style="margin:6px 0 0">As comissões de um trimestre pagam a implantação da sua MaIA Pro (R$ 5.000) e ainda sobra. Com ela, você vira <b style="color:var(--div)">Divulgador</b> e passa a ganhar todo mês.</p></div>
+   <p class="nota">Implantação líquida (94%): Enterprise R$ 11.280 · Pro R$ 4.700. Exemplo ilustrativo; o ganho depende das vendas fechadas.</p>
   </div>
-  <div class="simu" role="group" aria-label="Simulação de ganhos do Indicador em doze meses">
+  <div class="simu" role="group" aria-label="Simulação de ganhos do Indicador em um trimestre">
    <div class="soma">
-    <div class="parcela"><div>5 Pro indicados por você<small>10% de R$ 4.700, cinco vezes</small></div><span class="v">R$ 2.350</span></div>
-    <div class="parcela"><div>1 Enterprise indicado por você<small>10% de R$ 11.280</small></div><span class="v">R$ 1.128</span></div>
-    <div class="parcela"><div>4 Pro vendidos pela sua rede<small>5% de R$ 4.700, quatro vezes</small></div><span class="v">R$ 940</span></div>
-    <div class="parcela"><div>1 Enterprise vendido pela sua rede<small>5% de R$ 11.280</small></div><span class="v">R$ 564</span></div>
-    <div class="total ind"><span>Total em 12 meses</span><b>R$ 4.982</b></div>
+    <div class="parcela"><div>9 Pro dos seus convidados<small>10% de R$ 4.700, nove vezes</small></div><span class="v">R$ 4.230</span></div>
+    <div class="parcela"><div>3 Enterprise dos seus convidados<small>10% de R$ 11.280, três vezes</small></div><span class="v">R$ 3.384</span></div>
+    <div class="parcela"><div>9 Pro do parceiro que você trouxe<small>5% de R$ 4.700, nove vezes</small></div><span class="v">R$ 2.115</span></div>
+    <div class="parcela"><div>3 Enterprise do parceiro que você trouxe<small>5% de R$ 11.280, três vezes</small></div><span class="v">R$ 1.692</span></div>
+    <div class="total ind"><span>Total no trimestre</span><b>R$ 11.421</b></div>
    </div>
-   <p class="nota" style="margin-bottom:0">Praticamente a implantação inteira da sua MaIA Pro (R$ 5.000). Com uma venda a mais, sobra.</p>
+   <p class="nota" style="margin-bottom:0">Paga a sua MaIA Pro e sobram R$ 6.421. Cada parceiro a mais na sua rede soma mais R$ 3.807 por trimestre.</p>
   </div>
  </div>
 </section>
 
-<!-- 7 DIVULGADOR -->
+<!-- 9 CAMINHO DIVULGADOR -->
 <section class="slide claro" id="s7" aria-labelledby="t7">
  <div class="in">
-  <p class="pergunta">E se cada cliente que você indicou pagasse você todo mês?</p>
+  <p class="pergunta">E se cada cliente que você trouxe pagasse você todo mês?</p>
 <p class="sobre c-div">Nível 2</p>
   <h2 id="t7">Parceiro <span class="dest">Divulgador</span>: a renda recorrente</h2>
-  <p class="lead">Para quem já usa a MaIA Pro, Enterprise ou Magnata. Você fala com propriedade, e cada cliente que entra paga você todo mês, enquanto continuar cliente. Essa comissão não é só lucro: <b>ela mantém a sua estrutura de pé</b>.</p>
+  <p class="lead">Para quem já usa a MaIA Pro, Enterprise ou Magnata. Você fala com propriedade, convida para o evento, nós vendemos, e cada cliente paga você todo mês enquanto continuar cliente. Essa comissão não é só lucro: <b>primeiro ela paga a sua estrutura</b> (corpo, cérebro e skills da sua MaIA), depois vira lucro.</p>
   <div class="tab-wrap" role="region" aria-label="Tabela de comissões do Divulgador" tabindex="0">
    <table>
     <thead><tr><th scope="col">Comissão</th><th scope="col">Cliente seu (1º nível)</th><th scope="col">Cliente da sua rede (2º nível)</th></tr></thead>
@@ -565,7 +573,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
-<!-- 7b ARVORE DIVULGADOR -->
+<!-- 10 ARVORE DIVULGADOR -->
 <section class="slide claro" id="arvore-divulgador" aria-labelledby="t7b">
  <div class="in grade arv-grade">
   <div>
@@ -608,7 +616,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
   <p class="dica-arraste" aria-hidden="true">Arraste a árvore para o lado para ver tudo →</p>
   </div>
   <div>
-   <p class="pergunta">De onde vem a sua renda recorrente?</p>
+   <p class="pergunta">De onde vem a renda que se repete todo mês?</p>
 <p class="sobre dest">A árvore do Divulgador</p>
    <h2 id="t7b" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Cada cliente paga você <span class="dest">todo mês</span></h2>
    <div class="legenda">
@@ -621,17 +629,17 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
-<!-- 8 SIMULACAO DIVULGADOR -->
+<!-- 11 SIMULACAO DIVULGADOR -->
 <section class="slide" id="s8" aria-labelledby="t8">
  <div class="in grade g2" style="align-items:center">
   <div>
-   <p class="pergunta">Quando a sua estrutura passa a se pagar sozinha?</p>
-<p class="sobre c-div">3º C · Caminhada · Divulgador</p>
-   <h2 id="t8" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Sua estrutura <span class="dest">se paga e dá lucro</span></h2>
-   <p class="lead">Ritmo pé no chão, só com o <b>Enterprise</b>: 1 cliente seu a cada 2 meses e 1 por mês vindo da sua rede (Divulgadores e Indicadores que você trouxe).</p>
+   <p class="pergunta">Em quanto tempo a sua estrutura passa a se pagar sozinha?</p>
+   <p class="sobre c-div">Simulação · Divulgador</p>
+   <h2 id="t8" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Sua estrutura se paga <span class="dest">já no 1º trimestre</span></h2>
+   <p class="lead">Meta de referência, só com o <b>Enterprise</b>: 12 clientes seus por trimestre e mais 12 da sua rede (Divulgadores e Indicadores que você trouxe).</p>
    <div class="grade g2" style="gap:12px">
-    <div class="cartao" style="padding:16px"><p class="num dest">7º mês</p><p>a comissão mensal (R$ 624,32) já passa a mensalidade da sua MaIA (R$ 597)</p></div>
-    <div class="cartao" style="padding:16px"><p class="num dest-ouro">R$ 13.536</p><p>de implantações no ano, além da mensalidade (6 × R$ 1.128 + 12 × R$ 564)</p></div>
+    <div class="cartao" style="padding:16px"><p class="num dest-ouro">R$ 20.304</p><p>de implantações em cada trimestre (12 × R$ 1.128 + 12 × R$ 564)</p></div>
+    <div class="cartao" style="padding:16px"><p class="num dest">R$ 1.628</p><p>por mês já no fim do 1º trimestre: paga a sua MaIA (R$ 597) e sobra</p></div>
    </div>
    <div class="estrutura" role="group" aria-label="O que as comissões mantêm">
     <div><b>Corpo</b><span>o servidor onde a sua MaIA vive, 24 horas</span></div>
@@ -639,23 +647,23 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
     <div><b>Skills</b><span>as habilidades e agentes que trabalham por você</span></div>
    </div>
   </div>
-  <div class="simu" role="img" aria-label="Gráfico: renda mensal recorrente no 3º mês R$ 244,30, no 6º mês R$ 570,03, no 9º mês R$ 814,33 e no 12º mês R$ 1.140,06">
+  <div class="simu" role="img" aria-label="Gráfico: renda mensal recorrente ao fim do 1º trimestre R$ 1.628,64, do 2º R$ 3.257,28, do 3º R$ 4.885,92 e do 4º R$ 6.514,56">
    <div class="colunas" aria-hidden="true">
-    <div class="col"><span class="val">R$ 244</span><div class="pista"><div class="bar" style="height:21%"></div></div><span class="mes">3º mês</span></div>
-    <div class="col"><span class="val">R$ 570</span><div class="pista"><div class="bar" style="height:50%"></div></div><span class="mes">6º mês</span></div>
-    <div class="col"><span class="val">R$ 814</span><div class="pista"><div class="bar" style="height:71%"></div></div><span class="mes">9º mês</span></div>
-    <div class="col"><span class="val">R$ 1.140</span><div class="pista"><div class="bar" style="height:100%"></div></div><span class="mes">12º mês</span></div>
+    <div class="col"><span class="val">R$ 1.629</span><div class="pista"><div class="bar" style="height:25%"></div></div><span class="mes">1º trimestre</span></div>
+    <div class="col"><span class="val">R$ 3.257</span><div class="pista"><div class="bar" style="height:50%"></div></div><span class="mes">2º trimestre</span></div>
+    <div class="col"><span class="val">R$ 4.886</span><div class="pista"><div class="bar" style="height:75%"></div></div><span class="mes">3º trimestre</span></div>
+    <div class="col"><span class="val">R$ 6.515</span><div class="pista"><div class="bar" style="height:100%"></div></div><span class="mes">4º trimestre</span></div>
    </div>
-   <div class="total" style="margin-top:16px"><span>Por mês, no 12º mês</span><b>R$ 1.140,06</b></div>
-   <p class="nota" style="margin-bottom:0">6 clientes seus × R$ 81,43 + 12 da rede × R$ 54,29, todos Enterprise e todos continuando clientes. Paga a sua MaIA (R$ 597) e sobram R$ 543,06 de lucro por mês. Exemplo ilustrativo.</p>
+   <div class="total" style="margin-top:16px"><span>Por mês, no fim do 4º trimestre</span><b>R$ 6.514,56</b></div>
+   <p class="nota" style="margin-bottom:0">Renda mensal recorrente: 48 clientes seus × R$ 81,43 + 48 da rede × R$ 54,29, todos Enterprise e continuando clientes. Tirando a sua MaIA (R$ 597), sobram R$ 5.917,56 por mês, fora as implantações. Exemplo ilustrativo.</p>
   </div>
  </div>
 </section>
 
-<!-- 9 EMBAIXADOR -->
+<!-- 12 CAMINHO EMBAIXADOR -->
 <section class="slide ouro-bg" id="s9" aria-labelledby="t9">
  <div class="in">
-  <p class="pergunta">Você quer ser dono da própria rede?</p>
+  <p class="pergunta">Quem constrói uma rede deveria ganhar só da própria venda?</p>
 <p class="sobre c-emb">Nível 3</p>
   <h2 id="t9"><span class="dest-ouro">Embaixador</span>: dono da própria rede</h2>
   <p class="lead">Só chega aqui quem já é Divulgador. O Divulgador do plano Enterprise ou Magnata que investe <b>R$ 1.000 por mês</b> vira Embaixador: continua com tudo do Indicador e do Divulgador e passa a ganhar sobre a rede inteira que construiu. E quando um Divulgador da sua rede também vira Embaixador, você ganha sobre ele.</p>
@@ -669,7 +677,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
-<!-- 10 ARVORE -->
+<!-- 13 ARVORE REDE -->
 <section class="slide claro" id="s10" aria-labelledby="t10">
  <div class="in grade arv-grade">
   <div class="arvore-wrap" role="region" aria-label="Árvore de rede, arraste para ver tudo no celular" tabindex="0">
@@ -708,7 +716,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
   </div>
   <div>
    <p class="pergunta">Quem trabalha a seu favor quando você não está trabalhando?</p>
-<p class="sobre dest">A sua árvore</p>
+<p class="sobre dest">A sua rede</p>
    <h2 id="t10" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Cada pessoa da rede trabalha <span class="dest">a seu favor</span></h2>
    <div class="legenda">
     <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#0F766E"><use href="#pessoa"/></svg><div><b>Indicador</b><br>suas vendas e as dele rendem na implantação</div></div>
@@ -720,65 +728,68 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
-<!-- 11 SIMULACAO EMBAIXADOR -->
+<!-- 14 SIMULACAO EMBAIXADOR -->
 <section class="slide ouro-bg" id="s11" aria-labelledby="t11">
  <div class="in grade g2" style="align-items:center">
   <div>
-   <p class="pergunta">Quanto a sua rede paga você, depois de construída?</p>
-<p class="sobre c-emb">3º C · Caminhada · Embaixador</p>
-   <h2 id="t11">O investimento que <span class="dest-ouro">se paga sozinho</span></h2>
-   <p class="lead">Exemplo pé no chão, depois de construir a rede: 100 clientes. Os Indicadores venderam o Pro; os Divulgadores, o Enterprise e o Magnata. 2 Divulgadores viraram Embaixadores.</p>
+   <p class="pergunta">Quanto rende um trimestre com a rede ativa?</p>
+   <p class="sobre c-emb">Simulação · Embaixador</p>
+   <h2 id="t11" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Um trimestre de rede ativa <span class="dest-ouro">paga tudo e sobra</span></h2>
+   <p class="lead">Meta de referência num trimestre: você e cada parceiro direto com 12 clientes. Você fecha Enterprise e Magnata; 2 Indicadores fecham o Pro; 2 Divulgadores fecham o Enterprise, e 1 deles virou Embaixador.</p>
    <div class="grade g2" style="gap:12px">
-    <div class="cartao borda-emb"><p class="num c-emb">2</p><p>Embaixadores na sua rede já cobrem o seu investimento de R$ 1.000</p></div>
-    <div class="cartao borda-emb"><p class="num c-emb">R$ 1.400</p><p>no primeiro mês dos 2 Embaixadores (2 × R$ 700)</p></div>
+    <div class="cartao borda-emb" style="padding:16px"><p class="num c-emb">R$ 38.300</p><p>de implantações no trimestre: R$ 18.424 suas, R$ 19.176 da rede e R$ 700 do novo Embaixador</p></div>
+    <div class="cartao borda-emb" style="padding:16px"><p class="num c-emb">60</p><p>clientes na sua rede em 3 meses. A cada trimestre, ela cresce e a renda sobe junto.</p></div>
    </div>
   </div>
-  <div class="simu" role="group" aria-label="Simulação de ganhos do Embaixador">
+  <div class="simu" role="group" aria-label="Simulação de ganhos do Embaixador em um trimestre">
    <div class="soma">
-    <div class="parcela"><div>10 clientes seus<small>6 Enterprise e 4 Magnata · 15% de R$ 542,85</small></div><span class="v">R$ 814,30</span></div>
-    <div class="parcela"><div>25 clientes do 2º nível<small>15 Pro (Indicadores) e 10 Enterprise (Divulgadores) · 10%</small></div><span class="v">R$ 1.357,25</span></div>
-    <div class="parcela"><div>2% da rede inteira<small>100 clientes: 40 Pro, 50 Enterprise e 10 Magnata</small></div><span class="v">R$ 1.085,70</span></div>
-    <div class="parcela"><div>2 Embaixadores na sua rede<small>2 × R$ 500 por mês</small></div><span class="v">R$ 1.000</span></div>
+    <div class="parcela"><div>12 clientes seus<small>8 Enterprise e 4 Magnata · 15% da mensalidade</small></div><span class="v">R$ 977,16</span></div>
+    <div class="parcela"><div>24 clientes dos seus 2 Indicadores<small>Pro · 10% da mensalidade</small></div><span class="v">R$ 1.302,96</span></div>
+    <div class="parcela"><div>24 clientes dos seus 2 Divulgadores<small>Enterprise · 10% da mensalidade</small></div><span class="v">R$ 1.302,96</span></div>
+    <div class="parcela"><div>2% da rede inteira<small>60 clientes: 24 Pro, 32 Enterprise e 4 Magnata</small></div><span class="v">R$ 651,42</span></div>
+    <div class="parcela"><div>1 Embaixador na sua rede<small>50% do investimento dele, todo mês</small></div><span class="v">R$ 500</span></div>
     <div class="parcela menos"><div>Sua estrutura<small>MaIA (R$ 597) + investimento de Embaixador (R$ 1.000)</small></div><span class="v">− R$ 1.597</span></div>
-    <div class="total ouro"><span>Livre por mês, estrutura paga</span><b>R$ 2.660,25</b></div>
+    <div class="total ouro"><span>Livre por mês, estrutura paga</span><b>R$ 3.137,50</b></div>
    </div>
-   <p class="nota" style="margin-bottom:0">Só mensalidades. As implantações de cada venda nova (10% suas e 5% do 2º nível) vêm por fora. Exemplo ilustrativo; o ganho depende da rede ativa.</p>
+   <p class="nota" style="margin-bottom:0">Renda mensal ao fim do 1º trimestre, sobre a mensalidade líquida de R$ 542,85. Exemplo ilustrativo; o ganho depende da rede ativa.</p>
   </div>
  </div>
 </section>
 
-<!-- 11b CAMINHO -->
+<!-- 15 CONSTANCIA -->
 <section class="slide claro" id="caminho" aria-labelledby="tc">
  <div class="in">
-  <p class="pergunta">Qual é o próximo passo, e o passo depois dele?</p>
-  <p class="sobre">4º C · Constância</p>
-  <h2 id="tc">Passo a passo, <span class="dest">com constância, até a vitória</span></h2>
-  <p class="lead">Ninguém chega ao topo num salto. Chega quem repete o básico todo dia: uma conversa, uma indicação, um acompanhamento.</p>
+  <p class="pergunta">O que você faz toda semana para isso acontecer?</p>
+  <p class="sobre">Ritmo</p>
+  <h2 id="tc">Um cliente por semana. <span class="dest">Trimestre após trimestre.</span></h2>
+  <p class="lead">Constância vence pressa. Toda semana: convide empresários para o próximo evento, acompanhe quem você convidou e apresente o programa a um parceiro novo. Veja o mesmo parceiro, trimestre a trimestre:</p>
   <ol class="trilha">
-   <li style="--cor:#0F766E"><span class="qd">Mês 1</span><b>Comece</b><p>Cadastro gratuito como Indicador. Liste 30 empresários que você conhece.</p><span class="q">Com quem eu falo esta semana?</span></li>
-   <li style="--cor:#0F766E"><span class="qd">Meses 2 a 6</span><b>Primeiras comissões</b><p>1 conversa por dia. As primeiras vendas do Pro caem na sua conta.</p><span class="q">Quantas conversas eu tive hoje?</span></li>
-   <li style="--cor:#B4380F"><span class="qd">Até o mês 12</span><b>A sua MaIA</b><p>As comissões pagam a sua MaIA Pro. Você vira Divulgador e passa a ganhar todo mês.</p><span class="q">Quanto falta para a minha MaIA?</span></li>
-   <li style="--cor:#B4380F"><span class="qd">Ano 2</span><b>Estrutura paga</b><p>Clientes Enterprise e a sua rede pagam a mensalidade da sua estrutura. O resto é lucro.</p><span class="q">A minha estrutura já se paga?</span></li>
-   <li style="--cor:#7A5200"><span class="qd">Ano 2 em diante</span><b>Embaixador</b><p>No Enterprise ou Magnata, você ganha sobre a rede inteira que construiu.</p><span class="q">Quem da minha rede está pronto para subir?</span></li>
+   <li style="--cor:#0F766E"><span class="qd">1º trimestre</span><b>Indicador</b><p>12 clientes seus e 12 de 1 parceiro: R$ 11.421. A MaIA Pro está paga.</p><span class="q">Quem eu convido esta semana?</span></li>
+   <li style="--cor:#B4380F"><span class="qd">2º trimestre</span><b>Divulgador</b><p>Com a MaIA Pro, entra a mensalidade: R$ 1.628,64 por mês. A estrutura se paga.</p><span class="q">Quantos empresários eu levei ao evento?</span></li>
+   <li style="--cor:#B4380F"><span class="qd">3º trimestre</span><b>Renda que soma</b><p>Mesmo ritmo, a renda mensal dobra: R$ 3.257,28. E as implantações seguem entrando.</p><span class="q">Quem da minha rede precisa de ajuda?</span></li>
+   <li style="--cor:#7A5200"><span class="qd">4º trimestre</span><b>Embaixador</b><p>No Enterprise ou Magnata, com R$ 1.000/mês: R$ 4.885,92 de renda mensal mais o ganho sobre a rede inteira.</p><span class="q">Quem da minha rede está pronto para subir?</span></li>
   </ol>
+  <p class="nota">Meta de referência: 12 clientes Enterprise seus e 12 da rede por trimestre, como Divulgador. Exemplo ilustrativo.</p>
  </div>
 </section>
 
-<!-- 12 COMPARATIVO -->
+<!-- 16 COMPARATIVO -->
 <section class="slide claro" id="s12" aria-labelledby="t12">
  <div class="in">
-  <p class="pergunta">Qual é o seu nível hoje? E daqui a 12 meses?</p>
+  <p class="pergunta">Qual é o seu nível hoje? E no próximo trimestre?</p>
 <p class="sobre">Lado a lado</p>
   <h2 id="t12">Qual é o seu nível?</h2>
   <div class="tab-wrap" role="region" aria-label="Tabela comparativa dos três níveis" tabindex="0">
    <table>
     <thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col">Indicador</th><th scope="col">Divulgador</th><th scope="col">Embaixador</th></tr></thead>
     <tbody>
+     <tr><th scope="row">O que você faz</th><td>Convida para o evento</td><td>Convida para o evento</td><td>Convida e desenvolve a rede</td></tr>
+     <tr><th scope="row">Quem vende</th><td>Nós</td><td>Nós</td><td>Nós</td></tr>
      <tr><th scope="row">Para quem</th><td>Quem não tem a MaIA</td><td>Quem comprou Pro, Enterprise ou Magnata</td><td>Divulgador Enterprise ou Magnata</td></tr>
      <tr><th scope="row">Investimento</th><td>Gratuito</td><td>A própria MaIA</td><td>R$ 1.000/mês</td></tr>
      <tr><th scope="row">Implantação: sua venda / da rede</th><td>10% / 5%</td><td>10% / 5%</td><td>10% / 5%</td></tr>
      <tr><th scope="row">Mensalidade: seu cliente / da rede</th><td>—</td><td>15% / 10% todo mês<small class="sub">inclusive dos clientes dos Indicadores da sua rede</small></td><td>15% / 10% todo mês</td></tr>
-     <tr><th scope="row">Benefício extra</th><td>As comissões pagam a sua MaIA</td><td>Renda que cresce mês a mês</td><td>Ganho em qualquer nível da rede</td></tr>
+     <tr><th scope="row">Benefício extra</th><td>Um trimestre paga a sua MaIA Pro</td><td>A estrutura se paga no 1º trimestre</td><td>Ganho em qualquer nível da rede</td></tr>
      <tr><th scope="row">Rede inteira</th><td>—</td><td>—</td><td>+2% de todas as mensalidades</td></tr>
      <tr><th scope="row">Embaixador na sua rede</th><td>—</td><td>—</td><td>70% no 1º mês e 50% todo mês</td></tr>
     </tbody>
@@ -787,15 +798,16 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
-<!-- 13 REGRAS -->
+<!-- 17 ALINHAMENTO -->
 <section class="slide" id="s13" aria-labelledby="t13">
  <div class="in">
   <p class="pergunta">Como você sabe que isso é sério e está dentro da lei?</p>
-<p class="sobre">Alinhamento · Princípios e valores</p>
+<p class="sobre">Princípios e valores</p>
   <h2 id="t13">Regras claras, <span class="dest">tudo por escrito</span></h2>
   <div class="grade g2">
    <ul class="lista">
     <li><b>Você ganha sobre vendas reais.</b> Toda comissão nasce de um cliente que pagou.</li>
+    <li><b>Você convida, nós vendemos:</b> ninguém precisa empurrar produto para ninguém.</li>
     <li><b>Indicação no seu nome por 180 dias.</b></li>
     <li><b>Liberação depois da garantia</b> de 30 dias do cliente, e pagamento no dia seguinte ao pedido.</li>
     <li><b>Nota fiscal do jeito que você puder:</b> MEI, CNPJ ou nota fiscal avulsa.</li>
@@ -811,7 +823,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
-<!-- 14 EQUIPE -->
+<!-- 18 SOCIOS -->
 <section class="slide claro" id="s14" aria-labelledby="t14">
  <div class="in">
   <p class="pergunta">Quem caminha com você?</p>
@@ -825,14 +837,56 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
  </div>
 </section>
 
-<!-- 15 CTA -->
+<!-- 19 CALCULADORA -->
+<section class="slide" id="calculadora" aria-labelledby="tcalc">
+ <div class="in">
+  <p class="pergunta">E a sua conta? Quanto você quer ganhar no próximo trimestre?</p>
+  <p class="sobre">Simulador de ganhos</p>
+  <h2 id="tcalc" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Faça a sua conta</h2>
+  <div class="calc">
+   <form class="calc-ent" id="calc" onsubmit="return false" aria-describedby="calc-aviso">
+    <div class="topo-calc"><fieldset class="niveis"><legend>Seu nível</legend>
+     <label><input type="radio" name="nivel" value="ind"> Indicador</label>
+     <label><input type="radio" name="nivel" value="div" checked> Divulgador</label>
+     <label><input type="radio" name="nivel" value="emb"> Embaixador</label>
+    </fieldset>
+    <label class="per">Por quantos trimestres?<select id="t-n"><option value="1">1 (3 meses)</option><option value="2">2 (6 meses)</option><option value="3">3 (9 meses)</option><option value="4">4 (12 meses)</option></select></label></div>
+    <fieldset><legend>Seus clientes a cada 3 meses</legend>
+     <div class="trio">
+      <label>Pro<input type="number" id="c-pro" min="0" max="999" value="0" inputmode="numeric"></label>
+      <label>Enterprise<input type="number" id="c-ent" min="0" max="999" value="12" inputmode="numeric"></label>
+      <label>Magnata<input type="number" id="c-mag" min="0" max="999" value="0" inputmode="numeric"></label>
+     </div>
+    </fieldset>
+    <fieldset><legend>Sua rede, a cada 3 meses</legend>
+     <div class="trio">
+      <label>Parceiros<input type="number" id="r-n" min="0" max="999" value="1" inputmode="numeric"></label>
+      <label>Clientes de cada um<input type="number" id="r-c" min="0" max="999" value="12" inputmode="numeric"></label>
+      <label>Plano que eles fecham<select id="r-p"><option value="pro">Pro</option><option value="ent" selected>Enterprise</option><option value="mag">Magnata</option></select></label>
+     </div>
+    </fieldset>
+    <fieldset id="f-emb" hidden><legend>Só para Embaixador</legend>
+     <div class="trio">
+      <label>Clientes do 3º nível em diante<input type="number" id="e-c" min="0" max="9999" value="0" inputmode="numeric"></label>
+      <label>Embaixadores na sua rede<input type="number" id="e-n" min="0" max="999" value="1" inputmode="numeric"></label>
+     </div>
+    </fieldset>
+
+   </form>
+   <div class="calc-sai" id="calc-saida" aria-live="polite"></div>
+  </div>
+  <p class="nota" id="calc-aviso">Simulação ilustrativa, sem promessa de resultado. Implantação líquida: Pro R$ 4.700, Enterprise R$ 11.280, Magnata R$ 23.500; mensalidade líquida R$ 542,85. Considera que todos os clientes continuam ativos.</p>
+ </div>
+</section>
+
+<!-- 20 CTA -->
 <section class="slide coral-bg" id="comecar" aria-labelledby="t15">
  <div class="in">
   <p class="pergunta">Qual é o seu primeiro passo, hoje?</p>
-<p class="sobre">5º C · Conquista</p>
+  <p class="sobre">Comece hoje</p>
   <h2 id="t15">Sua rede já existe.<br><span class="dest">Comece a ganhar com ela.</span></h2>
   <div class="grade g3" style="margin:10px 0 26px">
-   <div class="cartao borda-ind"><span class="etq c-ind">Indicador</span><p style="margin-top:12px">Cadastro gratuito. Em poucos minutos você recebe seus links e QR codes.</p></div>
+   <div class="cartao borda-ind"><span class="etq c-ind">Indicador</span><p style="margin-top:12px">Cadastro gratuito. Você recebe o seu link de convite para os eventos e já pode começar esta semana.</p></div>
    <div class="cartao borda-div"><span class="etq c-div">Divulgador</span><p style="margin-top:12px">Contrate a MaIA Pro, Enterprise ou Magnata e ative a sua renda recorrente. Já tem o Start? Faça o upgrade pagando só a diferença.</p></div>
    <div class="cartao borda-emb"><span class="etq c-emb">Embaixador</span><p style="margin-top:12px">Divulgador Enterprise ou Magnata: ative o investimento de R$ 1.000/mês e passe a ganhar sobre a rede inteira.</p></div>
   </div>
@@ -885,7 +939,7 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
   document.getElementById('prox').addEventListener('click',function(){ir(atual+1);});
   document.getElementById('ant').addEventListener('click',function(){ir(atual-1);});
   document.addEventListener('keydown',function(e){
-    var t=e.target.tagName; if(t==='BUTTON'||t==='A'||t==='INPUT'||!document.getElementById('a11y-painel').hidden) return;
+    var t=e.target.tagName; if(t==='BUTTON'||t==='A'||t==='INPUT'||t==='SELECT'||!document.getElementById('a11y-painel').hidden) return;
     if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();ir(atual+1);}
     else if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();ir(atual-1);}
     else if(e.key==='Home'){e.preventDefault();ir(0);} else if(e.key==='End'){e.preventDefault();ir(slides.length-1);}
@@ -918,6 +972,44 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
       if(e.shiftKey&&document.activeElement===p){e.preventDefault();u.focus();}else if(!e.shiftKey&&document.activeElement===u){e.preventDefault();p.focus();}}
   });
   aplicar();
+
+
+  // calculadora de ganhos (sm1102)
+  (function(){
+    var f=document.getElementById('calc'); if(!f) return;
+    var IMP={pro:4700,ent:11280,mag:23500}, MEN=542.85;
+    function n(id){var v=parseInt(document.getElementById(id).value,10);return isNaN(v)||v<0?0:Math.min(v,9999);}
+    function brl(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+    function linha(t,s,v,cls){return '<div class="linha'+(cls?' '+cls:'')+'"><div>'+t+'<small>'+s+'</small></div><span class="v">'+v+'</span></div>';}
+    function calc(){
+      var nv=(f.querySelector('input[name=nivel]:checked')||{}).value||'div';
+      document.getElementById('f-emb').hidden=(nv!=='emb');
+      var cp=n('c-pro'),ce=n('c-ent'),cm=n('c-mag'),rn=n('r-n'),rc=n('r-c'),rp=document.getElementById('r-p').value,T=+document.getElementById('t-n').value||1;
+      var proprios=cp+ce+cm, rede=rn*rc;
+      var impT=0.10*(cp*IMP.pro+ce*IMP.ent+cm*IMP.mag)+0.05*rede*IMP[rp];
+      var out=linha('Implantações em '+T+' trimestre'+(T>1?'s':''),proprios+' clientes seus e '+rede+' da rede por trimestre · '+brl(impT)+' por trimestre',brl(impT*T));
+      if(nv==='ind'){
+        var tot=impT*T, sobra=tot-5000;
+        out+='<div class="total ind"><span>Total no período</span><b>'+brl(tot)+'</b></div>';
+        out+='<p class="msg">'+(sobra>=0?'Paga a sua MaIA Pro (R$ 5.000) e sobram '+brl(sobra)+'. Com ela, você vira Divulgador.':'Faltam '+brl(-sobra)+' para pagar a sua MaIA Pro (R$ 5.000).')+' O Indicador ganha só na implantação.</p>';
+      } else {
+        var cs=proprios*T, cr=rede*T, men=cs*81.43+cr*54.29, est=597;
+        out+=linha('Mensalidade dos seus clientes',cs+' clientes × 15%',brl(cs*81.43));
+        out+=linha('Mensalidade dos clientes da rede',cr+' clientes × 10%',brl(cr*54.29));
+        if(nv==='emb'){
+          var ec=n('e-c')*T, en=n('e-n'), redeToda=cs+cr+ec;
+          out+=linha('2% da rede inteira',redeToda+' clientes',brl(redeToda*MEN*0.02));
+          out+=linha('Embaixadores na sua rede',en+' × R$ 500 por mês',brl(en*500));
+          men+=redeToda*MEN*0.02+en*500; est=1597;
+        }
+        out+=linha('Sua estrutura',nv==='emb'?'MaIA (R$ 597) + Embaixador (R$ 1.000)':'mensalidade da sua MaIA','− '+brl(est),'menos');
+        out+='<div class="total'+(nv==='emb'?' ouro':'')+'"><span>Livre por mês, ao fim do período</span><b>'+brl(men-est)+'</b></div>';
+        out+='<p class="msg">Renda mensal bruta de '+brl(men)+(men>=est?': a sua estrutura já se paga.':': ainda falta '+brl(est-men)+' para pagar a sua estrutura.')+'</p>';
+      }
+      document.getElementById('calc-saida').innerHTML=out;
+    }
+    f.addEventListener('input',calc); f.addEventListener('change',calc); calc();
+  })();
 
   // o VLibras cria caixas soltas no <body>; aqui elas ganham um rótulo de região (axe: region)
   var vlNomes={'vlibras-access-wrapper':'VLibras: botão de acesso','vlibras-popup':'VLibras: aviso'};
