@@ -933,9 +933,12 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
   document.getElementById('total').textContent=String(slides.length).padStart(2,'0');
   function ir(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.classList.contains('a11y-semmov')?'auto':'smooth'});}
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){atual=slides.indexOf(e.target);el.textContent=String(atual+1).padStart(2,'0');}});},{threshold:.55});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){atual=slides.indexOf(e.target);el.textContent=String(atual+1).padStart(2,'0');avisa();}});},{threshold:.55});
     slides.forEach(function(s){io.observe(s);});
   }
+  // modo apresentador: a janela do roteiro acompanha e comanda os slides
+  var bc=null; function avisa(){try{bc&&bc.postMessage({t:'slide',i:atual,id:slides[atual].id});}catch(_){}}
+  try{bc=new BroadcastChannel('parceria-apresentador');bc.onmessage=function(e){var d=e.data||{};if(d.t==='ir'&&typeof d.i==='number')ir(d.i);else if(d.t==='ping')avisa();};}catch(_){}
   document.getElementById('prox').addEventListener('click',function(){ir(atual+1);});
   document.getElementById('ant').addEventListener('click',function(){ir(atual-1);});
   document.addEventListener('keydown',function(e){
