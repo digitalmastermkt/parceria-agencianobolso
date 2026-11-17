@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convite de Emerson · Programa de Parceria MaIA</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://parceria.agencianobolso.com.br/emerson/">
+<meta name="description" content="Convite de Emerson, Parceiro Divulgador MaIA (GCD): construa sua rede com a MaIA e ganhe como Parceiro Indicador ou Parceiro Divulgador. Comissões, árvore de rede e simulações de ganho.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Agência no Bolso — MaIA">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Convite de Emerson · Programa de Parceria MaIA">
+<meta property="og:description" content="Emerson, Parceiro Divulgador MaIA (GCD), convida você: ganhe com a MaIA como Indicador ou Divulgador.">
+<meta property="og:url" content="https://parceria.agencianobolso.com.br/emerson/">
+<meta property="og:image" content="https://parceria.agencianobolso.com.br/assets/og-parceria.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convite de Emerson · Programa de Parceria MaIA">
+<meta name="twitter:description" content="Emerson, Parceiro Divulgador MaIA (GCD), convida você: ganhe com a MaIA como Indicador ou Divulgador.">
+<meta name="twitter:image" content="https://parceria.agencianobolso.com.br/assets/og-parceria.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#0E0E11; --fundo2:#15151A; --cartao:#1C1C22; --linha:#2E2E36;
+  --texto:#F4F1EC; --suave:#B3B0BA;
+  --coral:#F0603A; --coral-esc:#B4380F; --ouro:#F2B544; --ouro-esc:#7A5200;
+  --ind:#2DD4BF; --ind-esc:#0F766E; --div:#F0603A; --emb:#F2B544;
+  --claro:#FBF7F2; --tinta:#1A1A1F; --tinta-suave:#57534E; --linha-clara:#E4DAD0;
+  --fd:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --fb:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+html.a11y-contraste{
+  --fundo:#000; --fundo2:#000; --cartao:#000; --linha:#fff; --texto:#fff; --suave:#fff;
+  --coral:#FFD600; --coral-esc:#FFD600; --ouro:#FFD600; --ouro-esc:#FFD600; --ind:#FFD600; --ind-esc:#FFD600; --div:#FFD600; --emb:#FFD600;
+  --claro:#000; --tinta:#fff; --tinta-suave:#fff; --linha-clara:#fff;
+}
+html.a11y-contraste a{color:#FFD600 !important}
+html.a11y-contraste .slide{background:#000 !important}
+html.a11y-contraste .cartao,html.a11y-contraste .degrau,html.a11y-contraste .tab-wrap,html.a11y-contraste .simu{background:#000 !important;border-color:#fff !important}
+html.a11y-legivel{--fd:'Inter',Arial,sans-serif}
+html.a11y-legivel body{letter-spacing:.03em;word-spacing:.08em;line-height:1.75}
+html.a11y-links a{text-decoration:underline !important;text-decoration-thickness:3px !important;outline:2px solid currentColor;outline-offset:2px}
+html.a11y-semmov *,html.a11y-semmov *::before,html.a11y-semmov *::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none !important;transition:none !important}}
+body{margin:0;background:var(--fundo);color:var(--texto);font-family:var(--fb);font-size:1rem;line-height:1.55;overflow-x:hidden}
+img{max-width:100%;height:auto}
+a{color:var(--coral)}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:3px;border-radius:4px}
+.pular{position:absolute;left:-999px;top:8px;background:var(--coral);color:#0E0E11;padding:12px 16px;font-weight:700;z-index:100;border-radius:8px}
+.pular:focus{left:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.topo{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px clamp(16px,4vw,40px);background:rgba(14,14,17,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+html.a11y-contraste .topo{background:#000}
+.marca{display:flex;align-items:center;gap:10px;color:var(--texto);text-decoration:none;font-family:var(--fd);font-weight:800;letter-spacing:.02em}
+.marca .ponto{width:14px;height:14px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(240,96,58,.18)}
+.marca small{display:block;font-family:var(--fb);font-weight:500;font-size:.72rem;color:var(--suave);letter-spacing:.08em;text-transform:uppercase}
+.topo .dir{display:flex;align-items:center;gap:14px}
+.contador{font-variant-numeric:tabular-nums;color:var(--suave);font-size:.9rem;margin:0}
+.btn-topo{min-height:44px;display:inline-flex;align-items:center;padding:8px 16px;border-radius:999px;background:var(--coral);color:#0E0E11;font-weight:700;text-decoration:none;font-size:.9rem}
+@media (max-width:520px){.btn-topo{display:none}}
+
+.slide{position:relative;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;padding:84px clamp(16px,5vw,72px) 40px;overflow:hidden}
+.slide>.in{width:100%;max-width:1180px;margin:0 auto;position:relative;z-index:1}
+.slide.claro{background:var(--claro);color:var(--tinta)}
+.slide.ouro-bg{background:radial-gradient(900px 560px at 80% 10%,rgba(242,181,68,.20),transparent 60%),radial-gradient(800px 500px at 0% 100%,rgba(240,96,58,.14),transparent 60%),var(--fundo)}
+.slide.coral-bg{background:radial-gradient(1000px 600px at 85% 15%,rgba(240,96,58,.26),transparent 60%),radial-gradient(700px 480px at 5% 95%,rgba(242,181,68,.12),transparent 60%),var(--fundo)}
+.sobre{font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin:0 0 14px}
+.slide.claro .sobre{color:var(--coral-esc)}
+h1,h2,h3{font-family:var(--fd);margin:0;line-height:1.04;letter-spacing:-.015em}
+h1{font-size:clamp(2.5rem,6.6vw,5.4rem);font-weight:800}
+h2{font-size:clamp(2rem,4.6vw,3.6rem);font-weight:800;margin-bottom:16px}
+h3{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.dest{color:var(--coral)} .dest-ouro{color:var(--ouro)}
+.slide.claro .dest{color:var(--coral-esc)} .slide.claro .dest-ouro{color:var(--ouro-esc)}
+.lead{font-size:clamp(1.05rem,1.5vw,1.22rem);color:var(--suave);max-width:780px;margin:0 0 20px}
+.slide.claro .lead{color:var(--tinta-suave)}
+.grade{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:960px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+@media (max-width:520px){.g4{grid-template-columns:1fr}}
+.cartao{background:var(--cartao);border:1px solid var(--linha);border-radius:18px;padding:22px}
+.slide.claro .cartao{background:#fff;border-color:var(--linha-clara)}
+.cartao p{margin:0 0 8px}
+.cartao .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(240,96,58,.14);color:var(--coral);margin-bottom:12px}
+.slide.claro .cartao .ic{color:var(--coral-esc)}
+.cartao .ic svg{width:24px;height:24px}
+.lista{margin:0;padding:0;list-style:none}
+.lista li{padding:9px 0 9px 30px;position:relative;border-bottom:1px solid var(--linha)}
+.slide.claro .lista li{border-color:var(--linha-clara)}
+.lista li:last-child{border-bottom:0}
+.lista li::before{content:"✓";position:absolute;left:2px;top:8px;font-weight:800;color:var(--coral)}
+.slide.claro .lista li::before{color:var(--coral-esc)}
+.num{font-family:var(--fd);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1}
+.etq{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:1.5px solid currentColor}
+.c-ind{color:var(--ind)} .c-div{color:var(--div)} .c-emb{color:var(--emb)}
+.slide.claro .c-ind{color:var(--ind-esc)} .slide.claro .c-div{color:var(--coral-esc)} .slide.claro .c-emb{color:var(--ouro-esc)}
+.borda-ind{border-top:5px solid var(--ind) !important} .borda-div{border-top:5px solid var(--div) !important} .borda-emb{border-top:5px solid var(--emb) !important}
+.nota{font-size:.88rem;color:var(--suave);margin-top:16px}
+.slide.claro .nota{color:var(--tinta-suave)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:14px;background:var(--coral);color:#0E0E11;font-weight:800;text-decoration:none;border:0;font-size:1.05rem;box-shadow:0 12px 30px rgba(240,96,58,.35)}
+.btn.ouro{background:var(--ouro);box-shadow:0 12px 30px rgba(242,181,68,.3)}
+.btn.sec{background:transparent;color:var(--texto);border:1.5px solid var(--linha);box-shadow:none}
+.slide.claro .btn.sec{color:var(--tinta);border-color:var(--tinta)}
+html.a11y-contraste .btn{background:#FFD600;color:#000 !important}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+
+.escada.dois{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:860px){.escada.dois{grid-template-columns:1fr}}
+.jornada.tres{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:860px){.jornada.tres{grid-template-columns:1fr}}
+.anfitriao{display:inline-block;max-width:100%;line-height:1.4;margin:0 0 18px;padding:8px 16px;border-radius:18px;background:rgba(242,181,68,.12);border:1.5px solid var(--ouro);color:var(--texto);font-weight:600;font-size:.95rem}
+.anfitriao b{color:var(--ouro)}
+html.a11y-contraste .anfitriao{background:#000;border-color:#FFD600}
+.cartao .btn{margin-top:14px;font-size:.98rem;min-height:48px;padding:12px 20px}
+/* capa */
+.capa .in{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+@media (max-width:860px){.capa .in{grid-template-columns:1fr}}
+.foto-maia{position:relative;width:min(360px,72vw);aspect-ratio:1;margin:0 auto}
+.foto-maia .circ{width:100%;height:100%;border-radius:50%;overflow:hidden;border:5px solid var(--coral);box-shadow:0 30px 90px rgba(240,96,58,.35)}
+.foto-maia img{width:100%;height:100%;object-fit:cover;display:block}
+.selo{position:absolute;right:-6px;bottom:18px;background:var(--ouro);color:#1A1A1F;font-weight:800;border-radius:16px;padding:10px 14px;font-size:.9rem;line-height:1.2;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.selo b{display:block;font-family:var(--fd);font-size:1.5rem}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:6px 0 26px;max-width:680px}
+@media (max-width:520px){.stats{grid-template-columns:1fr}}
+.stat{border-left:3px solid var(--coral);padding:4px 0 4px 12px}
+.stat b{display:block;font-family:var(--fd);font-size:1.7rem;line-height:1.1}
+.stat span{font-size:.88rem;color:var(--suave)}
+
+/* carreira */
+.escada{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:end}
+@media (max-width:860px){.escada{grid-template-columns:1fr}}
+.degrau{border-radius:20px;padding:24px;background:var(--cartao);border:1px solid var(--linha);position:relative}
+.degrau.d1{min-height:250px}.degrau.d2{min-height:300px}.degrau.d3{min-height:350px;background:linear-gradient(160deg,rgba(242,181,68,.16),var(--cartao) 60%)}
+@media (max-width:860px){.degrau.d1,.degrau.d2,.degrau.d3{min-height:0}}
+.slide.claro .degrau{background:#fff;border-color:var(--linha-clara)}
+.slide.claro .degrau.d3{background:linear-gradient(160deg,#FFF3D6,#fff 60%)}
+.slide.claro .degrau .ganha{color:var(--tinta-suave)}
+.degrau .quem{font-weight:700;margin:12px 0 10px;font-size:1.05rem}
+.degrau .ganha{color:var(--suave);margin:0 0 10px}
+.degrau .med{width:54px;height:54px;margin-bottom:10px}
+.pergunta{display:flex;align-items:flex-start;gap:10px;margin:0 0 14px;font-family:var(--fd);font-weight:700;font-size:clamp(1.02rem,1.5vw,1.2rem);line-height:1.3;color:var(--texto);max-width:760px}
+.pergunta::before{content:"?";flex:0 0 30px;height:30px;border-radius:50%;background:var(--coral);color:#0E0E11;font-weight:800;display:grid;place-items:center;font-size:1rem}
+.slide.claro .pergunta{color:var(--tinta)}
+.slide.claro .pergunta::before{background:var(--coral-esc);color:#fff}
+html.a11y-contraste .pergunta::before{background:#FFD600;color:#000}
+.perguntas{counter-reset:q;list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.perguntas li{counter-increment:q;display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:center;background:var(--cartao);border:1px solid var(--linha);border-radius:16px;padding:14px 18px}
+.perguntas li::before{content:counter(q);width:42px;height:42px;border-radius:50%;background:var(--coral);color:#0E0E11;font-family:var(--fd);font-weight:800;font-size:1.2rem;display:grid;place-items:center}
+html.a11y-contraste .perguntas li::before{background:#FFD600;color:#000}
+.perguntas b{display:block;font-family:var(--fd);font-size:1.12rem}
+.perguntas span{color:var(--suave);font-size:.95rem}
+.estrutura{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 0}
+@media (max-width:520px){.estrutura{grid-template-columns:1fr}}
+.estrutura div{border-radius:14px;padding:9px 12px;background:rgba(255,255,255,.05);border:1px solid var(--linha)}
+.slide.claro .estrutura div{background:#fff;border-color:var(--linha-clara)}
+.estrutura b{display:block;font-family:var(--fd);font-size:1.05rem}
+.estrutura span{font-size:.88rem;color:var(--suave)}
+.slide.claro .estrutura span{color:var(--tinta-suave)}
+.trilha{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+@media (max-width:960px){.trilha{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.trilha{grid-template-columns:1fr}}
+.trilha li{background:#fff;border:1px solid var(--linha-clara);border-radius:16px;padding:16px;border-top:5px solid var(--cor,#1A1A1F)}
+html.a11y-contraste .trilha li{background:#000;border-color:#fff}
+.trilha .qd{display:block;font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave)}
+.trilha b{display:block;font-family:var(--fd);font-size:1.15rem;margin:6px 0}
+.trilha p{margin:0;font-size:.93rem;color:var(--tinta-suave)}
+.trilha .q{display:block;margin-top:10px;font-weight:700;font-size:.9rem;color:var(--tinta)}
+.metodo{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center}
+@media (max-width:860px){.metodo{grid-template-columns:1fr}}
+.ponto-ab{border-radius:18px;padding:18px;text-align:center;background:var(--cartao);border:1px solid var(--linha);min-width:150px}
+.ponto-ab b{display:block;font-family:var(--fd);font-size:2.6rem;line-height:1;color:var(--coral)}
+.ponto-ab.b b{color:var(--ouro)}
+.ponto-ab span{font-size:.92rem;color:var(--suave)}
+.cinco{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media (max-width:960px){.cinco{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.cinco{grid-template-columns:1fr}}
+.cinco li{border-radius:16px;padding:14px;background:rgba(255,255,255,.05);border:1px solid var(--linha);border-top:4px solid var(--coral)}
+.cinco li b{display:block;font-family:var(--fd);font-size:1.12rem;margin-bottom:4px}
+.cinco li span{font-size:.9rem;color:var(--suave)}
+.alinha{margin-top:16px;border-radius:16px;padding:16px 18px;background:rgba(242,181,68,.10);border:1.5px solid var(--ouro);color:var(--texto)}
+.alinha b{color:var(--ouro);font-family:var(--fd)}
+html.a11y-contraste .alinha b,html.a11y-contraste .ponto-ab b{color:#FFD600}
+.fluxo{list-style:none;margin:0 0 6px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:960px){.fluxo{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.fluxo{grid-template-columns:1fr}}
+.fluxo li{background:var(--cartao);border:1px solid var(--linha);border-radius:18px;padding:18px}
+.fluxo .n{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--coral);color:#0E0E11;font-family:var(--fd);font-weight:800;font-size:1.2rem;margin-bottom:10px}
+.fluxo li:nth-child(4) .n{background:var(--ouro)}
+html.a11y-contraste .fluxo .n{background:#FFD600;color:#000}
+.fluxo b{display:block;font-family:var(--fd);font-size:1.25rem;margin-bottom:4px}
+.fluxo li>span:last-child{color:var(--suave);font-size:.95rem}
+.calc{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:960px){.calc{grid-template-columns:1fr}}
+.calc-ent{display:grid;gap:10px}
+.calc fieldset{margin:0;border:1px solid var(--linha);border-radius:16px;padding:8px 12px 12px;background:var(--cartao)}
+.calc legend{font-weight:700;padding:0 6px;font-size:.95rem}
+.calc label{display:flex;flex-direction:column;gap:6px;font-size:.88rem;color:var(--suave)}
+.calc input[type=number],.calc select{min-height:44px;margin-top:auto;border-radius:10px;border:1.5px solid #6B6875;background:#0E0E11;color:var(--texto);font:600 1.05rem var(--fb);padding:6px 10px;width:100%}
+html.a11y-contraste .calc input[type=number],html.a11y-contraste .calc select{border-color:#fff;background:#000}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end}
+@media (max-width:520px){.trio{grid-template-columns:1fr}}
+.niveis{display:flex;flex-wrap:wrap;gap:10px}
+.niveis label{flex-direction:row;align-items:center;gap:8px;min-height:44px;padding:6px 14px;border-radius:999px;border:1.5px solid var(--linha);color:var(--texto);font-weight:700;font-size:.95rem;cursor:pointer}
+.niveis input{width:18px;height:18px;accent-color:var(--coral)}
+.calc .per{color:var(--texto);font-weight:700}
+.topo-calc{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:10px;align-items:stretch}
+@media (max-width:700px){.topo-calc{grid-template-columns:1fr}}
+.calc-sai{display:grid;gap:10px}
+.calc-sai .linha{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:9px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--linha)}
+.calc-sai .linha small{display:block;color:var(--suave);font-size:.84rem}
+.calc-sai .linha .v{font-family:var(--fd);font-weight:800;font-size:1.3rem;white-space:nowrap}
+.calc-sai .linha.menos .v{color:var(--suave)}
+.calc-sai .msg{margin:2px 0 0;color:var(--suave);font-size:.9rem}
+.jornada{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:j}
+.jornada li{counter-increment:j;position:relative;background:#fff;border:1px solid var(--linha-clara);border-radius:14px;padding:12px 14px 12px 50px;color:var(--tinta-suave);font-size:.92rem}
+.jornada li::before{content:counter(j);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--tinta);color:#fff;font-weight:800;display:grid;place-items:center;font-size:.85rem}
+.jornada li b{display:block;font-family:var(--fd);font-size:1.02rem}
+.jornada li span{display:block}
+html.a11y-contraste .jornada li{background:#000;border-color:#fff}
+@media (max-width:860px){.jornada{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.jornada{grid-template-columns:1fr}}
+
+/* planos */
+.planos .cartao{display:flex;flex-direction:column}
+.planos .num{font-size:clamp(1.7rem,2.6vw,2.3rem);margin:auto 0 4px;padding-top:12px}
+.planos .mens{margin:0}
+.planos .etq{align-self:flex-start}
+.planos .num+p{min-height:2.4em}
+@media (max-width:520px){.planos .num+p{min-height:0}}
+.planos .mens{font-weight:700;color:var(--texto)}
+.planos .cartao>p:not(.num):not(.mens){color:var(--suave)}
+.planos .cartao>p:first-of-type{color:var(--texto)}
+.planos .topo-linha{background:linear-gradient(160deg,rgba(242,181,68,.16),var(--cartao) 60%)}
+
+/* links / passos */
+.lk{border-radius:16px;background:var(--cartao);border:1px solid var(--linha);padding:16px;display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:center}
+.lk svg{width:72px;height:72px;background:#fff;border-radius:8px;padding:5px}
+.lk code{display:block;font-size:.82rem;color:var(--suave);word-break:break-all;margin-top:4px}
+.passos{counter-reset:p;display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.passos li{counter-increment:p;display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start}
+.passos li::before{content:counter(p);width:38px;height:38px;border-radius:50%;background:var(--ind);color:#0E0E11;font-weight:800;display:grid;place-items:center}
+html.a11y-contraste .passos li::before{background:#FFD600;color:#000}
+
+/* tabelas */
+.tab-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--linha-clara);background:#fff}
+table{width:100%;border-collapse:collapse;min-width:560px;font-size:.98rem;color:var(--tinta)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--linha-clara);vertical-align:top}
+thead th{background:#1A1A1F;color:#fff;font-weight:600}
+html.a11y-contraste table{color:#fff} html.a11y-contraste thead th{background:#000;border-bottom:2px solid #fff}
+tbody th{font-weight:700}
+td.big{font-family:var(--fd);font-weight:800;font-size:1.25rem}
+td .sub{display:block;font-family:var(--fb);font-weight:500;font-size:.85rem;color:var(--tinta-suave);margin-top:2px}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* simulacoes */
+.simu{border-radius:22px;padding:24px;background:linear-gradient(160deg,#1F1F27,#141418);border:1px solid var(--linha)}
+.slide.claro .simu{background:#fff;border-color:var(--linha-clara)}
+.soma{display:grid;gap:10px}
+.parcela{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--linha)}
+.slide.claro .parcela{background:var(--claro);border-color:var(--linha-clara)}
+.parcela small{display:block;color:var(--suave);font-size:.85rem}
+.slide.claro .parcela small{color:var(--tinta-suave)}
+.parcela .v{font-family:var(--fd);font-weight:800;font-size:1.35rem;white-space:nowrap}
+.parcela.menos .v{color:var(--suave)}
+.total{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:6px;padding:18px;border-radius:16px;background:var(--coral);color:#0E0E11}
+.total.ouro{background:var(--ouro)}
+.total.ind{background:var(--ind)}
+html.a11y-contraste .total{background:#FFD600;color:#000}
+.total b{font-family:var(--fd);font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1}
+.total span{font-weight:700}
+.colunas{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:end;padding:10px 4px 0}
+.col{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%}
+.col .pista{height:190px;width:100%;display:flex;align-items:flex-end;justify-content:center}
+.col .bar{width:100%;max-width:90px;border-radius:12px 12px 4px 4px;background:linear-gradient(180deg,var(--ouro),var(--coral))}
+html.a11y-contraste .col .bar{background:#FFD600}
+.col .val{font-family:var(--fd);font-weight:800;font-size:1.05rem;text-align:center}
+.col .mes{color:var(--suave);font-size:.85rem}
+
+/* arvore */
+.arvore-wrap{border-radius:22px;background:#fff;border:1px solid var(--linha-clara);padding:10px}
+html.a11y-contraste .arvore-wrap{background:#000;border-color:#fff}
+.arvore-wrap{overflow-x:auto}
+.arvore-wrap svg{width:100%;min-width:620px;height:auto;display:block}
+.arv-grade{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:center}
+.arv-grade>*{min-width:0}
+@media (max-width:960px){.arv-grade{grid-template-columns:1fr}}
+.legenda{display:grid;gap:10px}
+.dica-arraste{display:none;margin:8px 4px 0;font-size:.88rem;color:var(--tinta-suave)}
+@media (max-width:700px){.dica-arraste{display:block}}
+.legenda .it{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;padding:10px 12px;border-radius:14px;background:#fff;border:1px solid var(--linha-clara)}
+.legenda .it svg{width:44px;height:44px}
+.legenda b{font-family:var(--fd)}
+
+/* equipe */
+.socio{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:start}
+.socio img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--coral)}
+.socio .cargo{color:var(--coral);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin:2px 0 6px}
+
+.navs{position:fixed;right:clamp(12px,3vw,32px);bottom:20px;z-index:45;display:flex;gap:8px}
+.navs button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--linha);background:rgba(28,28,34,.92);color:var(--texto);font-size:1.3rem;cursor:pointer}
+html.a11y-contraste .navs button{background:#000;border-color:#fff}
+.rodape{padding:28px clamp(16px,5vw,72px) 100px;color:var(--suave);font-size:.88rem;border-top:1px solid var(--linha);text-align:center}
+
+.a11y-botao{position:fixed;left:16px;bottom:20px;z-index:60;width:52px;height:52px;border-radius:50%;background:#1D4ED8;color:#fff;border:3px solid #fff;cursor:pointer;display:grid;place-items:center}
+.a11y-botao svg{width:28px;height:28px}
+.a11y-painel{position:fixed;left:16px;bottom:84px;z-index:61;width:min(320px,calc(100vw - 32px));background:#fff;color:#111;border-radius:16px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.a11y-painel[hidden]{display:none}
+.a11y-painel h2{font-family:var(--fb);font-size:1.1rem;margin:0 0 12px;color:#111}
+.a11y-painel .ops{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.a11y-painel button{min-height:44px;border-radius:10px;border:1.5px solid #333;background:#fff;color:#111;font-weight:600;font-size:.9rem;cursor:pointer;padding:6px}
+.a11y-painel button[aria-pressed="true"]{background:#1D4ED8;color:#fff;border-color:#1D4ED8}
+.a11y-painel .rest{grid-column:1/-1;background:#F3F4F6}
+.a11y-painel .fechar{position:absolute;right:10px;top:10px;min-height:36px;width:36px;border:0;background:transparent;font-size:1.3rem}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- simbolos reaproveitados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+ <defs>
+  <symbol id="pessoa" viewBox="0 0 60 64"><circle cx="30" cy="18" r="12" fill="#F2C9A5"/><path d="M18 16c0-9 6-13 12-13s12 4 12 13c-3-4-7-6-12-6s-9 2-12 6z" fill="currentColor" opacity=".55"/><path d="M8 62c0-14 10-24 22-24s22 10 22 24z" fill="currentColor"/></symbol>
+  <symbol id="estrela" viewBox="0 0 100 100"><path fill="#F2B544" d="M50 2l7 12 13-6 2 14 14 1-5 13 12 8-11 9 6 13-14 2-1 14-13-5-9 11-9-11-13 5-1-14-14-2 6-13-11-9 12-8-5-13 14-1 2-14 13 6z"/></symbol>
+  <symbol id="qr" viewBox="0 0 21 21"><path fill="#111" d="M0 0h7v7H0zM2 2v3h3V2zM14 0h7v7h-7zm2 2v3h3V2zM0 14h7v7H0zm2 2v3h3v-3zM9 0h2v2H9zm2 2h2v3h-2zM9 5h2v2H9zm0 4h3v2H9zm5 0h2v2h-2zm4 0h3v2h-3zM8 12h2v2H8zm4 0h2v3h-2zm4 1h3v2h-3zm-7 3h2v2H9zm5 2h2v3h-2zm4-1h3v4h-3zm-9 2h3v2H9z"/></symbol>
+ </defs>
+</svg>
+
+<header class="topo">
+  <a class="marca" href="#s1" aria-label="Agência no Bolso, voltar ao início"><span class="ponto" aria-hidden="true"></span><span>AGÊNCIA NO BOLSO<small>Convite de Emerson · Parceria MaIA</small></span></a>
+  <div class="dir"><p class="contador" aria-live="polite"><span id="atual">01</span> / <span id="total">17</span></p><a class="btn-topo" href="#comecar">Quero ser parceiro</a></div>
+</header>
+
+<main id="conteudo" tabindex="-1">
+
+<!-- 1 CAPA -->
+<section class="slide coral-bg capa" id="s1" aria-labelledby="t1">
+ <div class="in">
+  <div>
+   <p class="anfitriao">Convite de <b>Emerson</b> · Parceiro Divulgador MaIA (GCD)</p>
+   <p class="sobre">Programa de Parceria MaIA</p>
+   <h1 id="t1">Você convida.<br>Nós vendemos.<br><span class="dest">Você ganha.</span></h1>
+   <p class="lead">Convide empresários para os eventos da MaIA, a inteligência artificial que atende, vende e agenda 24 horas. Nós apresentamos, vendemos e implantamos. Você ganha como parceiro: na implantação, na mensalidade e na rede que construir.</p>
+   <div class="stats">
+    <div class="stat"><b>12 clientes</b><span>a cada 3 meses: a meta de referência</span></div>
+    <div class="stat"><b>até 15%</b><span>de cada mensalidade, todo mês</span></div>
+    <div class="stat"><b>2 caminhos</b><span>Indicador e Divulgador</span></div>
+   </div>
+   <div class="acoes"><a class="btn" href="#comecar">Quero ser parceiro</a><a class="btn sec" href="#calculadora">Fazer a minha conta</a></div>
+  </div>
+  <div class="foto-maia"><div class="circ"><img src="../assets/maia.webp" alt="Retrato da MaIA, a inteligência artificial da Agência no Bolso" width="800" height="800"></div><div class="selo"><b>24h</b>atendendo, vendendo<br>e agendando</div></div>
+ </div>
+</section>
+
+<!-- 2 CLAREZA OPORTUNIDADE -->
+<section class="slide claro" id="s2" aria-labelledby="t2">
+ <div class="in">
+  <p class="pergunta">Quantos empresários você conhece que perdem cliente porque demoram a responder no WhatsApp?</p>
+<p class="sobre">A oportunidade</p>
+  <h2 id="t2">Toda empresa vai precisar de IA.<br><span class="dest">Quem chegar primeiro, ganha a rede.</span></h2>
+  <p class="lead">O empresário já sabe que precisa de inteligência artificial, mas não sabe por onde começar. Você conhece esses empresários. Nós temos o produto rodando em empresas reais.</p>
+  <div class="grade g4">
+   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Produto que já vende</h3><p>A MaIA já atende clientes de verdade, todos os dias, em vários segmentos.</p></div>
+   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7M17 11l2 2 4-4"/></svg></div><h3>Você não precisa vender</h3><p>Você convida para o evento. Nós apresentamos a MaIA e fechamos a venda.</p></div>
+   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg></div><h3>Renda que se acumula</h3><p>O cliente paga todo mês e você recebe todo mês. Cada venda soma na anterior.</p></div>
+   <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Sem estoque e sem equipe</h3><p>Implantação, suporte e manutenção são por nossa conta.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- 3 CLAREZA COMO FUNCIONA -->
+<section class="slide coral-bg" id="como" aria-labelledby="tcf">
+ <div class="in">
+  <p class="pergunta">E se você pudesse ganhar com a MaIA sem precisar vender nada?</p>
+  <p class="sobre">Como funciona</p>
+  <h2 id="tcf">O seu papel é convidar. <span class="dest">A venda é nossa.</span></h2>
+  <p class="lead">Quem apresenta e vende a MaIA é a nossa equipe, nos eventos. Você leva os empresários até lá e ganha conforme a sua categoria de parceiro.</p>
+  <ol class="fluxo">
+   <li><span class="n">1</span><b>Você convida</b><span>Empresários para o próximo evento da MaIA, com o seu link de parceiro.</span></li>
+   <li><span class="n">2</span><b>Nós apresentamos</b><span>No evento, mostramos a MaIA funcionando de verdade.</span></li>
+   <li><span class="n">3</span><b>Nós vendemos</b><span>A nossa equipe fecha, implanta e dá todo o suporte.</span></li>
+   <li><span class="n">4</span><b>Você recebe</b><span>Na implantação e, a partir do Divulgador, todo mês.</span></li>
+  </ol>
+  <p class="alinha"><b>Meta de referência:</b> 12 clientes a cada 3 meses, um por semana. É o número que usamos nas contas desta apresentação. O potencial é bem maior: depende de quantos empresários você convida.</p>
+ </div>
+</section>
+
+<!-- 4 CLAREZA PLANOS -->
+<section class="slide" id="s3" aria-labelledby="t3">
+ <div class="in">
+  <p class="pergunta">O que o empresário encontra no nosso evento?</p>
+<p class="sobre">O que nós vendemos</p>
+  <h2 id="t3">Os planos da MaIA</h2>
+  <p class="lead">Nós apresentamos os planos no evento e escolhemos com o empresário o que serve para ele. Você ganha sobre a implantação e, como Divulgador, sobre a mensalidade, todo mês.</p>
+  <div class="grade g4 planos">
+   <div class="cartao"><h3>Start</h3><p>A MaIA com a Lis: atende, qualifica e agenda 24 horas no WhatsApp e no Instagram.</p><p class="num">R$ 1.497</p><p>à vista; no cartão, a taxa é repassada</p><p class="mens">+ R$ 297/mês</p></div>
+   <div class="cartao borda-div"><h3>Pro</h3><p>Tudo do Start, mais o Théo (posts, carrosséis e textos de venda) e a Eva (pós-venda e reativação).</p><p class="num">R$ 5.000</p><p>implantação</p><p class="mens">+ R$ 597/mês</p></div>
+   <div class="cartao borda-emb"><h3>Enterprise</h3><p>Tudo do Pro, com 7 agentes especialistas e prospecção ativa de clientes.</p><p class="num">R$ 12.000</p><p>ou até 12x de R$ 1.000</p><p class="mens">+ R$ 597/mês</p></div>
+   <div class="cartao borda-emb topo-linha"><span class="etq c-emb">Topo de linha</span><h3 style="margin-top:10px">Magnata</h3><p>Tudo do Enterprise, com 14 agentes (jurídico, financeiro, tributário, RH e mais), vários negócios numa só MaIA e suporte dedicado.</p><p class="num">R$ 25.000</p><p>implantação</p><p class="mens">+ R$ 597/mês</p></div>
+  </div>
+  <p class="nota">Mensalidade de manutenção: R$ 297/mês no Start e R$ 597/mês no Pro, no Enterprise e no Magnata.</p>
+ </div>
+</section>
+
+<!-- 5 CAMINHO CARREIRA -->
+<section class="slide claro" id="s4" aria-labelledby="t4">
+ <div class="in">
+  <p class="pergunta">Por onde você começa, e até onde pode chegar?</p>
+<p class="sobre">Plano de carreira</p>
+  <h2 id="t4">Dois caminhos. <span class="dest">Você escolhe por onde começa.</span></h2>
+  <div class="escada dois">
+   <div class="degrau d1 borda-ind">
+    <svg class="med" viewBox="0 0 60 64" aria-hidden="true" style="color:#0F766E"><use href="#pessoa"/></svg>
+    <span class="etq c-ind">Nível 1 · Indicador</span>
+    <p class="quem">Para quem ainda não tem a MaIA</p>
+    <p class="ganha">10% da implantação de cada venda sua e 5% das vendas de quem você trouxer. As comissões podem pagar a sua própria MaIA.</p>
+   </div>
+   <div class="degrau d2 borda-div">
+    <svg class="med" viewBox="0 0 60 64" aria-hidden="true" style="color:#B4380F"><use href="#pessoa"/></svg>
+    <span class="etq c-div">Nível 2 · Divulgador</span>
+    <p class="quem">Para quem comprou a MaIA Pro, Enterprise ou Magnata</p>
+    <p class="ganha">Tudo do Indicador e mais 15% de cada mensalidade dos seus clientes e 10% dos clientes da sua rede, todo mês, inclusive dos clientes dos Indicadores que você trouxe.</p>
+   </div>
+  </div>
+  <ol class="jornada tres" aria-label="Como você sobe de nível">
+   <li><b class="c-ind">Entre grátis</b><span>como Indicador e convide empresários para os eventos</span></li>
+   <li><b class="c-ind">Junte comissões</b><span>um trimestre de convites paga a sua MaIA Pro</span></li>
+   <li><b class="c-div">Vire Divulgador</b><span>com a MaIA Pro ou acima: renda todo mês</span></li>
+  </ol>
+ </div>
+</section>
+
+<!-- 6 CAMINHO INDICADOR -->
+<section class="slide" id="s5" aria-labelledby="t5">
+ <div class="in grade g2" style="align-items:center">
+  <div>
+   <p class="pergunta">Você ainda não tem a MaIA. Dá para ganhar mesmo assim?</p>
+   <p class="sobre c-ind">Nível 1</p>
+   <h2 id="t5">Parceiro <span style="color:var(--ind)">Indicador</span></h2>
+   <p class="lead">Para consultores, contadores, agências e quem conhece empresários, mesmo sem ter a MaIA. Entrada gratuita. Você convida, nós vendemos.</p>
+   <div class="grade g2">
+    <div class="cartao borda-ind"><p class="num c-ind">10%</p><p>da implantação de cada empresário que você convidou e fechou</p></div>
+    <div class="cartao borda-ind"><p class="num c-ind">5%</p><p>da implantação dos clientes de quem você trouxe como parceiro</p></div>
+   </div>
+   <p style="margin:16px 0 0;font-weight:600">Mais um benefício: <span style="color:var(--ind)">as comissões pagam a sua própria MaIA.</span> Com ela, você sobe para Divulgador.</p>
+   <p class="nota">Recebe com nota fiscal: MEI, CNPJ ou nota fiscal avulsa.</p>
+  </div>
+  <div class="grade" style="gap:12px">
+   <div class="lk"><svg viewBox="0 0 21 21" role="img" aria-label="QR code ilustrativo do convite para o evento"><use href="#qr"/></svg><div><h3>Convite para o evento</h3><p style="margin:0">O empresário se inscreve no evento pelo seu link. A venda fica no seu nome.</p></div></div>
+   <div class="lk"><svg viewBox="0 0 21 21" role="img" aria-label="QR code ilustrativo do convite de parceiro"><use href="#qr"/></svg><div><h3>Convite de parceiro</h3><p style="margin:0">Quem entra como parceiro pelo seu link fica na sua rede.</p></div></div>
+   <ol class="passos" style="margin-top:6px">
+    <li><div><b>Convide</b> pelo WhatsApp, nas redes ou com o QR impresso.</div></li>
+    <li><div><b>Nós apresentamos e vendemos</b> no evento.</div></li>
+    <li><div><b>Você acompanha</b> tudo na sua área e recebe a comissão.</div></li>
+   </ol>
+  </div>
+ </div>
+</section>
+
+<!-- 7 ARVORE INDICADOR -->
+<section class="slide claro" id="arvore-indicador" aria-labelledby="t5b">
+ <div class="in grade arv-grade">
+  <div>
+  <div class="arvore-wrap" role="region" aria-label="Árvore do Indicador, arraste para ver tudo no celular" tabindex="0">
+   <svg viewBox="0 0 820 700" role="img" aria-labelledby="arvi-t arvi-d">
+    <title id="arvi-t">De onde vem o dinheiro do Indicador</title>
+    <desc id="arvi-d">Você no topo, como Parceiro Indicador. Abaixo, as empresas que você indicou e que fecharam: Ana fechou um Pro e rende 470 reais para você; Bruno fechou um Pro e rende 470 reais; Carla fechou um Enterprise e rende 1.128 reais. Esses valores são 10% da implantação líquida. Ao lado, Marcos, um Indicador que você trouxe. Lucas fechou um Pro com o Marcos e rende 235 reais para você; Paula fechou um Pro com o Marcos e rende 235 reais. Esses são 5% da implantação. Total do exemplo: 2.538 reais, pagos uma vez, sem mensalidade. No terceiro nível, Lucas e Paula trouxeram novos parceiros indicadores, Rita e Sérgio. Como Indicador, você recebe até o segundo nível; Rita e Sérgio entram na rede de Lucas e Paula, que ganham sobre as vendas deles.</desc>
+    <g fill="none" stroke="#B9AEA2" stroke-width="2">
+    <path d="M410 132 C410 152 95 150 95 170"/>
+    <path d="M410 132 C410 152 275 150 275 170"/>
+    <path d="M410 132 C410 152 455 150 455 170"/>
+    <path d="M410 132 C410 152 650 150 650 170"/>
+    <path d="M650 306 C650 334 560 330 560 358"/><path d="M650 306 C650 334 735 330 735 358"/>
+    <path d="M560 514 V546" stroke-dasharray="5 5"/><path d="M735 514 V546" stroke-dasharray="5 5"/>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-weight="700" font-size="18" text-anchor="middle" fill="#1A1A1F">
+    <circle cx="410" cy="48" r="46" fill="#CCFBF1" stroke="#0F766E" stroke-width="3"/><use href="#pessoa" x="380" y="14" width="60" height="64" style="color:#0F766E"/><text x="410" y="122">VOCÊ</text>
+    <use href="#pessoa" x="65" y="172" width="60" height="64" style="color:#57534E"/><text x="95" y="258">ANA</text>
+    <use href="#pessoa" x="245" y="172" width="60" height="64" style="color:#57534E"/><text x="275" y="258">BRUNO</text>
+    <use href="#pessoa" x="425" y="172" width="60" height="64" style="color:#57534E"/><text x="455" y="258">CARLA</text>
+    <use href="#pessoa" x="620" y="172" width="60" height="64" style="color:#0F766E"/><text x="650" y="258">MARCOS</text>
+    <text x="650" y="280" font-size="15" fill="#0F766E">Indicador que</text><text x="650" y="298" font-size="15" fill="#0F766E">você trouxe</text>
+    <use href="#pessoa" x="530" y="360" width="60" height="64" style="color:#57534E"/><text x="560" y="446">LUCAS</text>
+    <use href="#pessoa" x="705" y="360" width="60" height="64" style="color:#57534E"/><text x="735" y="446">PAULA</text>
+    <use href="#pessoa" x="530" y="548" width="60" height="64" style="color:#0F766E"/><text x="560" y="634">RITA</text>
+    <use href="#pessoa" x="705" y="548" width="60" height="64" style="color:#0F766E"/><text x="735" y="634">SÉRGIO</text>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+    <rect x="17" y="270" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="95" y="296" fill="#5EEAD4">Fechou: Pro</text><text x="95" y="318" fill="#fff">+R$ 470</text>
+    <rect x="197" y="270" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="275" y="296" fill="#5EEAD4">Fechou: Pro</text><text x="275" y="318" fill="#fff">+R$ 470</text>
+    <rect x="377" y="270" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="455" y="296" fill="#5EEAD4">Fechou: Enterprise</text><text x="455" y="318" fill="#fff">+R$ 1.128</text>
+    <rect x="482" y="458" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="560" y="484" fill="#5EEAD4">Fechou: Pro</text><text x="560" y="506" fill="#fff">+R$ 235 (5%)</text>
+    <rect x="657" y="458" rx="10" width="156" height="56" fill="#1A1A1F"/><text x="735" y="484" fill="#5EEAD4">Fechou: Pro</text><text x="735" y="506" fill="#fff">+R$ 235 (5%)</text>
+    <rect x="490" y="648" rx="10" width="140" height="40" fill="#F1ECE6" stroke="#B9AEA2"/><text x="560" y="673" fill="#57534E" font-size="14">Indicadora · 3º nível</text>
+    <rect x="665" y="648" rx="10" width="140" height="40" fill="#F1ECE6" stroke="#B9AEA2"/><text x="735" y="673" fill="#57534E" font-size="14">Indicador · 3º nível</text>
+    <rect x="30" y="380" rx="14" width="410" height="124" fill="#0F766E"/><text x="235" y="412" fill="#fff">Total deste exemplo</text><text x="235" y="454" fill="#fff" font-size="34" font-family="Bricolage Grotesque,Inter,Arial,sans-serif" font-weight="800">R$ 2.538</text><text x="235" y="484" fill="#fff" font-weight="500">pago uma vez, na implantação de cada venda</text>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-size="15" text-anchor="start" fill="#1A1A1F">
+    <rect x="30" y="536" rx="14" width="410" height="152" fill="#FFF3D6" stroke="#F2B544" stroke-width="2"/>
+    <text x="50" y="566" font-weight="800" fill="#7A5200">E se Lucas e Paula trouxerem parceiros?</text>
+    <text x="50" y="592">Rita e Sérgio entram no 3º nível da rede.</text>
+    <text x="50" y="616">Como Indicador, você recebe até o 2º nível.</text>
+    <text x="50" y="640">Eles entram na rede de <tspan font-weight="800" fill="#7A5200">Lucas e Paula</tspan>,</text>
+    <text x="50" y="664">que ganham sobre as vendas deles.</text>
+    </g>
+   </svg>
+  </div>
+  <p class="dica-arraste" aria-hidden="true">Arraste a árvore para o lado para ver tudo →</p>
+  </div>
+  <div>
+   <p class="pergunta">Quanto rende cada empresário que você convida?</p>
+<p class="sobre c-ind">A árvore do Indicador</p>
+   <h2 id="t5b" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Cada venda vira <span class="c-ind">dinheiro na sua conta</span></h2>
+   <div class="legenda">
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#57534E"><use href="#pessoa"/></svg><div><b>Empresa que você indicou</b><br>10% da implantação de cada venda</div></div>
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#0F766E"><use href="#pessoa"/></svg><div><b>Indicador que você trouxe</b><br>cada venda dele rende 5% da implantação para você</div></div>
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#7A5200"><use href="#pessoa"/></svg><div><b>A rede cresceu além do 2º nível?</b><br>Você recebe até o 2º nível; dali para baixo, cada parceiro ganha sobre quem ele trouxe</div></div>
+   </div>
+   <p class="nota">O Indicador ganha uma vez, em cada venda nova, sem comissão de mensalidade. Valores sobre a implantação líquida (94%): Magnata R$ 23.500 · Enterprise R$ 11.280 · Pro R$ 4.700.</p>
+  </div>
+ </div>
+</section>
+
+<!-- 8 SIMULACAO INDICADOR -->
+<section class="slide" id="s6" aria-labelledby="t6">
+ <div class="in grade g2" style="align-items:center">
+  <div>
+   <p class="pergunta">Quanto rende um trimestre convidando empresários para os eventos?</p>
+   <p class="sobre c-ind">Simulação · Indicador</p>
+   <h2 id="t6">Um trimestre de convites <span style="color:var(--ind)">paga a sua MaIA Pro</span></h2>
+   <p class="lead">Meta de referência: 12 empresários seus fecham no trimestre, 9 no Pro e 3 no Enterprise. E 1 parceiro que você trouxe faz o mesmo.</p>
+   <div class="cartao borda-ind" style="margin-bottom:6px;padding:18px"><p class="num c-ind" style="font-size:clamp(1.4rem,2.4vw,1.9rem)">Mais um benefício</p><p style="margin:6px 0 0">As comissões de um trimestre pagam a implantação da sua MaIA Pro (R$ 5.000) e ainda sobra. Com ela, você vira <b style="color:var(--div)">Divulgador</b> e passa a ganhar todo mês.</p></div>
+   <p class="nota">Implantação líquida (94%): Enterprise R$ 11.280 · Pro R$ 4.700. Exemplo ilustrativo; o ganho depende das vendas fechadas.</p>
+  </div>
+  <div class="simu" role="group" aria-label="Simulação de ganhos do Indicador em um trimestre">
+   <div class="soma">
+    <div class="parcela"><div>9 Pro dos seus convidados<small>10% de R$ 4.700, nove vezes</small></div><span class="v">R$ 4.230</span></div>
+    <div class="parcela"><div>3 Enterprise dos seus convidados<small>10% de R$ 11.280, três vezes</small></div><span class="v">R$ 3.384</span></div>
+    <div class="parcela"><div>9 Pro do parceiro que você trouxe<small>5% de R$ 4.700, nove vezes</small></div><span class="v">R$ 2.115</span></div>
+    <div class="parcela"><div>3 Enterprise do parceiro que você trouxe<small>5% de R$ 11.280, três vezes</small></div><span class="v">R$ 1.692</span></div>
+    <div class="total ind"><span>Total no trimestre</span><b>R$ 11.421</b></div>
+   </div>
+   <p class="nota" style="margin-bottom:0">Paga a sua MaIA Pro e sobram R$ 6.421. Cada parceiro a mais na sua rede soma mais R$ 3.807 por trimestre.</p>
+  </div>
+ </div>
+</section>
+
+<!-- 9 CAMINHO DIVULGADOR -->
+<section class="slide claro" id="s7" aria-labelledby="t7">
+ <div class="in">
+  <p class="pergunta">E se cada cliente que você trouxe pagasse você todo mês?</p>
+<p class="sobre c-div">Nível 2</p>
+  <h2 id="t7">Parceiro <span class="dest">Divulgador</span>: a renda recorrente</h2>
+  <p class="lead">Para quem já usa a MaIA Pro, Enterprise ou Magnata. Você fala com propriedade, convida para o evento, nós vendemos, e cada cliente paga você todo mês enquanto continuar cliente. Essa comissão não é só lucro: <b>primeiro ela paga a sua estrutura</b> (corpo, cérebro e skills da sua MaIA), depois vira lucro.</p>
+  <div class="tab-wrap" role="region" aria-label="Tabela de comissões do Divulgador" tabindex="0">
+   <table>
+    <thead><tr><th scope="col">Comissão</th><th scope="col">Cliente seu (1º nível)</th><th scope="col">Cliente da sua rede (2º nível)</th></tr></thead>
+    <tbody>
+     <tr><th scope="row">Na implantação</th><td class="big">10%</td><td class="big">5%</td></tr>
+     <tr><th scope="row">Na mensalidade, todo mês</th><td class="big">15% · R$ 81,43</td><td class="big">10% · R$ 54,29</td></tr>
+     <tr><th scope="row">Exemplo: 1 Magnata</th><td>R$ 2.350 + R$ 81,43/mês</td><td>R$ 1.175 + R$ 54,29/mês</td></tr>
+     <tr><th scope="row">Exemplo: 1 Enterprise</th><td>R$ 1.128 + R$ 81,43/mês</td><td>R$ 564 + R$ 54,29/mês</td></tr>
+     <tr><th scope="row">Exemplo: 1 Pro</th><td>R$ 470 + R$ 81,43/mês</td><td>R$ 235 + R$ 54,29/mês</td></tr>
+    </tbody>
+   </table>
+  </div>
+  <p class="nota">Sobre o valor líquido: implantação × 94%; mensalidade de R$ 597 → base de R$ 542,85. Sua rede são os parceiros que entraram pela sua indicação, Divulgadores e Indicadores: o Indicador ganha só na implantação, e os 10% da mensalidade dos clientes dele ficam com você.</p>
+ </div>
+</section>
+
+<!-- 10 ARVORE DIVULGADOR -->
+<section class="slide claro" id="arvore-divulgador" aria-labelledby="t7b">
+ <div class="in grade arv-grade">
+  <div>
+  <div class="arvore-wrap" role="region" aria-label="Árvore do Divulgador, arraste para ver tudo no celular" tabindex="0">
+   <svg viewBox="0 0 960 550" role="img" aria-labelledby="arvd-t arvd-d">
+    <title id="arvd-t">De onde vem o dinheiro do Divulgador</title>
+    <desc id="arvd-d">Você no topo, como Parceiro Divulgador. Todos os clientes deste exemplo fecharam o Enterprise. Os seus clientes Ana e Bruno rendem, cada um, 1.128 reais na implantação e 81 reais e 43 centavos por mês. Diego, um Divulgador que você trouxe, fechou com Elisa e Hugo; cada um rende 564 reais e 54 reais e 29 centavos por mês para você. Iara, uma Indicadora que você trouxe, só ganha na implantação, e a mensalidade dos clientes dela rende para você: Fábio e Gabi rendem, cada um, 564 reais e 54 reais e 29 centavos por mês. Total do exemplo: 4.512 reais nas implantações e mais 380 reais e 2 centavos todo mês.</desc>
+    <g fill="none" stroke="#B9AEA2" stroke-width="2">
+    <path d="M480 132 C480 152 80 150 80 170"/>
+    <path d="M480 132 C480 152 240 150 240 170"/>
+    <path d="M480 132 C480 152 478 150 478 170"/>
+    <path d="M480 132 C480 152 788 150 788 170"/>
+    <path d="M478 306 C478 334 400 330 400 358"/><path d="M478 306 C478 334 555 330 555 358"/>
+    <path d="M788 306 C788 334 710 330 710 358"/><path d="M788 306 C788 334 865 330 865 358"/>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-weight="700" font-size="18" text-anchor="middle" fill="#1A1A1F">
+    <circle cx="480" cy="48" r="46" fill="#FFE4DA" stroke="#B4380F" stroke-width="3"/><use href="#pessoa" x="450" y="14" width="60" height="64" style="color:#B4380F"/><text x="480" y="122">VOCÊ</text>
+    <use href="#pessoa" x="50" y="172" width="60" height="64" style="color:#57534E"/><text x="80" y="258">ANA</text>
+    <use href="#pessoa" x="210" y="172" width="60" height="64" style="color:#57534E"/><text x="240" y="258">BRUNO</text>
+    <use href="#pessoa" x="448" y="172" width="60" height="64" style="color:#B4380F"/><text x="478" y="258">DIEGO</text>
+    <text x="478" y="280" font-size="15" fill="#B4380F">Divulgador que</text><text x="478" y="298" font-size="15" fill="#B4380F">você trouxe</text>
+    <use href="#pessoa" x="758" y="172" width="60" height="64" style="color:#0F766E"/><text x="788" y="258">IARA</text>
+    <text x="788" y="280" font-size="15" fill="#0F766E">Indicadora que</text><text x="788" y="298" font-size="15" fill="#0F766E">você trouxe</text>
+    <use href="#pessoa" x="370" y="360" width="60" height="64" style="color:#57534E"/><text x="400" y="446">ELISA</text>
+    <use href="#pessoa" x="525" y="360" width="60" height="64" style="color:#57534E"/><text x="555" y="446">HUGO</text>
+    <use href="#pessoa" x="680" y="360" width="60" height="64" style="color:#57534E"/><text x="710" y="446">FÁBIO</text>
+    <use href="#pessoa" x="835" y="360" width="60" height="64" style="color:#57534E"/><text x="865" y="446">GABI</text>
+    </g>
+    <g font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+    <rect x="7" y="270" rx="10" width="146" height="78" fill="#1A1A1F"/><text x="80" y="296" fill="#FF9B7A">Fechou: Enterprise</text><text x="80" y="318" fill="#fff">+R$ 1.128</text><text x="80" y="340" fill="#F2B544">+R$ 81,43/mês</text>
+    <rect x="167" y="270" rx="10" width="146" height="78" fill="#1A1A1F"/><text x="240" y="296" fill="#FF9B7A">Fechou: Enterprise</text><text x="240" y="318" fill="#fff">+R$ 1.128</text><text x="240" y="340" fill="#F2B544">+R$ 81,43/mês</text>
+    <rect x="327" y="458" rx="10" width="146" height="78" fill="#1A1A1F"/><text x="400" y="484" fill="#FF9B7A">Fechou: Enterprise</text><text x="400" y="506" fill="#fff">+R$ 564</text><text x="400" y="528" fill="#F2B544">+R$ 54,29/mês</text>
+    <rect x="482" y="458" rx="10" width="146" height="78" fill="#1A1A1F"/><text x="555" y="484" fill="#FF9B7A">Fechou: Enterprise</text><text x="555" y="506" fill="#fff">+R$ 564</text><text x="555" y="528" fill="#F2B544">+R$ 54,29/mês</text>
+    <rect x="637" y="458" rx="10" width="146" height="78" fill="#1A1A1F"/><text x="710" y="484" fill="#5EEAD4">Fechou: Enterprise</text><text x="710" y="506" fill="#fff">+R$ 564</text><text x="710" y="528" fill="#F2B544">+R$ 54,29/mês</text>
+    <rect x="792" y="458" rx="10" width="146" height="78" fill="#1A1A1F"/><text x="865" y="484" fill="#5EEAD4">Fechou: Enterprise</text><text x="865" y="506" fill="#fff">+R$ 564</text><text x="865" y="528" fill="#F2B544">+R$ 54,29/mês</text>
+    <rect x="7" y="374" rx="14" width="306" height="162" fill="#B4380F"/><text x="160" y="404" fill="#fff">Total deste exemplo</text><text x="160" y="442" fill="#fff" font-size="30" font-family="Bricolage Grotesque,Inter,Arial,sans-serif" font-weight="800">R$ 4.512</text><text x="160" y="464" fill="#fff" font-weight="500">nas implantações, uma vez</text><text x="160" y="500" fill="#fff" font-size="26" font-family="Bricolage Grotesque,Inter,Arial,sans-serif" font-weight="800">+ R$ 380,02/mês</text><text x="160" y="522" fill="#fff" font-weight="500">enquanto esses clientes ficarem</text>
+    </g>
+   </svg>
+  </div>
+  <p class="dica-arraste" aria-hidden="true">Arraste a árvore para o lado para ver tudo →</p>
+  </div>
+  <div>
+   <p class="pergunta">De onde vem a renda que se repete todo mês?</p>
+<p class="sobre dest">A árvore do Divulgador</p>
+   <h2 id="t7b" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Cada cliente paga você <span class="dest">todo mês</span></h2>
+   <div class="legenda">
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#57534E"><use href="#pessoa"/></svg><div><b>Cliente seu</b><br>10% da implantação e 15% da mensalidade, todo mês</div></div>
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#B4380F"><use href="#pessoa"/></svg><div><b>Divulgador que você trouxe</b><br>cada cliente dele rende 5% da implantação e 10% da mensalidade para você, todo mês</div></div>
+    <div class="it"><svg viewBox="0 0 60 64" aria-hidden="true" style="color:#0F766E"><use href="#pessoa"/></svg><div><b>Indicador que você trouxe</b><br>ele ganha só na implantação; a recorrência é sua: 5% da implantação e 10% da mensalidade de cada cliente dele, todo mês</div></div>
+   </div>
+   <p class="nota">Exemplo com o Enterprise (implantação líquida R$ 11.280; mensalidade de R$ 597 → base líquida R$ 542,85). Só estes 6 clientes já pagam R$ 380,02 por mês da mensalidade da sua MaIA.</p>
+  </div>
+ </div>
+</section>
+
+<!-- 11 SIMULACAO DIVULGADOR -->
+<section class="slide" id="s8" aria-labelledby="t8">
+ <div class="in grade g2" style="align-items:center">
+  <div>
+   <p class="pergunta">Em quanto tempo a sua estrutura passa a se pagar sozinha?</p>
+   <p class="sobre c-div">Simulação · Divulgador</p>
+   <h2 id="t8" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Sua estrutura se paga <span class="dest">já no 1º trimestre</span></h2>
+   <p class="lead">Meta de referência, só com o <b>Enterprise</b>: 12 clientes seus por trimestre e mais 12 da sua rede (Divulgadores e Indicadores que você trouxe).</p>
+   <div class="grade g2" style="gap:12px">
+    <div class="cartao" style="padding:16px"><p class="num dest-ouro">R$ 20.304</p><p>de implantações em cada trimestre (12 × R$ 1.128 + 12 × R$ 564)</p></div>
+    <div class="cartao" style="padding:16px"><p class="num dest">R$ 1.628</p><p>por mês já no fim do 1º trimestre: paga a sua MaIA (R$ 597) e sobra</p></div>
+   </div>
+   <div class="estrutura" role="group" aria-label="O que as comissões mantêm">
+    <div><b>Corpo</b><span>o servidor onde a sua MaIA vive, 24 horas</span></div>
+    <div><b>Cérebro</b><span>a inteligência que pensa, atende e vende</span></div>
+    <div><b>Skills</b><span>as habilidades e agentes que trabalham por você</span></div>
+   </div>
+  </div>
+  <div class="simu" role="img" aria-label="Gráfico: renda mensal recorrente ao fim do 1º trimestre R$ 1.628,64, do 2º R$ 3.257,28, do 3º R$ 4.885,92 e do 4º R$ 6.514,56">
+   <div class="colunas" aria-hidden="true">
+    <div class="col"><span class="val">R$ 1.629</span><div class="pista"><div class="bar" style="height:25%"></div></div><span class="mes">1º trimestre</span></div>
+    <div class="col"><span class="val">R$ 3.257</span><div class="pista"><div class="bar" style="height:50%"></div></div><span class="mes">2º trimestre</span></div>
+    <div class="col"><span class="val">R$ 4.886</span><div class="pista"><div class="bar" style="height:75%"></div></div><span class="mes">3º trimestre</span></div>
+    <div class="col"><span class="val">R$ 6.515</span><div class="pista"><div class="bar" style="height:100%"></div></div><span class="mes">4º trimestre</span></div>
+   </div>
+   <div class="total" style="margin-top:16px"><span>Por mês, no fim do 4º trimestre</span><b>R$ 6.514,56</b></div>
+   <p class="nota" style="margin-bottom:0">Renda mensal recorrente: 48 clientes seus × R$ 81,43 + 48 da rede × R$ 54,29, todos Enterprise e continuando clientes. Tirando a sua MaIA (R$ 597), sobram R$ 5.917,56 por mês, fora as implantações. Exemplo ilustrativo.</p>
+  </div>
+ </div>
+</section>
+
+<!-- 15 CONSTANCIA -->
+<section class="slide claro" id="caminho" aria-labelledby="tc">
+ <div class="in">
+  <p class="pergunta">O que você faz toda semana para isso acontecer?</p>
+  <p class="sobre">Ritmo</p>
+  <h2 id="tc">Um cliente por semana. <span class="dest">Trimestre após trimestre.</span></h2>
+  <p class="lead">Constância vence pressa. Toda semana: convide empresários para o próximo evento, acompanhe quem você convidou e apresente o programa a um parceiro novo. Veja o mesmo parceiro, trimestre a trimestre:</p>
+  <ol class="trilha">
+   <li style="--cor:#0F766E"><span class="qd">1º trimestre</span><b>Indicador</b><p>12 clientes seus e 12 de 1 parceiro: R$ 11.421. A MaIA Pro está paga.</p><span class="q">Quem eu convido esta semana?</span></li>
+   <li style="--cor:#B4380F"><span class="qd">2º trimestre</span><b>Divulgador</b><p>Com a MaIA Pro, entra a mensalidade: R$ 1.628,64 por mês. A estrutura se paga.</p><span class="q">Quantos empresários eu levei ao evento?</span></li>
+   <li style="--cor:#B4380F"><span class="qd">3º trimestre</span><b>Renda que soma</b><p>Mesmo ritmo, a renda mensal dobra: R$ 3.257,28. E as implantações seguem entrando.</p><span class="q">Quem da minha rede precisa de ajuda?</span></li>
+   <li style="--cor:#B4380F"><span class="qd">4º trimestre</span><b>Rede que trabalha</b><p>Mesmo ritmo: R$ 4.885,92 de renda mensal, e cada parceiro novo da sua rede soma mais.</p><span class="q">Quem eu trago para a minha rede agora?</span></li>
+  </ol>
+  <p class="nota">Meta de referência: 12 clientes Enterprise seus e 12 da rede por trimestre, como Divulgador. Exemplo ilustrativo.</p>
+ </div>
+</section>
+
+<!-- 16 COMPARATIVO -->
+<section class="slide claro" id="s12" aria-labelledby="t12">
+ <div class="in">
+  <p class="pergunta">Qual é o seu nível hoje? E no próximo trimestre?</p>
+<p class="sobre">Lado a lado</p>
+  <h2 id="t12">Qual é o seu caminho?</h2>
+  <div class="tab-wrap" role="region" aria-label="Tabela comparativa dos dois caminhos" tabindex="0">
+   <table>
+    <thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col">Indicador</th><th scope="col">Divulgador</th></tr></thead>
+    <tbody>
+     <tr><th scope="row">O que você faz</th><td>Convida para o evento</td><td>Convida para o evento</td></tr>
+     <tr><th scope="row">Quem vende</th><td>Nós</td><td>Nós</td></tr>
+     <tr><th scope="row">Para quem</th><td>Quem não tem a MaIA</td><td>Quem comprou Pro, Enterprise ou Magnata</td></tr>
+     <tr><th scope="row">Investimento</th><td>Gratuito</td><td>A própria MaIA</td></tr>
+     <tr><th scope="row">Implantação: sua venda / da rede</th><td>10% / 5%</td><td>10% / 5%</td></tr>
+     <tr><th scope="row">Mensalidade: seu cliente / da rede</th><td>—</td><td>15% / 10% todo mês<small class="sub">inclusive dos clientes dos Indicadores da sua rede</small></td></tr>
+     <tr><th scope="row">Benefício extra</th><td>Um trimestre paga a sua MaIA Pro</td><td>A estrutura se paga no 1º trimestre</td></tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</section>
+
+<!-- 17 ALINHAMENTO -->
+<section class="slide" id="s13" aria-labelledby="t13">
+ <div class="in">
+  <p class="pergunta">Como você sabe que isso é sério e está dentro da lei?</p>
+<p class="sobre">Princípios e valores</p>
+  <h2 id="t13">Regras claras, <span class="dest">tudo por escrito</span></h2>
+  <div class="grade g2">
+   <ul class="lista">
+    <li><b>Você ganha sobre vendas reais.</b> Toda comissão nasce de um cliente que pagou.</li>
+    <li><b>Você convida, nós vendemos:</b> ninguém precisa empurrar produto para ninguém.</li>
+    <li><b>Indicação no seu nome por 180 dias.</b></li>
+    <li><b>Liberação depois da garantia</b> de 30 dias do cliente. Pedido de saque com nota fiscal até terça, pagamento na quarta-feira.</li>
+    <li><b>Nota fiscal do jeito que você puder:</b> MEI, CNPJ ou nota fiscal avulsa.</li>
+   </ul>
+   <ul class="lista">
+    <li><b>Acompanhe tudo pelo celular:</b> links, QR code, indicações, vendas e recibos na sua área.</li>
+    <li><b>Parceiro ativo mantém tudo:</b> uma venda direta a cada 90 dias garante a comissão cheia.</li>
+    <li><b>Treinamento e materiais prontos</b> para você divulgar com segurança.</li>
+    <li><b>Contrato de parceria assinado digitalmente</b>, com cada regra explicada antes.</li>
+    <li><b>Dentro da lei:</b> ninguém ganha por cadastrar pessoas; toda comissão vem de cliente real que usa a MaIA.</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- 18 SOCIOS -->
+<section class="slide claro" id="s14" aria-labelledby="t14">
+ <div class="in">
+  <p class="pergunta">Quem caminha com você?</p>
+<p class="sobre">Quem está com você</p>
+  <h2 id="t14">Os sócios da Agência no Bolso</h2>
+  <div class="grade g3">
+   <div class="cartao socio"><img src="../assets/socio-salatiel.webp" alt="Foto de Salatiel Batista"><div><h3>Salatiel Batista</h3><p class="cargo" style="color:var(--coral-esc)">CAIO/CPO</p><p>Arquitetura tecnológica e produto. Lidera a construção da MaIA e a metodologia comercial.</p></div></div>
+   <div class="cartao socio"><img src="../assets/socio-raquel.webp" alt="Foto de Raquel Batista"><div><h3>Raquel Batista</h3><p class="cargo" style="color:var(--coral-esc)">CCO/BX</p><p>Estratégia e identidade da marca, presença digital e experiência do cliente.</p></div></div>
+   <div class="cartao socio"><img src="../assets/socio-joel.webp" alt="Foto de Joel Visgueira"><div><h3>Joel Visgueira</h3><p class="cargo" style="color:var(--coral-esc)">COO/CX</p><p>Operação e jornada do cliente, da implantação ao suporte.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 19 CALCULADORA -->
+<section class="slide" id="calculadora" aria-labelledby="tcalc">
+ <div class="in">
+  <p class="pergunta">E a sua conta? Quanto você quer ganhar no próximo trimestre?</p>
+  <p class="sobre">Simulador de ganhos</p>
+  <h2 id="tcalc" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Faça a sua conta</h2>
+  <div class="calc">
+   <form class="calc-ent" id="calc" onsubmit="return false" aria-describedby="calc-aviso">
+    <div class="topo-calc"><fieldset class="niveis"><legend>Seu nível</legend>
+     <label><input type="radio" name="nivel" value="ind"> Indicador</label>
+     <label><input type="radio" name="nivel" value="div" checked> Divulgador</label>
+    </fieldset>
+    <label class="per">Por quantos trimestres?<select id="t-n"><option value="1">1 (3 meses)</option><option value="2">2 (6 meses)</option><option value="3">3 (9 meses)</option><option value="4">4 (12 meses)</option></select></label></div>
+    <fieldset><legend>Seus clientes a cada 3 meses</legend>
+     <div class="trio">
+      <label>Pro<input type="number" id="c-pro" min="0" max="999" value="0" inputmode="numeric"></label>
+      <label>Enterprise<input type="number" id="c-ent" min="0" max="999" value="12" inputmode="numeric"></label>
+      <label>Magnata<input type="number" id="c-mag" min="0" max="999" value="0" inputmode="numeric"></label>
+     </div>
+    </fieldset>
+    <fieldset><legend>Sua rede, a cada 3 meses</legend>
+     <div class="trio">
+      <label>Parceiros<input type="number" id="r-n" min="0" max="999" value="1" inputmode="numeric"></label>
+      <label>Clientes de cada um<input type="number" id="r-c" min="0" max="999" value="12" inputmode="numeric"></label>
+      <label>Plano que eles fecham<select id="r-p"><option value="pro">Pro</option><option value="ent" selected>Enterprise</option><option value="mag">Magnata</option></select></label>
+     </div>
+    </fieldset>
+
+   </form>
+   <div class="calc-sai" id="calc-saida" aria-live="polite"></div>
+  </div>
+  <p class="nota" id="calc-aviso">Simulação ilustrativa, sem promessa de resultado. Implantação líquida: Pro R$ 4.700, Enterprise R$ 11.280, Magnata R$ 23.500; mensalidade líquida R$ 542,85. Considera que todos os clientes continuam ativos.</p>
+ </div>
+</section>
+
+<!-- 20 CTA -->
+<section class="slide coral-bg" id="comecar" aria-labelledby="t15">
+ <div class="in">
+  <p class="pergunta">Qual é o seu primeiro passo, hoje?</p>
+  <p class="anfitriao">Convite de <b>Emerson</b> · Parceiro Divulgador MaIA (GCD)</p>
+  <p class="sobre">Comece hoje</p>
+  <h2 id="t15">Sua rede já existe.<br><span class="dest">Comece a ganhar com ela.</span></h2>
+  <div class="grade g2" style="margin:10px 0 26px">
+   <div class="cartao borda-ind"><span class="etq c-ind">Indicador</span><p style="margin-top:12px">Cadastro gratuito, na rede do Emerson. Você recebe o seu link de convite para os eventos e já pode começar esta semana.</p><a class="btn" href="https://painel.agencianobolso.com.br/indicador/cadastro?u=emerson">Quero ser Indicador</a></div>
+   <div class="cartao borda-div"><span class="etq c-div">Divulgador</span><p style="margin-top:12px">Contrate a MaIA Pro, Enterprise ou Magnata e ative a sua renda recorrente. Já tem o Start? Faça o upgrade pagando só a diferença.</p><a class="btn" href="https://agendar.agencianobolso.com.br/?p=emerson">Agendar apresentação da MaIA</a></div>
+  </div>
+  <div class="acoes">
+   <a class="btn" href="https://wa.me/5538999821254?text=Ol%C3%A1%2C%20Emerson!%20Vi%20a%20apresenta%C3%A7%C3%A3o%20da%20MaIA%20e%20quero%20ser%20parceiro.">Falar com o Emerson no WhatsApp</a>
+   <a class="btn sec" href="https://agendar.agencianobolso.com.br/?p=emerson">Agendar apresentação da MaIA</a>
+  </div>
+ </div>
+</section>
+
+</main>
+
+<footer class="rodape">Agência no Bolso Inova Simples (I.S.) · CNPJ 63.598.117/0001-39 · Programa de Parceria MaIA · Convite de Emerson, Parceiro Divulgador MaIA (GCD) · Simulações ilustrativas, ganhos dependem das vendas realizadas.</footer>
+
+<nav class="navs" aria-label="Navegar entre os slides">
+ <button type="button" id="ant" aria-label="Slide anterior">↑</button>
+ <button type="button" id="prox" aria-label="Próximo slide">↓</button>
+</nav>
+
+<button type="button" class="a11y-botao" id="a11y-abrir" aria-label="Acessibilidade" aria-expanded="false" aria-controls="a11y-painel">
+ <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M21 9h-6v12h-2v-6h-2v6H9V9H3V7h18z"/></svg>
+</button>
+<div class="a11y-painel" id="a11y-painel" role="dialog" aria-modal="true" aria-labelledby="a11y-titulo" hidden>
+ <h2 id="a11y-titulo">Acessibilidade</h2>
+ <button type="button" class="fechar" id="a11y-fechar" aria-label="Fechar">×</button>
+ <div class="ops">
+  <button type="button" data-a="mais" aria-pressed="false">A+ Aumentar</button>
+  <button type="button" data-a="menos" aria-pressed="false">A− Diminuir</button>
+  <button type="button" data-a="contraste" aria-pressed="false">Alto contraste</button>
+  <button type="button" data-a="legivel" aria-pressed="false">Fonte legível</button>
+  <button type="button" data-a="links" aria-pressed="false">Destacar links</button>
+  <button type="button" data-a="semmov" aria-pressed="false">Parar animações</button>
+  <button type="button" class="rest" data-a="restaurar">Restaurar padrão</button>
+ </div>
+ <p class="sr" role="status" id="a11y-status"></p>
+</div>
+
+<aside aria-label="Tradutor de Libras (VLibras)"><div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div></aside>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var atual=0, el=document.getElementById('atual');
+  document.getElementById('total').textContent=String(slides.length).padStart(2,'0');
+  function ir(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.classList.contains('a11y-semmov')?'auto':'smooth'});}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){atual=slides.indexOf(e.target);el.textContent=String(atual+1).padStart(2,'0');}});},{threshold:.55});
+    slides.forEach(function(s){io.observe(s);});
+  }
+  document.getElementById('prox').addEventListener('click',function(){ir(atual+1);});
+  document.getElementById('ant').addEventListener('click',function(){ir(atual-1);});
+  document.addEventListener('keydown',function(e){
+    var t=e.target.tagName; if(t==='BUTTON'||t==='A'||t==='INPUT'||t==='SELECT'||!document.getElementById('a11y-painel').hidden) return;
+    if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();ir(atual+1);}
+    else if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();ir(atual-1);}
+    else if(e.key==='Home'){e.preventDefault();ir(0);} else if(e.key==='End'){e.preventDefault();ir(slides.length-1);}
+  });
+
+  var H=document.documentElement, painel=document.getElementById('a11y-painel'), abrir=document.getElementById('a11y-abrir'), st=document.getElementById('a11y-status');
+  var escalas=[100,112.5,125,150], est={esc:0,contraste:false,legivel:false,links:false,semmov:false};
+  try{var s=JSON.parse(localStorage.getItem('a11y-parceria')||'null'); if(s) est=Object.assign(est,s);}catch(_){}
+  function aplicar(){
+    H.style.fontSize=escalas[est.esc]+'%';
+    ['contraste','legivel','links','semmov'].forEach(function(k){H.classList.toggle('a11y-'+k,!!est[k]);var b=painel.querySelector('[data-a="'+k+'"]');if(b)b.setAttribute('aria-pressed',est[k]?'true':'false');});
+    painel.querySelector('[data-a="mais"]').setAttribute('aria-pressed',est.esc>0?'true':'false');
+    try{localStorage.setItem('a11y-parceria',JSON.stringify(est));}catch(_){}
+  }
+  var nomes={contraste:'Alto contraste',legivel:'Fonte legível',links:'Destacar links',semmov:'Parar animações'};
+  painel.addEventListener('click',function(e){
+    var a=e.target.getAttribute('data-a'); if(!a) return;
+    if(a==='mais'){est.esc=Math.min(3,est.esc+1);st.textContent='Fonte aumentada';}
+    else if(a==='menos'){est.esc=Math.max(0,est.esc-1);st.textContent='Fonte diminuída';}
+    else if(a==='restaurar'){est={esc:0,contraste:false,legivel:false,links:false,semmov:false};st.textContent='Padrão restaurado';}
+    else {est[a]=!est[a];st.textContent=nomes[a]+(est[a]?' ligado':' desligado');}
+    aplicar();
+  });
+  function fechar(){painel.hidden=true;abrir.setAttribute('aria-expanded','false');abrir.focus();}
+  abrir.addEventListener('click',function(){var ab=painel.hidden;painel.hidden=!ab;abrir.setAttribute('aria-expanded',ab?'true':'false');if(ab)painel.querySelector('button[data-a]').focus();});
+  document.getElementById('a11y-fechar').addEventListener('click',fechar);
+  painel.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){fechar();return;}
+    if(e.key==='Tab'){var f=painel.querySelectorAll('button');var p=f[0],u=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===p){e.preventDefault();u.focus();}else if(!e.shiftKey&&document.activeElement===u){e.preventDefault();p.focus();}}
+  });
+  aplicar();
+
+
+  // calculadora de ganhos (sm1102)
+  (function(){
+    var f=document.getElementById('calc'); if(!f) return;
+    var IMP={pro:4700,ent:11280,mag:23500}, MEN=542.85;
+    function n(id){var v=parseInt(document.getElementById(id).value,10);return isNaN(v)||v<0?0:Math.min(v,9999);}
+    function brl(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+    function linha(t,s,v,cls){return '<div class="linha'+(cls?' '+cls:'')+'"><div>'+t+'<small>'+s+'</small></div><span class="v">'+v+'</span></div>';}
+    function calc(){
+      var nv=(f.querySelector('input[name=nivel]:checked')||{}).value||'div';
+      var cp=n('c-pro'),ce=n('c-ent'),cm=n('c-mag'),rn=n('r-n'),rc=n('r-c'),rp=document.getElementById('r-p').value,T=+document.getElementById('t-n').value||1;
+      var proprios=cp+ce+cm, rede=rn*rc;
+      var impT=0.10*(cp*IMP.pro+ce*IMP.ent+cm*IMP.mag)+0.05*rede*IMP[rp];
+      var out=linha('Implantações em '+T+' trimestre'+(T>1?'s':''),proprios+' clientes seus e '+rede+' da rede por trimestre · '+brl(impT)+' por trimestre',brl(impT*T));
+      if(nv==='ind'){
+        var tot=impT*T, sobra=tot-5000;
+        out+='<div class="total ind"><span>Total no período</span><b>'+brl(tot)+'</b></div>';
+        out+='<p class="msg">'+(sobra>=0?'Paga a sua MaIA Pro (R$ 5.000) e sobram '+brl(sobra)+'. Com ela, você vira Divulgador.':'Faltam '+brl(-sobra)+' para pagar a sua MaIA Pro (R$ 5.000).')+' O Indicador ganha só na implantação.</p>';
+      } else {
+        var cs=proprios*T, cr=rede*T, men=cs*81.43+cr*54.29, est=597;
+        out+=linha('Mensalidade dos seus clientes',cs+' clientes × 15%',brl(cs*81.43));
+        out+=linha('Mensalidade dos clientes da rede',cr+' clientes × 10%',brl(cr*54.29));
+        out+=linha('Sua estrutura','mensalidade da sua MaIA','− '+brl(est),'menos');
+        out+='<div class="total"><span>Livre por mês, ao fim do período</span><b>'+brl(men-est)+'</b></div>';
+        out+='<p class="msg">Renda mensal bruta de '+brl(men)+(men>=est?': a sua estrutura já se paga.':': ainda falta '+brl(est-men)+' para pagar a sua estrutura.')+'</p>';
+      }
+      document.getElementById('calc-saida').innerHTML=out;
+    }
+    f.addEventListener('input',calc); f.addEventListener('change',calc); calc();
+  })();
+
+  // o VLibras cria caixas soltas no <body>; aqui elas ganham um rótulo de região (axe: region)
+  var vlNomes={'vlibras-access-wrapper':'VLibras: botão de acesso','vlibras-popup':'VLibras: aviso'};
+  function marcaVL(){Object.keys(vlNomes).forEach(function(id){var e=document.getElementById(id);if(e&&!e.hasAttribute('role')){e.setAttribute('role','complementary');e.setAttribute('aria-label',vlNomes[id]);}});}
+  try{new MutationObserver(marcaVL).observe(document.body,{childList:true});}catch(_){}
+
+  try{var v=document.createElement('script');v.src='https://vlibras.gov.br/app/vlibras-plugin.js';v.async=true;
+    v.onload=function(){try{new window.VLibras.Widget('https://vlibras.gov.br/app');}catch(_){}};document.body.appendChild(v);}catch(_){}
+})();
+</script>
+</body>
+</html>
