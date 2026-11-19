@@ -53,7 +53,7 @@ html.a11y-links a{text-decoration:underline !important;text-decoration-thickness
 html.a11y-semmov *,html.a11y-semmov *::before,html.a11y-semmov *::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-snap-type:y proximity;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none !important;transition:none !important}}
 body{margin:0;background:var(--bg0);color:var(--t1);font-family:var(--fd);font-size:1rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
@@ -299,6 +299,7 @@ table.custo .tipo{color:var(--t2);font-size:.84rem}
 /* final */
 .final .in{text-align:center;max-width:900px}
 .final .lead{margin:0 auto 28px}
+.final .acoes,.final .selinhos{justify-content:center}
 .final .btn{font-size:1.15rem;min-height:60px;padding:16px 34px}
 .selinhos{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 22px;margin-top:22px;padding:0;list-style:none;color:var(--t2);font-size:.92rem}
 
@@ -532,7 +533,14 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
     <span class="selo ent">Enterprise</span>
    </li>
   </ul>
-  <p class="subtit">Exclusivos Magnata · a empresa inteira na MaIA</p>
+ </div>
+</section>
+
+<section class="slide brilho" id="agentes-magnata" aria-labelledby="t-agentes-mg">
+ <div class="in">
+  <p class="sobre">Os especialistas · Magnata</p>
+  <h2 id="t-agentes-mg">Mais 7 especialistas. <span class="grad-txt">A empresa inteira na MaIA.</span></h2>
+  <p class="lead">No plano Magnata, o time ganha apoio nas áreas que mais pesam na rotina do dono: jurídico, fiscal, financeiro, RH, sistemas e prospecção.</p>
   <ul class="agentes">
    <li class="agente mg">
     <div class="cab"><img src="assets/agentes/bia.webp" alt="Retrato da Bia, agente de estratégia de conteúdo" width="56" height="56" loading="lazy"><div><h3>Bia</h3><span class="funcao">Conteúdo · Roteiros</span></div></div>
@@ -700,6 +708,14 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
    <li><span class="p">Time do Enterprise</span><b>R$ 37.096/mês</b><span>7 funções · R$ 445.152 por ano</span></li>
    <li class="mg"><span class="p">Time da Magnata</span><b>R$ 70.396/mês</b><span>14 funções · R$ 844.752 por ano</span></li>
   </ul>
+  <p class="nota">Na próxima tela, função por função, de onde vem cada valor.</p>
+ </div>
+</section>
+
+<section class="slide brilho" id="custo-detalhe" aria-labelledby="t-custo-det">
+ <div class="in">
+  <p class="sobre">Comparativo de mercado · função por função</p>
+  <h2 id="t-custo-det">De onde vêm <span class="grad-txt">esses valores</span></h2>
   <div class="tabela-wrap">
    <table class="custo">
     <caption>Custo mensal estimado de cada função no mercado (com encargos quando CLT)</caption>
@@ -845,17 +861,24 @@ html.a11y-contraste .navs button{background:#000;border-color:#fff}
   function semMov(){return matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.classList.contains('a11y-semmov');}
   function ir(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:semMov()?'auto':'smooth'});}
   function marca(i){atual=i;el.textContent=String(i+1).padStart(2,'0');}
+  function corrente(){var y=innerHeight*0.35;for(var k=0;k<slides.length;k++){var r=slides[k].getBoundingClientRect();if(r.top<=y&&r.bottom>y)return k;}return atual;}
+  // avança tela por tela: se o slide ainda tem conteúdo abaixo, rola dentro dele antes de passar ao próximo
+  function passo(d){
+    var k=corrente(), r=slides[k].getBoundingClientRect(), tela=Math.max(200,innerHeight-140), b=semMov()?'auto':'smooth';
+    if(d>0){ if(r.bottom>innerHeight+8){window.scrollBy({top:Math.min(r.bottom-innerHeight,tela),behavior:b});} else ir(k+1); }
+    else { if(r.top<-8){window.scrollBy({top:Math.max(r.top,-tela),behavior:b});} else if(k>0){var p=slides[k-1].getBoundingClientRect();window.scrollBy({top:Math.max(p.top,p.bottom-innerHeight),behavior:b});} }
+  }
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)marca(slides.indexOf(e.target));});},{rootMargin:'-45% 0px -45% 0px'});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)marca(slides.indexOf(e.target));});},{rootMargin:'-35% 0px -64% 0px'});
     slides.forEach(function(s){io.observe(s);});
   }
-  document.getElementById('prox').addEventListener('click',function(){ir(atual+1);});
-  document.getElementById('ant').addEventListener('click',function(){ir(atual-1);});
+  document.getElementById('prox').addEventListener('click',function(){passo(1);});
+  document.getElementById('ant').addEventListener('click',function(){passo(-1);});
   document.addEventListener('keydown',function(e){
     var t=e.target.tagName; if(t==='BUTTON'||t==='A'||t==='INPUT'||t==='SELECT'||t==='TEXTAREA'||!document.getElementById('a11y-painel').hidden) return;
     if(e.altKey||e.ctrlKey||e.metaKey) return;
-    if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();ir(atual+1);}
-    else if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();ir(atual-1);}
+    if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();passo(1);}
+    else if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();passo(-1);}
     else if(e.key==='Home'){e.preventDefault();ir(0);} else if(e.key==='End'){e.preventDefault();ir(slides.length-1);}
   });
 
